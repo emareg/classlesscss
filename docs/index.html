@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classless.css – No Classes. No overhead.</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="classless.css" />
+</head>
+<body id="top">
+
+  <nav>
+    <section>
+      <span>Classless.css</span>
+      <a href="#text">Text</a>
+      <a href="#tables">Tables</a>
+      <a href="#forms">Forms</a>
+      <aside><a href="#forms">Other</a></aside>
+    </section>
+  </nav>
+
+  <header >
+    <section>
+    <h1>Classless.css</h1>
+    <strong>No classes. No overhead.</strong>
+    <p>Classless.css is one small (1 kB) CSS file that defines few but great styles for basic HTML5 tags. Nothing more. Nothing less.</p>
+  </section>
+  <!-- <hr> -->
+  </header>
+  
+  <main>
+    <section id="text">
+
+        <aside>
+          <div class="card">
+          <h4>Side Menu</h4>
+          <p>This is a small side menu on the side displaying additional infortmation.</p>
+          </div>
+        </aside>
+
+
+    <h1>Text</h1>
+
+    <h2>Inline elements</h2>
+    <div>
+      <p><a href="#!">This is a text link</a>.</p>
+      <p><strong>Strong is used to indicate strong importance.</strong></p>
+      <p><em>This text has added emphasis.</em></p>
+      <p>The <b>b element</b> is stylistically different text from normal text, without any special importance.</p>
+      <p>The <i>i element</i> is text that is offset from the normal text.</p>
+      <p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.</p>
+      <p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
+      <p><s>This text has a strikethrough</s>.</p>
+      <p>Superscript<sup>®</sup>.</p>
+      <p>Subscript for things like H<sub>2</sub>O.</p>
+      <p><small>This small text is small for for fine print, etc.</small></p>
+      <p><big>This big text is big for a lead paragraph</big></p>
+      <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+      <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
+      <p><cite>This is a citation.</cite></p>
+      <p>The <dfn>dfn element</dfn> indicates a definition.</p>
+      <p>The <mark>mark element</mark> indicates a highlight.</p>
+      <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
+      <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
+    </div>
+      
+
+
+    <article>
+      <h2>Headings</h2> 
+      <p> Here are the headings <code>h1</code> to <code>h6</code></p>
+      <div>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+      </div>
+
+      <pre><code>h1 { font-size: 2.5em; font-weight: 200; }  
+h2 { font-size: 2.0em; font-weight: 300; } 
+h3 { font-size: 1.5em; font-weight: 400; } 
+h4 { font-size: larger; font-weight: 700; } 
+h5 { font-size: larger; font-weight: normal; color: #777;  }
+h6 { font-size: 1.0em; font-weight: 700; }</code></pre>
+    </article>
+
+    <article>
+      <h2>Paragraphs</h2>
+      <div>
+        <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+      </div>
+    </article>
+
+    <article>
+      <h2>Blockquotes</h2>
+      <div>
+        <blockquote>
+          <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
+          <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+          <cite><a href="#!">Said no one, ever.</a></cite>
+        </blockquote>
+      </div>
+    </article>
+
+    <article>
+      <h2>Lists</h2>
+      <div class="row">
+        <div class="col">
+        <h3>Definition list</h3>
+        <dl>
+          <dt>Term</dt>
+          <dd>A Term is defined by this definition.</dd>
+        </dl>
+        </div>
+        <div class="col">
+        <h3>Ordered List</h3>
+        <ol>
+          <li>List Item 1</li>
+          <li>List Item 2</li>
+          <li>List Item 3</li>
+        </ol>
+        </div>
+        <div class="col">
+        <h3>Unordered List</h3>
+        <ul>
+          <li>List Item 1</li>
+          <li>List Item 2</li>
+          <li>List Item 3</li>
+        </ul>
+        </div>
+      </div>
+    </article>
+
+    <article id="text__code">
+      <h2>Code</h2>
+      <div>
+        <p><strong>Keyboard input with <code>&lt;kbd&gt;Ctrl+C&lt;/kbd&gt;</code>:</strong> <kbd>Ctrl+C</kbd></p>
+        <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
+        <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
+        <h2>Pre-formatted text</h2>
+        <pre>P R E F O R M A T T E D T E X T
+  ! " # $ % &amp; ' ( ) * + , - . /
+  0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+  @ A B C D E F G H I J K L M N O
+  P Q R S T U V W X Y Z [ \ ] ^ _
+  ` a b c d e f g h i j k l m n o
+  p q r s t u v w x y z { | } ~ </pre>
+          
+              <h3>Code Listing</h3>
+              <pre><code>main(int a){
+  println("hello world")
+}</code></pre>
+      </div>
+    </article>
+
+  </section>
+
+
+  <section id="tables">
+    <h1>Tables and Figures</h1>
+    <article>
+      <h2>Table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Table Heading 1</th>
+            <th>Table Heading 2</th>
+            <th>Table Heading 3</th>
+            <th>Table Heading 4</th>
+            <th>Table Heading 5</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Table Footer 1</th>
+            <th>Table Footer 2</th>
+            <th>Table Footer 3</th>
+            <th>Table Footer 4</th>
+            <th>Table Footer 5</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr>
+            <td>Table Cell 1</td>
+            <td>Table Cell 2</td>
+            <td>Table Cell 3</td>
+            <td>Table Cell 4</td>
+            <td>Table Cell 5</td>
+          </tr>
+          <tr>
+            <td>Table Cell 1</td>
+            <td>Table Cell 2</td>
+            <td>Table Cell 3</td>
+            <td>Table Cell 4</td>
+            <td>Table Cell 5</td>
+          </tr>
+          <tr>
+            <td>Table Cell 1</td>
+            <td>Table Cell 2</td>
+            <td>Table Cell 3</td>
+            <td>Table Cell 4</td>
+            <td>Table Cell 5</td>
+          </tr>
+          <tr>
+            <td>Table Cell 1</td>
+            <td>Table Cell 2</td>
+            <td>Table Cell 3</td>
+            <td>Table Cell 4</td>
+            <td>Table Cell 5</td>
+          </tr>
+        </tbody>
+        <caption>Table Caption</caption>
+      </table>
+    </article>
+          
+
+    <article id="text__hr">
+      <h2>Horizontal rules</h2>
+      <div>
+        <hr>
+      </div>
+      <pre><code>&lt;hr&gt;</code></pre>
+    </article>
+
+
+    <article id="text__hr">
+      <h2>Figures</h2>
+      <div>
+        <figure>
+          <img src="http://placekitten.com/420/420" alt="Image alt text">
+          <figcaption>Here is a caption for this image.</figcaption>
+        </figure>
+      </div>
+      <pre><code>&lt;hr&gt;</code></pre>
+      <!-- <pre><code></code></pre> -->
+    </article>
+
+
+
+
+
+        
+    <section id="forms">
+      <h1>Form elements</h1>
+      <form>
+        <fieldset>
+          <legend>Input fields</legend>
+          <p>
+            <label for="input__text">Text Input</label>
+            <input id="input__text" type="text" placeholder="Text Input">
+          </p>
+          <p>
+            <label for="input__password">Password</label>
+            <input id="input__password" type="password" placeholder="Type your Password">
+          </p>
+          <p>
+            <label for="input__webaddress">Web Address</label>
+            <input id="input__webaddress" type="url" placeholder="http://yoursite.com">
+          </p>
+          <p>
+            <label for="input__emailaddress">Email Address</label>
+            <input id="input__emailaddress" type="email" placeholder="name@email.com">
+          </p>
+          <p>
+            <label for="input__phone">Phone Number</label>
+            <input id="input__phone" type="tel" placeholder="(999) 999-9999">
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Select menus</legend>
+          <p>
+            <label for="select">Select</label>
+            <select id="select">
+              <optgroup label="Option Group">
+                <option>Option One</option>
+                <option>Option Two</option>
+                <option>Option Three</option>
+              </optgroup>
+            </select>
+          </p>
+        </fieldset>
+        <p><a href="#top">[Top]</a></p>
+
+        <fieldset id="forms__checkbox">
+        <legend>Checkboxes and Radiobuttons</legend>
+        <div class="row">
+          <div class="col">
+            <h3>Checkboxes</h3>
+            <ul class="list list--bare">
+              <li><label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> Choice A</label></li>
+              <li><label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label></li>
+              <li><label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>Radio buttons</h3>
+            <ul>
+              <li><label for="radio1"><input id="radio1" name="radio" type="radio" class="radio" checked="checked"> Option 1</label></li>
+              <li><label for="radio2"><input id="radio2" name="radio" type="radio" class="radio"> Option 2</label></li>
+              <li><label for="radio3"><input id="radio3" name="radio" type="radio" class="radio"> Option 3</label></li>
+            </ul>
+          </div>
+        </div>
+        </fieldset>
+
+
+        <fieldset id="forms__html5">
+          <legend>HTML5 inputs</legend>
+          <p>
+            <label for="ic">Color input</label>
+            <input type="color" id="ic" value="#000000">
+          </p>
+          <p>
+            <label for="in">Number input</label>
+            <input type="number" id="in" min="0" max="10" value="5">
+          </p>
+          <p>
+            <label for="ir">Range input</label>
+            <input type="range" id="ir" value="10">
+          </p>
+          <p>
+            <label for="idd">Date input</label>
+            <input type="date" id="idd" value="1970-01-01">
+          </p>
+          <p>
+            <label for="idm">Month input</label>
+            <input type="month" id="idm" value="1970-01">
+          </p>
+          <p>
+            <label for="idw">Week input</label>
+            <input type="week" id="idw" value="1970-W01">
+          </p>
+          <p>
+            <label for="idt">Datetime input</label>
+            <input type="datetime" id="idt" value="1970-01-01T00:00:00Z">
+          </p>
+          <p>
+            <label for="idtl">Datetime-local input</label>
+            <input type="datetime-local" id="idtl" value="1970-01-01T00:00">
+          </p>
+        </fieldset>
+        <p><a href="#top">[Top]</a></p>
+        <fieldset id="forms__action">
+          <legend>Buttons</legend>
+          <p>
+            <button type="submit">SUBMIT</button>
+            <button type="button">BUTTON</button>
+            <button type="reset">RESET</button>
+            <button type="button" disabled>DISABLED</button>
+          </p>
+        </fieldset>
+      </form>
+    </section>
+
+
+
+
+
+
+
+        <section>
+          <h1>Grid System</h1>
+          <p>Classless uses a minimal grid system with the same class names as bootstrap.</p>
+          <div class="row">
+            <div class="col bg-emph"><b>Column 1</b></div>
+            <div class="col"><b>Column 2</b></div>
+          </div>
+          <div class="row">
+            <div class="col bg-emph">Column1</div>
+            <div class="col">Column2</div>
+            <div class="col bg-emph">Column3</div>
+          </div>
+          <div class="row">
+            <div class="col bg-emph">Column1</div>
+            <div class="col">Column2</div>
+            <div class="col bg-emph">Column3</div>
+            <div class="col">Column4</div>
+          </div>
+
+          <p>More tests</p>
+
+          <div class="row">
+            <div class="col-6"><h3>Colum 1/2</h3></div>
+            <div class="col">
+              <p>This text is on the other side explaining something. If the width of the viewport is small enough, this text should be visible below the the heading on the left.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3"><h3>Colum 1/4</h3></div>
+            <div class="col-3"><h3>Colum 1/4</h3></div>
+            <div class="col">
+              <p>This text is on the other side explaining something. If the width of the viewport is small enough, this text should be visible below the the heading on the left.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4"><h4>Colum 1/3</h4></div>
+            <div class="col">
+              <p>This text is on the other side explaining something. If the width of the viewport is small enough, this text should be visible below the the heading on the left.</p>
+            </div>
+          </div>
+
+        </section>
+
+        <section>
+          <h1>Special Tags</h1>
+          <h2>Cards</h2>
+          <card>
+            <h4>Card Heading</h4>
+            <hr>
+            <p>Card description</p>
+          </card>
+
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <h4>Card Heading</h4>
+                <hr>
+                <p>This is the card body.</p>               
+              </div>
+            </div>
+            <div class="col">
+              <!-- <div class="card"> -->
+                <h4>Card Example Code</h4>
+                <!-- <hr>                 -->
+                <pre><code>&lt;div class="card"&gt;
+  &lt;h4&gt;Card Heading&lt;/h4&gt;
+  &lt;hr&gt;
+  &lt;p&gt;This is the card body.&lt;/p&gt;
+&lt;/div&gt;</code></pre>           
+              <!-- </div> -->
+            </div>
+          </div>
+
+          <h2>Tags</h2>
+          <tag>#tag</tag>
+        </section>
+
+
+      </main>
+      <footer role="contentinfo">
+        <p>Made by <a href="http://twitter.com/cbracco">@cbracco</a>. Code on <a href="http://github.com/cbracco/html5-test-page">GitHub</a>.</p>
+      </footer>
+  </body>
+</html>
