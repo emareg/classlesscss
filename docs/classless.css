@@ -120,10 +120,11 @@ h1+h2, h2+h3, h3+h4, h4+h5, h5+h6 {
 /* Extra: side menu */
 main aside { 
 	position: absolute; 
-	margin-left: 51rem; 
+	margin-left: 50.5rem; 
 	max-width: 10rem; 
 	font-size: smaller; 
 }
+@media (max-width: 73rem) { main aside { position: relative; margin: 1rem 0; } }
 
 
 /* Extra: navbar  */

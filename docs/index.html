@@ -17,7 +17,7 @@
   <nav>
     <ul>
       <li>
-        <img style="height: 1.0em;" src="favicon.svg">
+        <img style="height: 1.0rem;" src="favicon.png">
         <span >&ensp;Classless.css</span>
       </li>
       <li><a href="#basic">Basic</a></li>
@@ -25,7 +25,7 @@
       <li class="dropdown"><a href="#bootless">Classes</a>
         <ul>
           <li><a href="#grid">Grid</a></li>
-          <li><a href="#cards">Cards</a></li>
+          <li><a href="#card">Cards</a></li>
         </ul>
       </li>
       <li class="float-right"><a href="https://github.com/emareg/classlesscss">@GitHub</a></li>
@@ -40,7 +40,14 @@
     <h1>Classless.css</h1>
     <strong>Less classes. Less overhead.</strong>
     <p>Classless.css is one small CSS file, which defines few but great styles for basic HTML5 tags plus a few classes for grid and spacing. Nothing more. Nothing less.</p>
-  <!-- <hr> -->
+
+    <h5>Features</h5>
+    <ul>
+      <li><b>Small.</b> 300 lines of CSS3 for Grids, Navigation Bar, Cards and more.</li>
+      <li><b>Responsive.</b> We use media queries, <code>rem</code> units, and smart overflows for tables and code.</li>
+      <li><b>Bootstrap Compatible.</b> The few classes use the same names as Bootstrap.</li>
+    </ul>
+
     <h2>Getting Started</h2>
 
     <h5>Link to online version</h5>
@@ -53,14 +60,10 @@
     <button onclick='clipBoard("<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400\" rel=\"stylesheet\">\n<link rel=\"stylesheet\" href=\"classless.css\" />')>Copy to Clipboard</button>
 
 
-    <h5>Look at this Code</h5>
+    <h5 class="mt-2">Look at this Code</h5>
     The page you are seeing right now, is already a demo of Classless.css, we do not use any additional custom CSS files.
 
 
-    <h5>Features</h5>
-    <ul>
-      <li>Bootstrap Compatible Classes</li>
-    </ul>
 
   </section>
   </header>
@@ -322,12 +325,12 @@
 
 
     <h2>Margin Notes</h2>
-    <p>You can place side notes using the <code>&lt;aside&gt;</code>element.</p> 
+    <p>You can place side notes using the <code>&lt;aside&gt;</code> element.</p> 
 
     <aside>
       <div class="card">
-      <h4>Look at the Code</h4>
-      <p>Even this page only uses <code>classless.css</code>.</p>
+      <h4>Side Note</h4>
+      <p>This is a card wrapped inside an <code>&lt;aside&gt;</code> element.</p>
       </div>
     </aside>
 
