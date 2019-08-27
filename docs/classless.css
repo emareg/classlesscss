@@ -1,4 +1,4 @@
-/* Classless.css 
+/* Classless.css v0.8
 
 Table of Contents:
  1. Base Tags
@@ -7,11 +7,11 @@ Table of Contents:
 */
 
 
-
 /* 1. Base Tags 
 –––––––––––––––––––––––––––––––––––––––––––– */
 
 /* Reset: basic margins for block elements  */
+* {box-sizing: border-box; border-spacing: 0;}
 header, footer, figure ,table, video, blockquote,
 ul, ol, dl, fieldset, pre, pre > code { 
 	display: block; 
@@ -20,18 +20,14 @@ ul, ol, dl, fieldset, pre, pre > code {
 	overflow-x: auto;
 	overflow-y: hidden;
 }
-
 body { margin: 0; overflow-x: hidden; }
-footer { margin-top: 10rem; }
+footer { margin: 10rem 0rem 0rem; }
 section { margin: auto; max-width: 50rem; padding: 2rem 0.5rem 0rem; }
-* {box-sizing: border-box; border-spacing: 0;}
 
 
 /* text */
 :root { font: 12pt 'Open Sans', sans-serif; line-height: 1.5; color: #424456; }
 small, sub, sup { font-size: 75%; }
-
-/*p { margin: 0.5em 0; }*/
 
 
 /* headings */
@@ -92,11 +88,9 @@ a:hover, button:not([disabled]):hover {
 }
 
 
-
 /* forms and inputs */
 textarea, input, button, select { border-radius: .3rem; border: .1rem solid #d1d1d1; padding: 0.3rem; outline: none;}
 button { padding: 0.7rem 1rem; cursor: pointer; font-weight: bold; letter-spacing: 0.1rem; color: #0065bd; background-color: #f4f5f6; border: .1rem solid #0065bd; }
-
 
 
 /* misc */
@@ -106,9 +100,7 @@ hr { border: 0; border-top: 0.1rem solid #d1d1d1; }
 
 
 
-
-
-/* 2. Extras 
+/* 2. Extra Tags 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 /* Extra: non-clashing headings */
@@ -162,8 +154,6 @@ nav ul > li:hover > ul { display: block; }
 nav+main, nav+header { margin-top: 3rem; }
 
 
-
-
 /* Extra: forms and inputs advanced styling */
 fieldset { border-radius: 0rem; border: .1rem solid #d1d1d1; }
 textarea:focus, input:not([type=checkbox]):not([type=radio]):hover, select:hover{
@@ -176,13 +166,9 @@ textarea:focus, input:not([type=checkbox]):not([type=radio]):focus{
 button[disabled]{ color: #777; border-color: #d1d1d1; }
 
 
-
-
 /* misc */ 
 q:before { content: "\201C"; } q q:before { content: "\2018"; }
 q:after  { content: "\201D"; } q q:after  { content: "\2019"; }
-
-
 summary { font-weight: bold; cursor: pointer; margin: 0.5rem 0;}
 time{ color: #777; }
 mark{ background-color: transparent; color: #007c30; text-decoration: underline solid #007c30 }
@@ -190,33 +176,17 @@ mark{ background-color: transparent; color: #007c30; text-decoration: underline 
 
 
 
-/*big { color: #777; font-size: larger; }*/
-/*small { color: #777; font-size: 1.1em; }*/
 
-/*article { columns: 2 50%; }*/
-
-
-
-
-
-
-
-
-
-
-/* 3. Bootless: Bootstrap Compatibile Classes
+/* 3. Bootstrap Compatibile Classes
 –––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
  /* grid */
-grid, .row {
+.row {
 	display: flex; 
 	margin: 0 -0.5rem;
 	align-items: stretch;
 }
-.row [class*="col"], .row .col {
-	padding: 0 0.5rem; 
-}
+.row [class*="col"] { padding: 0 0.5rem; }
 .row .col   { flex: 1 1 100%; }
 .row .col-2 { flex: 0 0 16.66%; }
 .row .col-3 { flex: 0 0 25%; }
@@ -225,7 +195,7 @@ grid, .row {
 
 
  /* cards */
-card, .card{
+.card{
 	display: block;
 	margin: .5rem 0;
 	padding: .5rem 1rem 0.5rem; 
@@ -268,9 +238,10 @@ card, .card{
 .w-75  { width: 75.00% !important; }
 .w-100 { width: 100.0% !important; }
 
-.mx-auto { margin-left: auto; margin-right: auto; }
 
 /* margins */
+.mx-auto { margin-left: auto; margin-right: auto; }
+
 .m-0, .mx-0, .mr-0 { margin-right:  0.0rem !important; }
 .m-0, .mx-0, .ml-0 { margin-left:   0.0rem !important; }
 .m-0, .my-0, .mt-0 { margin-top:    0.0rem !important; }
@@ -308,13 +279,10 @@ card, .card{
 .p-1, .py-1, .pt-1 { padding-top:    1.0rem !important; }
 .p-1, .py-1, .pb-1 { padding-bottom: 1.0rem !important; }
 
-.p-2, .px-2, .pr-2 { padding-right:  1.0rem !important; }
-.p-2, .px-2, .pl-2 { padding-left:   1.0rem !important; }
-.p-2, .py-2, .pt-2 { padding-top:    1.0rem !important; }
-.p-2, .py-2, .pb-2 { padding-bottom: 1.0rem !important; }
-
-
-
+.p-2, .px-2, .pr-2 { padding-right:  2.0rem !important; }
+.p-2, .px-2, .pl-2 { padding-left:   2.0rem !important; }
+.p-2, .py-2, .pt-2 { padding-top:    2.0rem !important; }
+.p-2, .py-2, .pb-2 { padding-bottom: 2.0rem !important; }
 
 
 /* responsive, smaller than */
@@ -329,9 +297,3 @@ card, .card{
 	[class*="col"] > * { margin-top: 1rem; !important; }
 }
 @media (max-width: 61rem) { aside {position: relative; margin: 0.5rem 0; } }
-
-
-
-
-
-
