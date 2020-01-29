@@ -1,11 +1,10 @@
-/* Classless.css v0.8
+/* Classless.css v0.9
 
 Table of Contents:
  1. Base Tags
  2. Extra Tags
  3. Classes 
 */
-
 
 /* 1. Base Tags 
 –––––––––––––––––––––––––––––––––––––––––––– */
@@ -20,13 +19,17 @@ ul, ol, dl, fieldset, pre, pre > code {
 	overflow-x: auto;
 	overflow-y: hidden;
 }
-body { margin: 0; overflow-x: hidden; }
+body { 
+	margin: auto; 
+	max-width: 50rem; 
+	padding: 2rem 0.5rem 0rem; 
+	overflow-x: hidden; 
+}
 footer { margin: 10rem 0rem 0rem; }
-section { margin: auto; max-width: 50rem; padding: 2rem 0.5rem 0rem; }
 
 
 /* text */
-:root { font: 12pt 'Open Sans', sans-serif; line-height: 1.5; color: #424456; }
+:root { font: 13pt 'Open Sans', sans-serif; line-height: 1.5; color: #424456; }
 small, sub, sup { font-size: 75%; }
 
 
@@ -176,7 +179,6 @@ mark{ background-color: transparent; color: #007c30; text-decoration: underline 
 
 
 
-
 /* 3. Bootstrap Compatibile Classes
 –––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -287,7 +289,6 @@ mark{ background-color: transparent; color: #007c30; text-decoration: underline 
 
 /* responsive, smaller than */
 @media (max-width: 40em) { 
-	:root { font-size: 1.3rem; }
 	.row { flex-direction: column !important; }
 	nav ul:first-child > li:first-child:after { content: "\25BE"; padding-left: .5rem; } 
 	nav ul:first-child > li:not(:first-child) { display: none; }
