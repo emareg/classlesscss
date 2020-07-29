@@ -295,6 +295,6 @@ mark{ background-color: transparent; color: #007c30; text-decoration: underline 
 	nav ul:first-child:hover > li { display: block; float: none !important;}
 }
 @media (min-width: 40em) {
-	[class*="col"] > * { margin-top: 1rem; !important; }
+	[class*="col"] > * { margin-top: 1rem !important; }
 }
 @media (max-width: 61rem) { aside {position: relative; margin: 0.5rem 0; } }
