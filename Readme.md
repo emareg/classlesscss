@@ -21,7 +21,7 @@ For testing, you can simply insert the following two lines into your HTML file. 
     
 ```
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
-<link rel="stylesheet" href="classless.css" />
+<link rel="stylesheet" href="https://classless.de/classless.css">
 ```
 
 
