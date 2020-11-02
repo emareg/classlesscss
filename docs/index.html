@@ -9,7 +9,7 @@
   <meta name="author" content="Emanuel Regnath">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="favicon.png" sizes="any">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet"> -->
   <link rel="stylesheet" href="classless.css" />
 </head>
 
@@ -85,8 +85,8 @@
     <p><big>This big text uses <code>&lt;big&gt;</code> for a lead paragraph</big></p>
     <p>Inline quotations with <code>&lt;q&gt;</code> such as <q>This is Lars’ car!</q> insert automatically the correct quotation marks.</p>
     <p><cite>This is a citation.</cite></p>
+    <p>Sometimes, I need to <del>delete</del>, <ins>insert</ins>, or <mark>mark</mark> certain words.</p>
     <p>The <dfn>dfn element</dfn> indicates a definition.</p>
-    <p>The <mark>mark element</mark> indicates a highlight.</p>
     <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
     <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
 
@@ -510,10 +510,14 @@
       </main>
 
 
-      <footer class="bg-light">
+      <footer>
+      <hr>
       <section>
         <h5>Classless.css</h5>
-        Code on <a href="http://github.com/emareg/classlesscss">GitHub</a>.
+        <p>Code on <a href="http://github.com/emareg/classlesscss">GitHub</a>.<br>
+        <a href="mailto:john.doe@foo.bar">john.doe@foo.bar</a><br>
+        <a href="tel:+1234567890">+1234567890</a>
+        </p>
       </section>
       </footer>
   </body>
