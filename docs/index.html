@@ -9,12 +9,12 @@
   <meta name="author" content="Emanuel Regnath">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="favicon.png" sizes="any">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet"> -->
   <link rel="stylesheet" href="classless.css" />
 </head>
 
 
 <body id="top">
+
 
   <!-- Navigation -->
   <nav>
@@ -23,13 +23,22 @@
         <img style="height: 1.0rem;" src="favicon.png">
         <span >&ensp;Classless.css</span>
       </li>
-      <li><a href="#basic">Basic</a></li>
-      <li><a href="#extra">Extra</a></li>
-      <li class="dropdown"><a href="#bootless">Classes ▾</a>
+      <li><a href="#demo">Demo</a></li>
+      <!-- <li><a href="#extra"></a></li> -->
+      <li class="dropdown"><a href="#bootless">Reference ▾</a>
         <ul>
-          <li><a href="#grid">Grid</a></li>
-          <li><a href="#card">Cards</a></li>
+          <li><a href="#basic">Basics</a></li>
+          <li><a href="#extra">Extra</a></li>
+          <li><a href="#bootless">Bootless</a></li>
         </ul>
+      </li>
+      <li class="float-right">
+        Theme:
+        <select id="theme" onchange="switchTheme(this)" class="p-0">
+          <option value="1">Light</option>
+          <option value="2">Dark</option>
+          <option value="3">Sepia</option>
+        </select>
       </li>
       <li class="float-right"><a href="https://github.com/emareg/classlesscss">@GitHub</a></li>
     </ul>
@@ -40,12 +49,14 @@
   <header >
   <section>
     <h1>Classless.css</h1>
-    <strong>Less classes. Less overhead.</strong>
-    <p>Classless.css is one small CSS file, which defines few but great styles for basic HTML5 tags plus very few classes for grid and spacing. Nothing more. Nothing less.</p>
+    <p><strong>Less classes. Less overhead.</strong></p>
+
+    <h4>Abstract</h4>
+    <p>Classless.css is one small CSS file, which defines few but great styles for basic HTML5 tags plus very few classes for grid and spacing. Nothing more. Nothing less. With the basic tag styling, Classless provides a solid appearance for simple article pages without any classes. If you need more fancy features such as grid or cards – which are infeasible with basic HTML5 – we provide a few Bootstrap compatible classes.</p>
 
     <h5>Features</h5>
     <ul>
-      <li><b>Tiny.</b> Only 300 lines of CSS3 for Grids, Navigation Bar, Cards and more.</li>
+      <li><b>Tiny.</b> Only 400 lines of pure CSS3 for themes, grid, navigation bar, cards and more.</li>
       <li><b>Responsive.</b> We use media queries, <code>rem</code> units, and smart overflows for tables and code.</li>
       <li><b>Bootstrap Compatible.</b> The few classes use the same names as Bootstrap.</li>
     </ul>
@@ -53,18 +64,16 @@
     <h2>Getting Started</h2>
 
     <h5>One-Click Testing</h5>
-    For testing, you can simply insert the following two lines into your HTML file. For production, please host the classless.css file yourself.
+    For testing, you can simply insert the following line into your HTML file. For production, please host the classless.css file yourself.
     
     <pre><code>
-&lt;link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet"&gt;
 &lt;link rel="stylesheet" href="https://classless.de/classless.css"&gt;
     </code></pre>
     <button onclick='clipBoard("<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400\" rel=\"stylesheet\">\n<link rel=\"stylesheet\" href=\"classless.css\" />")'>Copy Link-Tags</button>
     <a class="ml-1" href="classless.css" download="classless.css"><button>Download CSS File</button></a>
 
     <h5 class="mt-2">Look at this Code</h5>
-    The page you are seeing right now, is already a demo of pure classless.css. We do not use any additional CSS files.
-
+    <p>The page you are seeing right now, is already a demo of pure classless.css. We do not use any additional CSS files.</p>
 
   </section>
   </header>
@@ -72,18 +81,151 @@
   
   <!-- Main page -->
   <main>
+    <article id="demo">
+    <section> 
+
+    <h1>A Short Classless Article</h1>
+    <p>E. Regnath, <time>2020-12-15</time></p>
+    <figure>
+      <img src="img/headerimg.jpg" alt="An image"/>
+      <!-- <figcaption>Heading Image.</figcaption> -->
+    </figure>
+
+       
+    <h2>Simple but Elegant</h2>
+    <p>Text in from of paragraphs is the main ingredient for most articles. 
+      Therefore, the appearance of text over multiple lines will account for the basic <i>look & feel</i>. The initial drop letter on the first paragraph will set a visually exiting impression. Note that this is automatically inserted for the first paragraph inside an <code>&lt;article&gt;</code> tag and does not require any additional styling.
+    </p> 
+    <aside>The citation after CSS3 is inserted automatically and it is easy to provide a reference list at the end.</aside>
+    <p>The typography of Classless is purely based on CSS3.<cite><a href="https://www.w3.org/TR/css-values-3/">W3C: <q>CSS Values and Units Module Level 3</q>, 2019</a></cite>
+    You can use the standard HTML5<cite><a href="https://en.wikipedia.org/wiki/HTML5">Wikipedia: <q>HTML5</q></a></cite> tags to <i>emphasize</i> certain words.
+      Inline quotations with <code>&lt;q&gt;</code> such as <q>This is Lars’ car!</q> will insert automatically the correct quotation marks. Block quotations are also possible:
+    </p>
+    <blockquote>
+      <p>Some people say, How can you live without knowing? I do not know what they mean. I always live without knowing. That is easy. How you get to know is what I want to know.</p>
+      <p>Richard P. Feynman<cite><a href="https://en.wikiquote.org/wiki/Richard_Feynman#The_Meaning_of_It_All_(1999)">Richard P. Feynman: “The Meaning of It All: Thoughts of a Citizen-Scientist”, 1997</a></cite></p>
+    </blockquote>
+
+    <h6>Mini Sections:</h6>
+    <p>Use the <code>&lt;h6&gt;</code> tag to create a bold inline heading for the first paragraph. To do this we also have to inline that paragraph.</p>
+    <p>However, the following paragraph will be displayed as block again. </p>
+
+    </section>
 
 
-    <section id="basic">
+
+    <section>
+    <h2>Tables, Figures & Code Listings</h2>
+    <p>In typesetting systems (e.g LaTeX) it is easy to define several environments that will have their own number and caption. We try to reproduce this behavior for the most common environments: tables and figures.</p>
 
 
-    <h1>Text Elements</h1>
+    <h3>Tables</h3>
+    <p>Classless applies some modern styling on the standard table elements. All columns except the first one are right aligned by default which makes it easy to compare numbers. Of course you can change this behavior with our utility classes.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>      
+          <th>Classless</th>      
+          <th><a href="http://getskeleton.com/">Skeleton</a></th>
+          <th><a href="https://milligram.io/">Milligram</a></th>
+          <th><a href="https://oxal.org/projects/sakura/">Sakura</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Features</td>      
+          <td>responsive, grid,<br>themes, navbar,<br>cards, utilities</td>      
+          <td>responsive,<br>grid</td>      
+          <td>responsive,<br>grid, utilities</td>
+          <td>responsive</td>
+        </tr>
+        <tr>
+          <td>Size*</td>      
+          <td>10.4 kB<br>400 LOC</td>      
+          <td>11.2 kB<br>400 LOC</td>      
+          <td>10.3 kB<br>600 LOC</td>
+          <td>3.3 kB <br>165 LOC</td>
+        </tr>
+        <tr>
+          <td>Reset</td>      
+          <td>tiny reset</td>      
+          <td>normalize</td>      
+          <td>normalize</td>
+          <td>none</td>
+        </tr>
+        <tr>
+          <td>Browsers</td>      
+          <td>Chrome, FF</td>      
+          <td>Chrome, FF</td>      
+          <td>Chrome, FF, Opera<br> IE, Edge, Safari</td>      
+          <td>Chrome, FF</td>
+        </tr>
+        <tr>
+          <td>License</td>      
+          <td>MIT</td>      
+          <td>MIT</td>      
+          <td>MIT</td>      
+          <td>MIT</td>      
+        </tr>          
+      </tbody>
+      <caption>Comparison of different minimal CSS frameworks.<br>* readable, non-minified code (these tiny libs don't need minimizers)</caption> 
+    </table>
+
+
+
+
+      <h3>Figures</h3>
+      <p>Visual elements are important components for appealing documents. Figures such as diagrams or graphs should be encapsulated within a figure element. The image within the figure will be centered by default and shrinks with the screen width.</p>
+      <figure>
+        <img src="http://placekitten.com/420/420" alt="Image alt text">
+        <figcaption>This is the first figure of this article that has a caption. The label with number will be inserted automatically if placed inside an article.</figcaption>
+      </figure>
+
+
+
+      <h3>Code Listing</h3>
+      <p>You can use inline code, such as <code>div</code>, or show keyboard inputs, such as <kbd>Ctrl+C</kbd>. 
+      However, larger code examples require their own block environment. Unfortunately, captions for listings do not work at the moment.</p>
+      
+        <pre><code>main(int a){
+  println("hello world")
+}</code></pre>
+        
+      <p>While dynamic code highlighting does not work without JavaScript, you can use a static, CSS-based code highlighter that will do the styling based on <code>&lt;span&gt;</code> tags with classes.</p>
+
+
+      <h3>References</h3>
+      <ol>
+        <li><a href="https://www.w3.org/TR/css-values-3/">W3C: <q>CSS Values and Units Module Level 3</q>, 2019</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/HTML5">Wikipedia: <q>HTML5</q></a></li>
+        <li><cite><a href="https://en.wikiquote.org/wiki/Richard_Feynman#The_Meaning_of_It_All_(1999)">Richard P. Feynman: “The Meaning of It All: Thoughts of a Citizen-Scientist”, 1997</a></li>
+      </ol>
+
+    </section>
+    </article>
+
+
+
+
+
+
+
+
+
+  <section id="basic">
+
+    <h1>Basic Styling</h1>
+    <p>The following sections provide more detailed but artificial examples of the appearance of different HTML-tags that are styled with Classless.</p>
+
+
+    <h2>Typography</h2>
     <p>The typography of Classless is purely based on CSS3.</p>
     <p>You can use the standard html5 tags such as <code>&lt;b&gt;</code> or <code>&lt;strong&gt;</code> for <b>bold</b> text, <code>&lt;i&gt;</code> or <code>&lt;em&gt;</code> for <i>italic</i> text and <code>&lt;u&gt;</code> for <u>underlined</u> text.</p>
     <p>Use <code>&lt;sub&gt;</code> for subscripts like in H<sub>2</sub>O.</p>
     <p><small>This small text uses <code>&lt;small&gt;</code> for for fine print, etc.</small></p>
     <p><big>This big text uses <code>&lt;big&gt;</code> for a lead paragraph</big></p>
-    <p>Inline quotations with <code>&lt;q&gt;</code> such as <q>This is Lars’ car!</q> insert automatically the correct quotation marks.</p>
+    <p>Inline quotations with <code>&lt;q&gt;</code> such as <q>Anna shouted: <q>This is Lars’ car!</q>, when he saw him.</q> insert automatically the correct quotation marks.</p>
     <p><cite>This is a citation.</cite></p>
     <p>Sometimes, I need to <del>delete</del>, <ins>insert</ins>, or <mark>mark</mark> certain words.</p>
     <p>The <dfn>dfn element</dfn> indicates a definition.</p>
@@ -91,219 +233,167 @@
     <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
 
 
-    <article>
-      <h2>Blockquotes</h2>
-      <div>
-        <blockquote>
-          <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
-          <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
-          <cite><a href="#!">Said no one, ever.</a></cite>
-        </blockquote>
-      </div>
-    </article>
+
+    <h2>Blockquotes</h2>
+    <div>
+      <blockquote>
+        <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
+        <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+        <cite><a href="#!">Said no one, ever.</a></cite>
+      </blockquote>
+    </div>
 
 
 
-      <h2>Headings</h2> 
-      <p> Here are the headings <code>h1</code> to <code>h6</code></p>
-      
-      <div class="row">
-        <div class="col">      
-          <div>
-            <h1 class="my-0">Heading 1</h1>
-            <h2>Heading 2</h2>
-            <h3>Heading 3</h3>
-            <h4>Heading 4</h4>
-            <h5>Heading 5</h5>
-            <h6>Heading 6</h6>
-          </div>
+    <h2>Headings</h2> 
+    <p> Here are the headings <code>h1</code> to <code>h6</code></p>
+    
+    <div class="row">
+      <div class="col">      
+        <div>
+          <h1 class="m-0">Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
         </div>
-        <div class="col pt-1">
-          <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+      </div>
+      <div class="col pt-1">
+        <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
 &lt;h2&gt;Heading 2&lt;/h2&gt;
 &lt;h3&gt;Heading 3&lt;/h3&gt;
 &lt;h4&gt;Heading 4&lt;/h4&gt;
 &lt;h5&gt;Heading 5&lt;/h5&gt;
 &lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
 
-        </div>
       </div>
+    </div>
 
 
 
-
-
-
-      <h2>Lists</h2>
-      <div class="row">
-        <div class="col">
-        <h3>Ordered List</h3>
-        <ol>
-          <li>List Item 1</li>
-          <li>List Item 2</li>
-          <li>List Item 3</li>
-        </ol>
-        </div>
-        <div class="col">
-        <h3>Unordered List</h3>
-        <ul>
-          <li>List Item 1</li>
-          <li>List Item 2</li>
-          <li>List Item 3</li>
-        </ul>
-        </div>
-        <div class="col">
-        <h3>Definition List</h3>
-        <dl>
-          <dt>Term</dt>
-          <dd>A Term is defined by this definition.</dd>
-        </dl>
-        </div>
-      </div>
-
-
-
-    <h2>Code</h2>
-    <p>
-    You can use inline code such <code>div</code> with <code>&lt;code&gt;div&lt;/code&gt;</code> or show keyboard inputs such as <kbd>Ctrl+C</kbd> with <code>&lt;kbd&gt;Ctrl+C&lt;/kbd&gt;</code>.
-    </p>
-
-
-    <h3>Code Listing</h3>
-    <pre><code>main(int a){
-  println("hello world")
-}</code></pre>
-
-
-    <h3>Pre-formatted text</h3>
-    <pre>  ! " # $ % &amp; ' ( ) * + , - . /
-  0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
-  @ A B C D E F G H I J K L M N O
-  P Q R S T U V W X Y Z [ \ ] ^ _
-  ` a b c d e f g h i j k l m n o
-  p q r s t u v w x y z { | } ~ </pre>
-          
-
-
-
-
-
-
-  </section>
-
-
-  <section id="tables">
-    <h1>Tables and Figures</h1>
-    
     <h2>Tables</h2>
-    <p><strong>Classless</strong> applies some modern styling on the standard table elements. All columns except the first one are right aligned by default which makes it easy to compare numbers. Of course you can change this behavior with our utility classes.</p>
+    <p>The basic HTML tables allow already quite complex layouts. As often seen in professional tables, we omit vertical lines and and only insert horizontal lines as visual separation.</p>
+    <div class="row">
+      <div class="col">      
+        <table>
+          <thead><tr>
+            <th>Head 1</th>  <th>Head 2</th>      
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>A</td>      
+              <td>B</td>      
+            </tr>
+            <tr>
+              <td>C</td>      
+              <td>D</td>      
+            </tr>          
+          </tbody>
+          <caption>Use of thead and tbody.</caption> 
+        </table>
+      </div>
+      <div class="col pt-1">
+        <pre><code>&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th&gt;Head 1&lt;/th&gt;      
+   &lt;th&gt;Head 2&lt;/th&gt;      
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+      ...                
+ &lt;/tbody&gt;
+ &lt;caption&gt;Use of ...&lt;/caption&gt; 
+&lt;/table&gt;</code></pre>
 
+      </div>
+    </div>
+   
+
+
+  <div class="row">
+    <div class="col">      
       <table>
-        <thead>
-          <tr>
-            <th></th>      
-            <th>Classless</th>      
-            <th><a href="http://getskeleton.com/">Skeleton</a></th>
-            <th><a href="https://milligram.io/">Milligram</a></th>
-            <th><a href="https://oxal.org/projects/sakura/">Sakura</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Features</td>      
-            <td>responsive,<br>grid, navbar,<br>cards, utilities</td>      
-            <td>responsive,<br>grid</td>      
-            <td>responsive,<br>grid, utilities</td>
-            <td>responsive</td>
-          </tr>
-          <tr>
-            <td>Size*</td>      
-            <td>8.6 kB<br>300 LOC</td>      
-            <td>11.2 kB<br>400 LOC</td>      
-            <td>10.3 kB<br>600 LOC</td>
-            <td>3.3 kB <br>165 LOC</td>
-          </tr>
-          <tr>
-            <td>Reset</td>      
-            <td>tiny reset</td>      
-            <td>normalize</td>      
-            <td>normalize</td>
-            <td>none</td>
-          </tr>
-          <tr>
-            <td>Browsers</td>      
-            <td>Chrome, FF</td>      
-            <td>Chrome, FF</td>      
-            <td>Chrome, FF, Opera<br> IE, Edge, Safari</td>      
-            <td>Chrome, FF</td>
-          </tr>
-          <tr>
-            <td>License</td>      
-            <td>MIT</td>      
-            <td>MIT</td>      
-            <td>MIT</td>      
-            <td>MIT</td>      
-          </tr>          
-        </tbody>
-        <caption>Table 1: Comparison of different minimal CSS frameworks</caption> 
+        <tr>
+          <td colspan="2">Test</td>
+          <td rowspan="2">Ctrl</td>
+        </tr>
+        <tr><td>A</td><td>B</td></tr>
+        <tr><td>4</td><td>2</td><td>X</td></tr>       
+        <caption>Cells spanning several rows or columns.</caption> 
       </table>
+    </div>
+    <div class="col">
+      <pre><code>&lt;table&gt;
+ &lt;tr&gt;
+  &lt;td colspan=&quot;2&quot;&gt;Test&lt;/td&gt;
+  &lt;td rowspan=&quot;2&quot;&gt;Ctrl&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+  &lt;td&gt;A&lt;/td&gt;&lt;td&gt;B&lt;/td&gt;
+ &lt;/tr&gt;
+ ...
+&lt;/table&gt;</code></pre>
+    </div>
+  </div>
 
-      <p>* readable, non-minified code (these tiny libs don't need minimizers)</p>
 
 
-
-
-          
-
-      <h2>Figures</h2>
-      <div>
-        <figure>
-          <img src="http://placekitten.com/420/420" alt="Image alt text">
-          <figcaption>Here is a caption for this image.</figcaption>
-        </figure>
+    <h2>Lists</h2>
+    <p>In order to display several aspects in a concise way, lists as shown in the following are useful and also deserve a proper spacing.</p>
+    <div class="row">
+      <div class="col">
+      <h4>Ordered List</h4>
+      <ol>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+      </ol>
       </div>
-      <pre><code>&lt;div&gt;
-  &lt;figure&gt;
-    &lt;img src="http://placekitten.com/420/420" alt="Image alt text"&gt;
-    &lt;figcaption&gt;Here is a caption for this image.&lt;/figcaption&gt;
-  &lt;/figure&gt;
-&lt;/div&gt;</code></pre>
-
-
-      <h2>Horizontal rules</h2>
-      <div>
-        <hr>
+      <div class="col">
+      <h4>Unordered List</h4>
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+      </ul>
       </div>
-      <pre><code>&lt;hr&gt;</code></pre>
-
-
-
+      <div class="col">
+      <h4>Definition List</h4>
+      <dl>
+        <dt>Term</dt>
+        <dd>A Term is defined by this definition.</dd>
+      </dl>
+      </div>
+    </div>
+    <p>Here, we have also demonstrated the basic usage of rows and columns, which will automatically rearrange once the page width falls below a certain threshold. This ensures that the page will also look well on small tables and phones.</p>
 
   </section>
-
 
 
 
 
   <section id="extra">
 
-    <h1>Extra</h1>
+    <h1>Extra Styling</h1>
     <p>These features are included but are marked as extras such that you can easily remove them from the CSS file in case you do not need them.</p>
 
     <h2>Navigation Bar</h2>
     <p>Yes! Just 30 lines of CSS code for a simple yet full responsive navigation bar including dropdown menus and callapsing items on mobile phones.</p>
-    <div>
-    <nav class="bg-light">
+    
+    <div>  
+    <nav class="bg-light" style="position: relative;">
       <ul>
         <li>Brand</li>
-        <li><a href="#">Item </a></li>
-        <li><a href="#">Menu ▾</a>
+        <li><a href="#extra">Item </a></li>
+        <li><a href="#extra">Menu ▾</a>
           <ul>
-            <li><a href="#grid">Menu 1</a></li>
-            <li><a href="#cards">Menu 2</a></li>
+            <li><a href="#extra">Menu 1</a></li>
+            <li><a href="#extra">Menu 2</a></li>
           </ul>
         </li>
-        <li class="float-right">Right</li>
+        <li class="float-right"><a>Right</a></li>
       </ul>
     </nav>
     </div>
@@ -326,86 +416,82 @@
 
 
     <h2>Margin Notes</h2>
-    <p>You can place side notes using the <code>&lt;aside&gt;</code> element.</p> 
-
     <aside>
       <div class="card">
       <h4>Side Note</h4>
       <p>This is a card wrapped inside an <code>&lt;aside&gt;</code> element.</p>
       </div>
     </aside>
+    <p>You can place side notes using the <code>&lt;aside&gt;</code> element. The side notes are considered supplementary and are not omitted on narrow screens with a width lower than <code>40rem</code>. So, if you read this on a mobile device, you cannot see the side note.</p> 
 
 
 
-      <h2>Form elements</h2>
-      <form>
-        <fieldset>
-          <legend>Input fields</legend>
 
-          <div class="row">
-            <div class="col">
-              <label for="in_text">Text Input</label>
-              <input id="in_text" type="text" placeholder="Text Input"> <br>
-              <label for="in_password">Password</label>
-              <input id="in_password" type="password" placeholder="Type your Password">
-            </div>
-            <div class="col">
-              <label for="in_dd">Date input</label>
-              <input type="date" id="in_dd" value="1970-01-01"> <br>
-              <label for="in_r">Range input</label>
-              <input type="range" id="in_r" value="10">            
-            </div>
-          </div>
+    <h2>Form elements</h2>
+    <p>If you want to use forms, you will need PHP or JavaScript, which then exceeds the typical usecase of a simple article. However, to create a consistent appearance, Classless provides some basic styling on these elements as well.</p>
+    <form>
+      <fieldset>
+        <legend>Input fields</legend>
 
-          <p>
-          </p>
-          <p>
-          </p>
-
-          <p>
-            <label for="select">Select</label>
-            <select id="select">
-              <optgroup label="Option Group">
-                <option>Option One</option>
-                <option>Option Two</option>
-                <option>Option Three</option>
-              </optgroup>
-            </select>
-          </p>
-        </fieldset>
-
-        <fieldset id="forms__checkbox">
-        <legend>Checkboxes and Radiobuttons</legend>
         <div class="row">
           <div class="col">
-            <h3>Checkboxes</h3>
-            <ul class="list list--bare">
-              <li><label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> Choice A</label></li>
-              <li><label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label></li>
-              <li><label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label></li>
-            </ul>
+            <label for="in_text">Text Input</label>
+            <input id="in_text" type="text" placeholder="Text Input">
+            <label for="in_password">Password</label>
+            <input id="in_password" type="password" placeholder="Type your Password">
           </div>
           <div class="col">
-            <h3>Radio buttons</h3>
-            <ul>
-              <li><label for="radio1"><input id="radio1" name="radio" type="radio" class="radio" checked="checked"> Option 1</label></li>
-              <li><label for="radio2"><input id="radio2" name="radio" type="radio" class="radio"> Option 2</label></li>
-              <li><label for="radio3"><input id="radio3" name="radio" type="radio" class="radio"> Option 3</label></li>
-            </ul>
+            <label for="in_dd">Date input</label>
+            <input type="date" id="in_dd" value="1970-01-01">
+            <label for="in_r">Range input</label>
+            <input type="range" id="in_r" value="10">            
           </div>
         </div>
-        </fieldset>
 
-        <fieldset id="forms__action">
-          <legend>Buttons</legend>
-          <p>
-            <button type="submit">SUBMIT</button>
-            <button type="button">BUTTON</button>
-            <button type="reset">RESET</button>
-            <button type="button" disabled>DISABLED</button>
-          </p>
-        </fieldset>
-      </form>
+          <label for="select">Select</label>
+          <select id="select">
+            <optgroup label="Option Group">
+              <option>Option One</option>
+              <option>Option Two</option>
+              <option>Option Three</option>
+            </optgroup>
+          </select>
+      </fieldset>
+
+      <fieldset id="forms__checkbox">
+      <legend>Checkboxes and Radiobuttons</legend>
+      <div class="row">
+        <div class="col">
+          <h3>Checkboxes</h3>
+          <input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> 
+          <label for="checkbox1">Checkbox A</label><br>
+          <input id="checkbox2" name="checkbox" type="checkbox">
+          <label for="checkbox2">Checkbox B</label><br>
+          <input id="checkbox3" name="checkbox" type="checkbox">
+          <label for="checkbox3">Checkbox C</label>
+        </div>
+        <div class="col">
+          <h3>Radio buttons</h3>
+            <input id="radio1" name="radio" type="radio" checked="checked">
+            <label for="radio1">Radio Button 1</label><br>
+            <input id="radio2" name="radio" type="radio">
+            <label for="radio2">Radio Button 2</label><br>
+            <input id="radio3" name="radio" type="radio">
+            <label for="radio3">Radio Button 3</label>
+        </div>
+      </div>
+      </fieldset>
+
+      <fieldset id="forms__action">
+        <legend>Buttons</legend>
+        <p>
+          <button type="submit">SUBMIT</button>
+          <button type="button">BUTTON</button>
+          <button type="reset">RESET</button>
+          <button type="button" disabled>DISABLED</button>
+        </p>
+      </fieldset>
+    </form>
 
 
   </section>
@@ -507,18 +593,20 @@
         </section>
 
 
+
+
+
+
       </main>
 
 
       <footer>
       <hr>
-      <section>
         <h5>Classless.css</h5>
         <p>Code on <a href="http://github.com/emareg/classlesscss">GitHub</a>.<br>
         <a href="mailto:john.doe@foo.bar">john.doe@foo.bar</a><br>
         <a href="tel:+1234567890">+1234567890</a>
         </p>
-      </section>
       </footer>
   </body>
 
@@ -526,15 +614,25 @@
 <!-- Javascript here -->
 <script>
 
-    function clipBoard(value) {
-      var tempInput = document.createElement("input");
-      tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-      tempInput.value = value;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempInput);
-    }
+  // only for convenience, not required for Classless!
+  function clipBoard(value) {
+    var tempInput = document.createElement("input");
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+  }
+
+  // only for switching theme Demo, not required for Classless!
+  function switchTheme(e) {
+    switch(e.value) {
+      case "1": document.documentElement.setAttribute('data-theme', 'light'); break;
+      case "2": document.documentElement.setAttribute('data-theme', 'dark'); break;
+      case "3": document.documentElement.setAttribute('data-theme', 'sepia'); break;
+    }   
+  }
 
 
 </script>

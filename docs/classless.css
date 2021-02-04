@@ -1,4 +1,4 @@
-/* Classless.css v0.92
+/* Classless.css v0.94 (Typical Full Version)
 
 Table of Contents:
  1. Custom Settings
@@ -9,18 +9,52 @@ Table of Contents:
 
 /* 1. Custom Settings
 –––––––––––––––––––––––––––––––––––––––––––– */
-:root {
+
+/* Free, Beautiful Unicode Font */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+html[data-theme='light'], 
+:root
+{
+	--width: 50rem;
+	--navpos: absolute;  /* fixed | absolute */
 	--clight: #f4f5f6;
 	--cdark: #888;
 	--cmed: #d1d1d1;
 	--cprim: #0065bd;
 	--cemph: #00C5bd;
-	--navpos: absolute;  /* fixed | absolute */
-	font: 13pt 'Open Sans', Helvetica, sans-serif; 
-	line-height: 1.5; 
-	color: #424456; 
+	--cfg: #433;
+	--cbg: #fff;
+	--ornament: "‹‹‹ ›››";
+	--font-p: 13pt 'Open Sans', Helvetica, sans-serif; 
+	--font-h: 13pt 'Open Sans', Helvetica, sans-serif;
+	--font-c: 12pt monospace;
 }
 
+html[data-theme='dark'] {
+	--clight: #333;
+	--cdark: #888;
+	--cmed: #667;
+	--cprim: #00C5bd;
+	--cemph: #0075cd;
+	--cbg: #252220;
+	--cfg: #cecbc4; 
+}
+
+html[data-theme='sepia'] 
+{
+	--clight: #f3efea;
+	--cdark: #6c605c;
+	--cmed: #a8928e;
+	--cprim: #bd0000; 
+	--cemph: #a35403;
+	--cbg: #fefbf4;
+	--cfg: #433;
+	--ornament: "❦ ❦ ❦";
+	--font-p: 14pt Times, serif;
+	--font-h: 13pt Times, serif;
+	--font-c: 11pt monospace;
+}
 
 
 /* 2. Base Tags 
@@ -29,140 +63,213 @@ Table of Contents:
 /* Tiny Reset for block elements  */
 * {box-sizing: border-box; border-spacing: 0;}
 header, footer, figure, table, video, blockquote,
-ul, ol, dl, fieldset, pre, pre > code { 
+ul, ol, dl, fieldset, pre, pre > code, caption { 
 	display: block; 
 	margin: 0.5rem 0rem 1rem;
 	width: 100%; 
 	overflow-x: auto;
 	overflow-y: hidden;
+	text-align: left;
 }
+html { background-color: var(--cbg); }
 body { 
 	margin: auto; 
-	max-width: 50rem; 
+	max-width: var(--width); 
 	padding: 2rem 0.5rem 0rem; 
-	overflow-x: hidden; 
+	overflow-x: hidden;
+	font: var(--font-p);
+	color: var(--cfg);
+	line-height: 1.5em;
 }
-footer { margin: 10rem 0rem 0rem; }
+article { counter-reset: h2 0 h3 0 tab 0 fig 0 ref 0; }
+body > footer { margin: 10rem 0rem 0rem; }
+small, sub, sup { font-size: 75%; }
 
 
 /* headings */
-h1, h2, h3, h4, h5, h6 { 
-	margin: 1.5em 0 0em; 
-	padding: 0.3em 0; 
-}
-h1 { font-size: 2.5em; font-weight: 300; }  
-h2 { font-size: 2.0em; font-weight: 300; } 
+h1, h2, h3, h4, h5 { margin: 1.5em 0 0em; font: var(--font-h); }
+h1+h2, h2+h3, h3+h4, h4+h5 { margin-top: .5em; padding-top: 0; }  /* non-clashing headings */
+h1 { font-size: 2.2em; font-weight: 300; }
+h2 { font-size: 2.0em; font-weight: 300; font-variant-caps: small-caps; }
 h3 { font-size: 1.5em; font-weight: 400; } 
-h4 { font-size: 1.1em; font-weight: 700; margin: .5em 0 0em; } 
-h5 { font-size: 1.2em; font-weight: 400; margin-top: 0.5em; color: var(--cdark); }
-h6 { font-size: 1.0em; font-weight: 700; }
-p strong { color: var(--cdark); font-weight: bold; font-size: 1.0em; }
+h4 { font-size: 1.1em; font-weight: 700; } 
+h5 { font-size: 1.2em; font-weight: 400; color: var(--cdark); }
+h6 { font-size: 1.0em; font-weight: 700; font-style: italic; display: inline; }
+h6 + p { display: inline; }
 
 
 /* lists */
+ul, ol { padding-top: 0.5rem; text-align: left; }
 li, dd { margin-bottom: 0.5rem; } 
 dt { font-weight: bold; }
 
 
 /* tables */
 td, th {
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.0rem;
   text-align: right;
   border-bottom: 0.1rem solid var(--cmed);
   white-space: nowrap;
+  font-size: 95%;
 }
-td:first-child, th:first-child { padding-left:  0; text-align: left; }
-td:last-child,  th:last-child  { padding-right: 0; }
+td:first-child, th:first-child { text-align: left; }
 tr:hover{ background-color: var(--clight); }
 
-
 /* figures */
-img { max-width: 100%; }
-figure { text-align: center; }
-figure > img { display: block; margin: 0.5em auto; }
-figcaption, caption { color: var(--cdark); margin-bottom: 1rem; }
+figure > img { max-width: 100%; display: block; margin: 0.5em auto; }
+figcaption, caption { font: var(--font-h); color: var(--cdark); margin-bottom: 1rem; display: block; }
 
-
-/*code*/
+/* code */
 pre > code {
   margin: 0;
+  position: relative;
   padding: 0.5rem 1.0rem;
   border-left: 0.3rem solid var(--cprim);
   background-color: var(--clight);
 }
 code, kbd, samp { 
 	padding: 0.2rem; 
-	background: var(--clight); white-space: pre; font-size: 90%;
+	font: var(--font-c);
+	background: var(--clight); white-space: pre;
 	border-radius: 0.3em;
 }
 kbd { border: 0.1rem solid var(--cmed); }
 
 
-
 /* links */
 a { color: var(--cprim); text-decoration: none; cursor: pointer; }
-a:hover, button:not([disabled]):hover { 
-	color: var(--cemph); 
-	border-color: var(--cemph); 
-}
+a:hover, button:not([disabled]):hover { color: var(--cemph);  border-color: var(--cemph); }
 a[href^='mailto\:']::before { content: '📧 '; }
 a[href^='tel\:']::before    { content: '📞 '; }
 
 
-
-/* forms and inputs */
-textarea, input, button, select { border-radius: .3rem; border: .1rem solid var(--cmed); padding: 0.3rem; outline: none;}
-button { padding: 0.7rem 1rem; cursor: pointer; font-weight: bold; letter-spacing: 0.1rem; color: var(--cprim); background-color: var(--clight); border: .1rem solid var(--cprim); }
-
-
-/* misc */
-blockquote{ border-left: 0.3rem solid var(--cmed); padding: 1rem 1.5rem; }
+/* misc */ 
+blockquote{ border-left: 0.4rem solid var(--cmed); padding: 0 0 .5rem 1.5rem; font-style: italic;  }
+summary { font-weight: bold; cursor: pointer; margin: 0.5rem 0;}
+time{ color: var(--cdark); }
+mark{ background-color: transparent; color: var(--cemph); text-decoration: underline solid var(--cemph) }
 hr { border: 0; border-top: 0.1rem solid var(--cmed); }
-small, sub, sup { font-size: 75%; }
+
+
+/* citations */
+p>cite:before { 
+	padding: 0 0.2em;
+	color: var(--cemph); visibility: visible; 
+	counter-increment: ref; content: " [" counter(ref) "] ";
+	font-size: 60%; vertical-align: super;
+}
+p>cite { 
+	width: 1.2em; height: 1.5em;
+	visibility: hidden; 
+	display: inline-block;
+	overflow: hidden;
+}
+p>cite:hover { 
+	position: relative; top: -1em; 
+	width: 100%; height: inherit;
+	color: color: var(--cprim); background-color: transparent;
+	visibility: visible;
+	border-bottom: 3px solid var(--cprim);
+	margin: -1em 0; padding: 2.5em 1em 1em 1em;  
+}
+
+
+/* basic style for fancy stuff */
+nav { width: 100%; min-height: 2.8em; background-color: var(--clight); }
+
+
+/* figure numbers */
+figure figcaption::before { 
+	color: var(--cprim);
+	counter-increment: fig;
+	content: "Figure " counter(fig) ": ";
+}
+table caption::before { 
+	color: var(--cprim);
+	counter-increment: tab;
+	content: "Table " counter(tab) ": ";
+}
+
+
+/* heading numbers with before */
+h2, h3 { position: relative; }
+article h2::before,
+article h3::before {
+	display: inline-block;
+	position: relative;
+	font-size: 0.6em;
+	text-align: right;
+	vertical-align: baseline;
+	left: -1rem;
+	width: 2.5em;
+	margin-left: -2.5em;
+}
+article h1::before { counter-reset: h2; }
+article h2::before { counter-increment: h2; content: counter(h2) ". "; counter-reset: h3; }
+article h3::before { counter-increment: h3; content: counter(h2) "." counter(h3) ". ";}
+
+
+/* first letter */
+article > section:first-of-type > h2:first-of-type + p::first-letter,
+article > h2:first-of-type + p::first-letter {
+	float: left;
+	font-size: 3.5em;   
+	line-height: 0.6em;  /*ignored in FF*/
+	padding-top: 0.1em;
+	padding-right: 0.1em;
+	color: var(--cprim);
+}
+
+
+/* ornaments */
+section::after {
+	display: block;
+	margin: 1em 0;
+	color: var(--cmed);
+	text-align: center;
+	font-size: 1.5em;
+	content: var(--ornament);
+}
+
 
 
 
 /* 3. Extra Tags 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-/* Extra: non-clashing headings */
-h1+h2, h2+h3, h3+h4, h4+h5, h5+h6 { 
-	margin-top: 0.5em; padding-top: 0; 
-}
-
-
-/* Extra: side menu */
+/* Extra: side menu (aside is not intended for use in a pagraph!) */
 main aside { 
-	position: absolute; 
+	position: absolute;
 	margin-left: 50.5rem; 
 	max-width: 10rem; 
-	font-size: smaller; 
+	font-size: 0.8em;
+	line-height: 1.2em;
 }
-@media (max-width: 80rem) { main aside { position: relative; margin: 1rem 0; } }
+@media (max-width: 70.5rem) { main aside { display: none; } }
 
 /* Extra: navbar  */
-body nav { 
-	width: 100%; min-height: 3rem;
-	background-color: var(--clight); 
+nav+main, nav+header { margin-top: 3rem; }
+nav:first-of-type { 
+	position: var(--navpos); 
+	top: 0; left: 0; z-index: 41; 
 	border-bottom: solid 0.1rem var(--cmed); 
 }
-body > nav { position: var(--navpos); top: 0; left: 0; z-index: 41; }
-nav ul:first-child { 
+nav:first-of-type ul:first-child { 
 	list-style-type: none;
 	margin: auto; 
-	max-width: 50rem;
+	max-width: var(--width);
 	padding: 0 0.5rem;
 	overflow: visible;
 }
-nav ul:first-child > li { 
+nav:first-of-type ul:first-child > li { 
 	display: inline-block;
 	margin: 0;
 	padding: 0.8rem 1.0rem;
 	position: relative;
 	float: left; 
 }
-nav ul:first-child > li:first-child { padding-left: 0; }
-nav ul > li > ul { 
+nav:first-of-type ul:first-child > li:first-child { padding-left: 0; }
+nav:first-of-type ul > li > ul { 
 	display: none; 
 	width: auto;
 	position: absolute;
@@ -171,17 +278,38 @@ nav ul > li > ul {
 	border: solid 0.1rem var(--cmed); border-top: 0;
 	z-index: 42;
 }
-nav ul > li > ul > li { white-space: nowrap; } 
-nav ul > li:hover > ul { display: block; }
-nav+main, nav+header { margin-top: 3rem; }
+nav:first-of-type ul > li > ul > li { white-space: nowrap; } 
+nav:first-of-type ul > li:hover > ul { display: block; }
+
 @media (max-width: 40em) { 
-	nav ul:first-child > li:first-child:after { content: "\25BE"; padding-left: .5rem; } 
-	nav ul:first-child > li:not(:first-child) { display: none; }
-	nav ul:first-child:hover > li { display: block; float: none !important;}
+	nav:first-of-type ul:first-child > li:first-child:after { content: "\25BE"; padding-left: .5rem; } 
+	nav:first-of-type ul:first-child > li:not(:first-child) { display: none; }
+	nav:first-of-type ul:first-child:hover > li { display: block; float: none !important;}
 }
 
 
-/* Extra: forms and inputs advanced styling */
+/* Extra: forms and inputs  */
+textarea, input, button, select { 
+	border-radius: .3rem; 
+	border: .1rem solid var(--cmed); 
+	padding: 0.5rem; 
+	outline: none;
+}
+fieldset select, input:not([type='checkbox']):not([type='radio']) { 
+	display: block; 
+	width: 100%; 
+	font-size: 100%;
+	margin-bottom: 1rem;
+}
+button { 
+	padding: 0.7rem 1rem; 
+	cursor: pointer; 
+	font-weight: bold; 
+	letter-spacing: 0.1rem; 
+	color: var(--cprim); 
+	background-color: var(--clight); 
+	border: .1rem solid var(--cprim); 
+}
 fieldset { border-radius: 0rem; border: .1rem solid var(--cmed); }
 textarea:focus, input:not([type=checkbox]):not([type=radio]):hover, select:hover{
   border:.1rem solid var(--cemph);
@@ -193,20 +321,12 @@ textarea:focus, input:not([type=checkbox]):not([type=radio]):focus{
 button[disabled]{ color: var(--cdark); border-color: var(--cmed); }
 
 
-/* misc */ 
-q:before { content: "\201C"; } q q:before { content: "\2018"; }
-q:after  { content: "\201D"; } q q:after  { content: "\2019"; }
-summary { font-weight: bold; cursor: pointer; margin: 0.5rem 0;}
-time{ color: var(--cdark); }
-mark{ background-color: transparent; color: var(--cemph); text-decoration: underline solid var(--cemph) }
-
-
 
 /* 4. Bootstrap Compatibile Classes
 –––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
- /* grid */
-.row { display: flex; margin:  0 -0.5rem; align-items: stretch; }
+/* grid */
+.row { display: flex; margin:  0.5rem -0.5rem; align-items: stretch; }
 .row [class*="col"] { padding: 0  0.5rem; }
 .row .col   { flex: 1 1 100%; }
 .row .col-2 { flex: 0 0 16.66%; }
@@ -216,7 +336,7 @@ mark{ background-color: transparent; color: var(--cemph); text-decoration: under
 
 
  /* cards */
-.card{
+.card {
 	display: block;
 	margin: .5rem 0;
 	padding: .5rem 1rem 0.5rem; 
@@ -226,18 +346,13 @@ mark{ background-color: transparent; color: var(--cemph); text-decoration: under
 
 
 /* align */
-.align-top      { vertical-align: top; }
-.align-middle   { vertical-align: middle; }
-.align-bottom   { vertical-align: bottom; }
-.align-baseline { vertical-align: baseline; }
-
 .text-left   { text-align: left; }
 .text-right  { text-align: right; }
 .text-center { text-align: center; }
 
 .float-left  { float: left !important; }
 .float-right { float: right !important; }
-.clearfix    {  }
+.clearfix    { clear: both; }
 
 
 /* colors */
@@ -263,49 +378,22 @@ mark{ background-color: transparent; color: var(--cemph); text-decoration: under
 /* margins */
 .mx-auto { margin-left: auto; margin-right: auto; }
 
-.m-0, .mx-0, .mr-0 { margin-right:  0.0rem !important; }
-.m-0, .mx-0, .ml-0 { margin-left:   0.0rem !important; }
-.m-0, .my-0, .mt-0 { margin-top:    0.0rem !important; }
-.m-0, .my-0, .mb-0 { margin-bottom: 0.0rem !important; }
-
-.m-05, .mx-05, .mr-05 { margin-right:  0.5rem !important; }
-.m-05, .mx-05, .ml-05 { margin-left:   0.5rem !important; }
-.m-05, .my-05, .mt-05 { margin-top:    0.5rem !important; }
-.m-05, .my-05, .mb-05 { margin-bottom: 0.5rem !important; }
+.m-0 { margin: 0 !important; }
 
 .m-1, .mx-1, .mr-1 { margin-right:  1.0rem !important; }
 .m-1, .mx-1, .ml-1 { margin-left:   1.0rem !important; }
 .m-1, .my-1, .mt-1 { margin-top:    1.0rem !important; }
 .m-1, .my-1, .mb-1 { margin-bottom: 1.0rem !important; }
 
-.m-2, .mx-2, .mr-2 { margin-right:  2.0rem !important; }
-.m-2, .mx-2, .ml-2 { margin-left:   2.0rem !important; }
-.m-2, .my-2, .mt-2 { margin-top:    2.0rem !important; }
-.m-2, .my-2, .mb-2 { margin-bottom: 2.0rem !important; }
-
 
 /* pading */
-.p-0, .px-0, .pr-0 { padding-right:  0.0rem !important; }
-.p-0, .px-0, .pl-0 { padding-left:   0.0rem !important; }
-.p-0, .py-0, .pt-0 { padding-top:    0.0rem !important; }
-.p-0, .py-0, .pb-0 { padding-bottom: 0.0rem !important; }
-
-.p-05, .px-05, .pr-05 { padding-right:  0.5rem !important; }
-.p-05, .px-05, .pl-05 { padding-left:   0.5rem !important; }
-.p-05, .py-05, .pt-05 { padding-top:    0.5rem !important; }
-.p-05, .py-05, .pb-05 { padding-bottom: 0.5rem !important; }
+.p-0 { padding: 0 !important; }
 
 .p-1, .px-1, .pr-1 { padding-right:  1.0rem !important; }
 .p-1, .px-1, .pl-1 { padding-left:   1.0rem !important; }
 .p-1, .py-1, .pt-1 { padding-top:    1.0rem !important; }
 .p-1, .py-1, .pb-1 { padding-bottom: 1.0rem !important; }
 
-.p-2, .px-2, .pr-2 { padding-right:  2.0rem !important; }
-.p-2, .px-2, .pl-2 { padding-left:   2.0rem !important; }
-.p-2, .py-2, .pt-2 { padding-top:    2.0rem !important; }
-.p-2, .py-2, .pb-2 { padding-bottom: 2.0rem !important; }
-
 
 /* responsive, smaller than */
 @media (max-width: 40em) { .row { flex-direction: column !important; } }
-@media (min-width: 40em) { [class*="col"] > * { margin-top: 1rem !important; } }
