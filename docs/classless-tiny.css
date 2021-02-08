@@ -1,0 +1,91 @@
+/* Classless.css v0.94 (Tiny Inline Version)*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+/* Tiny Reset for block elements  */
+* {box-sizing: border-box; border-spacing: 0;}
+header, footer, figure, table, video, details, blockquote,
+ul, ol, dl, fieldset, pre, pre > code, caption {
+	display: block;
+	margin: 0.5rem 0rem 1rem;
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	text-align: left;
+}
+body {
+	margin: auto;
+	max-width: 50rem;
+	padding: 2rem 0.5rem 0rem;
+	overflow-x: hidden;
+	font: 13pt 'Open Sans', Helvetica, sans-serif;
+	color: #433;
+	line-height: 1.5em;
+}
+body > footer { margin: 10rem 0rem 0rem; }
+
+/* lists */
+ul, ol { padding-top: 0.5rem; }
+li, dd { margin-bottom: 0.5rem; }
+dt { font-weight: bold; }
+
+/* links */
+a, summary {
+	color: #07c;
+	cursor: pointer;
+	text-decoration: underline solid #d1d1d1;
+	text-underline-position: under;
+}
+a:hover { color: #088;  border-color: #088; }
+
+/* headings */
+h1, h2, h3, h4, h5 { margin: 1.5em 0 0em; }
+h1+h2, h2+h3, h3+h4, h4+h5 { margin-top: .5em; }  /* non-clashing headings */
+h1 { font-size: 2.2em; font-weight: 300; }
+h2 { font-size: 2.0em; font-weight: 300; font-variant-caps: small-caps; }
+h3 { font-size: 1.5em; font-weight: 400; }
+h4 { font-size: 1.1em; font-weight: 700; }
+h5 { font-size: 1.2em; font-weight: 400; color: #888; }
+h6 { font-size: 1.0em; font-weight: 600; font-style: italic; display: inline; }
+h6 + p { display: inline; }
+
+/* tables */
+td, th {
+  padding: 0.5rem 1.5rem;
+  text-align: right;
+  border-bottom: 0.1rem solid #d1d1d1;
+  white-space: nowrap;
+  font-size: 95%;
+}
+td:first-child, th:first-child { text-align: left; }
+tr:hover{ background-color: #f4f5f6; }
+
+/* figures */
+figure > img { max-width: 100%; display: block; margin: 0.5em auto; }
+figcaption, caption { color: #888; margin-bottom: 1rem; }
+figure > *:not(:last-child) { margin: 0 0 0.4rem; }
+
+/*code*/
+pre > code {
+  margin: 0;
+  position: relative;
+  padding: 0.5rem 1.0rem;
+  border-left: 0.3rem solid #088;
+}
+code, kbd, samp {
+	padding: 0.2rem;
+	font: 12pt monospace;
+	background: #f4f5f6;
+	border-radius: 0.3em;
+}
+kbd { border: 0.1rem solid #d1d1d1; }
+
+/* misc */
+blockquote{ border-left: 0.3rem solid #d1d1d1; padding: 1rem 1.5rem; font-style: italic; }
+hr { border: 0; border-top: 0.1rem solid #d1d1d1; }
+nav { width: 100%; min-height: 2.8em; background-color: #f4f5f6; }
+p>cite:before { content: ' ('; } p>cite:after {content: ') '}
+
+/* grid */
+.row { display: flex; margin:  0.5rem -0.5rem; align-items: stretch; }
+.row [class*="col"] { padding: 0  0.5rem; flex: 1 1 100%; }
+@media (max-width: 40em) { .row { flex-direction: column !important; } }
