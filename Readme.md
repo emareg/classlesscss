@@ -8,16 +8,19 @@ Classless.css is one small CSS file, which defines few but great styles for basi
 
 ## Features
 
-* **Tiny.** Only 400 lines of pure CSS3 for themes, grid, navigation bar, cards and more.
+* **Small.** Only 400 lines of pure CSS3 for themes, grid, navigation bar, cards and more¹.
+* **Single File.** Everything in one file, no dependencies¹, no JavaScript, no exceptions.
+* **Modular.** Don't need all features?² The CSS file is structured into feature groups. Simply delete what you don't need.
 * **Responsive.** We use media queries, rem units, and smart overflows for tables and code.
 * **Bootstrap Compatible.** Special features that require classes use the same names as Bootstrap.
 
-
+¹: we import the font 'Open Sans' but if it fails, we fallback to Helvetica.</br>
+²: we also offer a pre-made tiny version (90 lines) with only the base styles.
 
 
 ## Getting Started
 
-For testing, you can simply insert the following two lines into your HTML file. For production, please host the classless.css file yourself.
+For testing, you can simply insert the following line into your HTML file. For production, please host the classless.css file yourself.
     
 ```
 <link rel="stylesheet" href="https://classless.de/classless.css">
@@ -33,8 +36,23 @@ For testing, you can simply insert the following two lines into your HTML file. 
 |           | grid       |      grid  |      grid  |            |
 |           | utilities  |            | utilities  |            |
 |           | navbar     |            |            |            |
-| Size	    | 10.4kB     |    11.2 kB |   10.3 kB  |    3.3 kB  |
+| Size	    | 11.2kB     |    11.2 kB |   10.3 kB  |    3.3 kB  |
 | LOC       | 400        |     400    |     600    |      165   |
 
 
 
+
+## Classeless 0.94 Tests
+
+
+| Browser                       | Appearance | 
+|-------------------------------|------------|
+| Chromium 87.0 on Ubuntu 18.04 | perfect    |
+| FireFox 85.0  on Ubuntu 18.04 | perfect    |
+| FireFox 84.0  on Windows 10   | perfect    |
+| Edge 42.17 on Windows 10      | very good¹ |
+| FireFox 85.1 on Android 10    | perfect    |
+| Samsung Browser on Android 10 | perfect    |
+
+
+¹: drop letter slightly below baseline, citations slightly too high
