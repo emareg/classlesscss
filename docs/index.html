@@ -9,11 +9,20 @@
   <meta name="author" content="Emanuel Regnath">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="favicon.png" sizes="any">
-  <link rel="stylesheet" href="classless.css" />
+  <link id="cssfile" rel="stylesheet" href="classless.css" />
 </head>
 
 
 <body id="top">
+
+
+
+
+  <!-- Header -->
+  <header >
+  <section>
+    <h1>Classless.css</h1>
+    <p><strong>Less classes. Less overhead.</strong></p>
 
 
   <!-- Navigation -->
@@ -45,39 +54,50 @@
   </nav>
 
 
-  <!-- Header -->
-  <header >
-  <section>
-    <h1>Classless.css</h1>
-    <p><strong>Less classes. Less overhead.</strong></p>
 
     <h4>Abstract</h4>
     <p>Classless.css is one small CSS file, which defines few but great styles for basic HTML5 tags plus very few classes for grid and spacing. Nothing more. Nothing less. With the basic tag styling, Classless provides a solid appearance for simple article pages without any classes. If you need more fancy features such as grid or cards – which are infeasible with basic HTML5 – we provide a few Bootstrap compatible classes.</p>
 
     <h5>Features</h5>
     <ul>
-      <li><b>Tiny.</b> Only 400 lines of pure CSS3 for themes, grid, navigation bar, cards and more.</li>
+      <li><b>Small.</b> Only 400 lines of pure CSS3 for themes, grid, navigation bar, cards and more.</li>
+      <li><b>Single File.</b> Everything in one file, no dependencies¹, no JavaScript, no exceptions.</li>
+      <li><b>Modular.</b> Don't need all features?² The CSS file is structured into feature groups. Simply delete what you don't need.</li>
       <li><b>Responsive.</b> We use media queries, <code>rem</code> units, and smart overflows for tables and code.</li>
       <li><b>Bootstrap Compatible.</b> The few classes use the same names as Bootstrap.</li>
     </ul>
+    <p>¹: we import the font 'Open Sans' but if it fails, we fallback to Helvetica.</br>
+    ²: we also offer a pre-made tiny version (90 lines) with only the base styles.</p>
 
     <h2>Getting Started</h2>
-
-    <h5>One-Click Testing</h5>
-    For testing, you can simply insert the following line into your HTML file. For production, please host the classless.css file yourself.
+    <p>For testing, you can simply insert the following line into your HTML file. For production, please host the classless.css file yourself.</p>
     
     <pre><code>
 &lt;link rel="stylesheet" href="https://classless.de/classless.css"&gt;
     </code></pre>
-    <button onclick='clipBoard("<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400\" rel=\"stylesheet\">\n<link rel=\"stylesheet\" href=\"classless.css\" />")'>Copy Link-Tags</button>
-    <a class="ml-1" href="classless.css" download="classless.css"><button>Download CSS File</button></a>
+    <button onclick='clipBoard("<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400\" rel=\"stylesheet\">\n<link rel=\"stylesheet\" href=\"classless.css\" />")'>Copy Link-Tag</button>
+    <a href="classless.css" download="classless.css"><button>Download Full CSS</button></a>
 
-    <h5 class="mt-2">Look at this Code</h5>
+    <h5>Tiny Version</h5>
+    <p>We also offer a pre-made tiny version (90 lines, 2.6 kB) with only the base styles.<br>Test now: 
+      <select id="theme" onchange="switchCSS(this)" class="p-0">
+          <option value="1">Full</option>
+          <option value="2">Tiny</option>
+      </select>
+    </p>   
+    <pre><code>
+&lt;link rel="stylesheet" href="https://classless.de/classless-tiny.css"&gt;
+    </code></pre>
+    <a href="classless-tiny.css" download="classless-tiny.css"><button>Download Tiny CSS</button></a>
+
+    <h5>Look at this Code</h5>
     <p>The page you are seeing right now, is already a demo of pure classless.css. We do not use any additional CSS files.</p>
 
   </section>
   </header>
   
+
+
   
   <!-- Main page -->
   <main>
@@ -97,7 +117,7 @@
       Therefore, the appearance of text over multiple lines will account for the basic <i>look & feel</i>. The initial drop letter on the first paragraph will set a visually exiting impression. Note that this is automatically inserted for the first paragraph inside an <code>&lt;article&gt;</code> tag and does not require any additional styling.
     </p> 
     <aside>The citation after CSS3 is inserted automatically and it is easy to provide a reference list at the end.</aside>
-    <p>The typography of Classless is purely based on CSS3.<cite><a href="https://www.w3.org/TR/css-values-3/">W3C: <q>CSS Values and Units Module Level 3</q>, 2019</a></cite>
+    <p>The typography of Classless is purely based on CSS3. <cite><a href="https://www.w3.org/TR/css-values-3/">W3C: <q>CSS Values and Units Module Level 3</q>, 2019</a></cite>
     You can use the standard HTML5<cite><a href="https://en.wikipedia.org/wiki/HTML5">Wikipedia: <q>HTML5</q></a></cite> tags to <i>emphasize</i> certain words.
       Inline quotations with <code>&lt;q&gt;</code> such as <q>This is Lars’ car!</q> will insert automatically the correct quotation marks. Block quotations are also possible:
     </p>
@@ -116,7 +136,7 @@
 
     <section>
     <h2>Tables, Figures & Code Listings</h2>
-    <p>In typesetting systems (e.g LaTeX) it is easy to define several environments that will have their own number and caption. We try to reproduce this behavior for the most common environments: tables and figures.</p>
+    <p>In typesetting systems (e.g <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a>) it is easy to define several environments that will have their own number and caption. We try to reproduce this behavior for the most common environments: tables and figures.</p>
 
 
     <h3>Tables</h3>
@@ -142,7 +162,7 @@
         </tr>
         <tr>
           <td>Size*</td>      
-          <td>10.4 kB<br>400 LOC</td>      
+          <td>11.2 kB<br>400 LOC</td>      
           <td>11.2 kB<br>400 LOC</td>      
           <td>10.3 kB<br>600 LOC</td>
           <td>3.3 kB <br>165 LOC</td>
@@ -152,7 +172,7 @@
           <td>tiny reset</td>      
           <td>normalize</td>      
           <td>normalize</td>
-          <td>none</td>
+          <td>normalize</td>
         </tr>
         <tr>
           <td>Browsers</td>      
@@ -178,19 +198,42 @@
       <h3>Figures</h3>
       <p>Visual elements are important components for appealing documents. Figures such as diagrams or graphs should be encapsulated within a figure element. The image within the figure will be centered by default and shrinks with the screen width.</p>
       <figure>
-        <img src="http://placekitten.com/420/420" alt="Image alt text">
+        <img src="http://placekitten.com/480/320" alt="Image alt text">
+        <!-- <img src="http://placekitten.com/180/320" alt="Image alt text"> -->
         <figcaption>This is the first figure of this article that has a caption. The label with number will be inserted automatically if placed inside an article.</figcaption>
+      </figure>
+
+      <p>How about subfigures?</p>
+      <figure>
+        <figure>
+          <img src="http://placekitten.com/240/320" alt="Image alt text">
+          <figcaption>First Subfigure</figcaption>
+        </figure>
+        <figure>
+          <img src="http://placekitten.com/420/320" alt="Image alt text">
+          <figcaption>Second Subfigure</figcaption>
+        </figure>
+        <figcaption>Example of a figure with two subfigures. Left you see a cat, right you see also a cat.</figcaption>
       </figure>
 
 
 
       <h3>Code Listing</h3>
       <p>You can use inline code, such as <code>div</code>, or show keyboard inputs, such as <kbd>Ctrl+C</kbd>. 
-      However, larger code examples require their own block environment. Unfortunately, captions for listings do not work at the moment.</p>
+      However, larger code examples require their own block environment.</p>
       
         <pre><code>main(int a){
   println("hello world")
 }</code></pre>
+
+      <p>Unfortunately, captions for listings do not work perfectly at the moment. If you want to provide a caption for the listing, you have to place it inside a figure environment. However, it will be called <q>Figure</q>.</p>
+      <figure>
+        <pre><code>main(int a){
+  println("hello world")
+}</code></pre>
+        <figcaption>The caption for the listing.</figcaption>        
+      </figure>
+
         
       <p>While dynamic code highlighting does not work without JavaScript, you can use a static, CSS-based code highlighter that will do the styling based on <code>&lt;span&gt;</code> tags with classes.</p>
 
@@ -199,22 +242,16 @@
       <ol>
         <li><a href="https://www.w3.org/TR/css-values-3/">W3C: <q>CSS Values and Units Module Level 3</q>, 2019</a></li>
         <li><a href="https://en.wikipedia.org/wiki/HTML5">Wikipedia: <q>HTML5</q></a></li>
-        <li><cite><a href="https://en.wikiquote.org/wiki/Richard_Feynman#The_Meaning_of_It_All_(1999)">Richard P. Feynman: “The Meaning of It All: Thoughts of a Citizen-Scientist”, 1997</a></li>
+        <li><a href="https://en.wikiquote.org/wiki/Richard_Feynman#The_Meaning_of_It_All_(1999)">Richard P. Feynman: “The Meaning of It All: Thoughts of a Citizen-Scientist”, 1997</a></li>
       </ol>
 
     </section>
-    </article>
 
 
 
 
 
-
-
-
-
-  <section id="basic">
-
+    <section id="basic">
     <h1>Basic Styling</h1>
     <p>The following sections provide more detailed but artificial examples of the appearance of different HTML-tags that are styled with Classless.</p>
 
@@ -339,6 +376,53 @@
   </div>
 
 
+    <figure>
+      <table>
+        <thead>
+        <tr>
+          <th colspan="2">Test</th>
+          <th rowspan="2">Ctrl</th>
+        </tr>
+        <tr><td>A</td><td>B</td></tr>
+      </thead>
+        <tbody>
+        <tr><td>4</td><td>2</td><td>X</td></tr>
+        </tbody>
+      </table>
+      <figcaption>A table in a figure environment will be centered and produce a scrollable overflow on mobile devices.</figcaption>
+    </figure>
+
+    <figure>   
+      <table>
+        <thead>
+        <tr>
+          <th rowspan="2">Name</th>
+          <th colspan="2">CSS File</th>
+          <th rowspan="2"></th>
+          <th colspan="4">Browser Support</th>
+          <th rowspan="2">Dependency</th>
+        </tr>
+        <tr>
+          <td>LOC</td><td>Size</td>
+          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/chrome.svg" width="20"></td>
+          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/firefox.svg" width="20"></td>
+          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/safari.svg" width="20"></td>
+          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/edge.svg" width="20"></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Classless</td><td>400</td><td>11.2 kB</td><td></td><td>✔</td><td>✔</td><td>?</td><td>✔</td><td>none</td></tr>
+        <tr><td>Classless Tiny</td><td>91</td><td>2.6 kB</td><td></td><td>✔</td><td>✔</td><td>?</td><td>✔</td><td>none</td></tr>
+        <tr><td>Skeleton</td><td>400</td><td>11.2 kB</td><td></td><td>✔</td><td>✔</td><td>?</td><td>?</td><td>normalize</td></tr>
+        <tr><td>Milligram</td><td>600</td><td>10.3 kB</td><td></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>normalize</td></tr>
+        <tr><td>Sakura</td><td>165</td><td>10.3 kB</td><td></td><td>✔</td><td>✔</td><td>?</td><td>?</td><td>normalize</td></tr>
+        </tbody>
+      </table>
+      <figcaption>A more complex table. Still no classes.</figcaption> 
+    </figure>
+
+
+
 
     <h2>Lists</h2>
     <p>In order to display several aspects in a concise way, lists as shown in the following are useful and also deserve a proper spacing.</p>
@@ -369,6 +453,46 @@
     </div>
     <p>Here, we have also demonstrated the basic usage of rows and columns, which will automatically rearrange once the page width falls below a certain threshold. This ensures that the page will also look well on small tables and phones.</p>
 
+    <h2>Misc</h2>
+    <p>Some other elements</p>
+    <details>
+    <summary>A summary heading that spans multiple lines can briefly tell you something. If you want to know more, you have to click.</summary>
+    <p>These are the details that only become visible once you click on the the summary heading. This is great to hide supplementary information by default.</p>
+  </details>
+
+    <ul>
+      <li>
+        <details>
+          <summary>A summary in a list</summary>
+          <p>These are the details that only become visible once you click on the the summary heading. This is great to hide supplementary information by default.</p>
+        </details>
+      </li>
+      <li>Second Item</li>
+    </ul>
+
+
+    <hr>
+
+    <figure>
+      <video controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      </video>
+      <figcaption>A test video</figcaption>
+    </figure>
+
+
+    <h3>Math</h3>
+    <p>Math would have been possible without JavaScript but Google dropped support for MathML<cite><a href="https://www.cnet.com/news/google-subtracts-mathml-from-chrome-and-anger-multiplies">CNET: “Google subtracts MathML from Chrome, and anger multiplies”, 2013</a></cite>.
+    The common alternatives are MathJax and KaTeX. While Classless does not support math on its own, it looks very decent in combination with KaTeX default settings.</p>
+
+    <h4>KaTeX Examples</h4>
+    <p>The term $\sqrt{a^2 + b^2}$ is an example of a KaTeX equation. Displaystyle equations are $$\int x^2 \mathrm dx$$</p>
+
+    <figure>
+      $$x = \frac{ - b \pm \sqrt {b^2 - 4ac} }{2a}$$
+      <figcaption>A Math example</figcaption>
+    </figure>
+
   </section>
 
 
@@ -380,7 +504,7 @@
     <p>These features are included but are marked as extras such that you can easily remove them from the CSS file in case you do not need them.</p>
 
     <h2>Navigation Bar</h2>
-    <p>Yes! Just 30 lines of CSS code for a simple yet full responsive navigation bar including dropdown menus and callapsing items on mobile phones.</p>
+    <p>Yes! Just 30 lines of CSS code for a simple yet full responsive navigation bar including dropdown menus and collapsing items on mobile phones.</p>
     
     <div>  
     <nav class="bg-light" style="position: relative;">
@@ -492,43 +616,29 @@
         </p>
       </fieldset>
     </form>
-
-
-  </section>
-
-
- 
+    </section>
 
 
 
 
 
+    <section id="bootless">
+    <h1>Bootless.css</h1>
+    <p>Some concepts, such as grids and cards, are not covered by the default HTML5 tags and require CSS classes.
+    Therefore, Classless defines a few classes with the same class names as the popular framework Bootstrap.</p>
+
+    <h2 id="grid">Grid System</h2>
+    <p>Classless provides a simple grid system with the same class names as bootstrap.</p>
 
 
+    <div class="row">
+      <div class="col-6"><h4>Colum 1/2</h4></div>
+      <div class="col">
+        <p>This text is on the other side explaining something. If the width of the viewport is small enough, this text should be visible below the the heading on the left.</p>
+      </div>
+    </div>
 
-
-
-
-        <section id="bootless">
-
-
-          <h1>Bootless.css</h1>
-
-          <p>Some concepts, such as grids and cards, are not covered by the default html5 tags and require CSS classes.
-          Therefore, Classless defines a few classes with the same class names as the popular framework Bootstrap.</p>
-
-          <h2 id="grid">Grid System</h2>
-          <p>Classless provides a simple grid system with the same class names as bootstrap.</p>
-
-
-          <div class="row">
-            <div class="col-6"><h4>Colum 1/2</h4></div>
-            <div class="col">
-              <p>This text is on the other side explaining something. If the width of the viewport is small enough, this text should be visible below the the heading on the left.</p>
-            </div>
-          </div>
-
-          <pre><code>&lt;div class="row"&gt;
+    <pre><code>&lt;div class="row"&gt;
   &lt;div class="col"&gt;
     &lt;h4&gt;Column 1/2&lt;/h4&gt;
   &lt;/div&gt;
@@ -538,103 +648,126 @@
 &lt;/div&gt;</code></pre> 
 
 
-          <h3>Columns</h3>
-          <p>There are also classes for columns with special width such as <code>.col-4</code> (4/12) resulting in one third of the width:</p> 
+    <h3>Columns</h3>
+    <p>There are also classes for columns with special width such as <code>.col-4</code> (4/12) resulting in one third of the width:</p> 
 
-          <div class="row">
-            <div class="col-4"><h4 class="bg-light p-1">Colum 1/3</h4></div>
-            <div class="col-4"><h4 class="bg-light p-1">Colum 2/3</h4></div>
-            <div class="col-4"><h4 class="bg-light p-1">Colum 3/3</h4></div>
-          </div>
+    <div class="row">
+      <div class="col-4"><h4 class="bg-light p-1">Colum 1/3</h4></div>
+      <div class="col-4"><h4 class="bg-light p-1">Colum 2/3</h4></div>
+      <div class="col-4"><h4 class="bg-light p-1">Colum 3/3</h4></div>
+    </div>
 
-          <p>and also <code>.col-3</code> (3/12) resulting in 4 cols:</p>
-          <div class="row">
-            <div class="col-3"><h4 class="bg-light p-1">Colum 1/4</h4></div>
-            <div class="col-3"><h4 class="bg-light p-1">Colum 2/4</h4></div>
-            <div class="col-3"><h4 class="bg-light p-1">Colum 3/4</h4></div>
-            <div class="col-3"><h4 class="bg-light p-1">Colum 4/4</h4></div>
-          </div>
+    <p>and also <code>.col-3</code> (3/12) resulting in 4 cols:</p>
+    <div class="row">
+      <div class="col-3"><h4 class="bg-light p-1">Colum 1/4</h4></div>
+      <div class="col-3"><h4 class="bg-light p-1">Colum 2/4</h4></div>
+      <div class="col-3"><h4 class="bg-light p-1">Colum 3/4</h4></div>
+      <div class="col-3"><h4 class="bg-light p-1">Colum 4/4</h4></div>
+    </div>
 
-          <p>If you use a <code>.col-X</code> with limited width, the other <code>.col</code> will take up the remaining space:</p>
-          <div class="row">
-            <div class="col-4"><h4>Colum 1/3</h4></div>
-            <div class="col">
-              <p>This text is on the other side explaining something. If the width of the viewport is small enough, this text should be visible below the the heading on the left.</p>
-            </div>
-          </div>
+    <p>If you use a <code>.col-X</code> with limited width, the other <code>.col</code> will take up the remaining space:</p>
+    <div class="row">
+      <div class="col-4"><h4>Colum 1/3</h4></div>
+      <div class="col">
+        <p>This text is on the other side explaining something. If the width of the viewport is small enough, this text should be visible below the the heading on the left.</p>
+      </div>
+    </div>
+    </section>
 
+    <section id="card">
+    <h2>Cards</h2>
+    <p>If you want to group special content from the normal text flow, cards will be your friends.</p>
 
-
-        </section>
-
-        <section id="card">
-          <h2>Cards</h2>
-          <p>If you want to group special content from the normal text flow, cards will be your friends.</p>
-
-          <div class="row">
-            <div class="col">
-              <div class="card">
-                <h4>Card Heading</h4>
-                <hr>
-                <p>This is the card body.</p>               
-              </div>
-            </div>
-            <div class="col">
-                <pre><code>&lt;div class="card"&gt;
-  &lt;h4&gt;Card Heading&lt;/h4&gt;
-  &lt;hr&gt;
-  &lt;p&gt;This is the card body.&lt;/p&gt;
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <h4>Card Heading</h4>
+          <hr>
+          <p>This is the card body.</p>               
+        </div>
+      </div>
+      <div class="col">
+        <pre><code>&lt;div class="card"&gt;
+ &lt;h4&gt;Card Heading&lt;/h4&gt;
+ &lt;hr&gt;
+ &lt;p&gt;This is the card body.&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-            </div>
-          </div>
+      </div>
+    </div>
+    </section>
 
 
+    </article>
 
-        </section>
+    </main>
 
-
-
-
-
-
-      </main>
-
-
-      <footer>
-      <hr>
-        <h5>Classless.css</h5>
-        <p>Code on <a href="http://github.com/emareg/classlesscss">GitHub</a>.<br>
-        <a href="mailto:john.doe@foo.bar">john.doe@foo.bar</a><br>
-        <a href="tel:+1234567890">+1234567890</a>
-        </p>
-      </footer>
+    <footer>
+    <hr>
+      <h5>Classless.css</h5>
+      <p>Code on <a href="http://github.com/emareg/classlesscss">GitHub</a>.<br>
+      <a href="mailto:john.doe@foo.bar">john.doe@foo.bar</a><br>
+      <a href="tel:+1234567890">+1234567890</a>
+      </p>
+    </footer>
   </body>
 
 
-<!-- Javascript here -->
-<script>
+  <!-- Javascript here, only required for switching themes dynamically -->
+  <script>
 
-  // only for convenience, not required for Classless!
-  function clipBoard(value) {
-    var tempInput = document.createElement("input");
-    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-    tempInput.value = value;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
-  }
+    // only for convenience, not required for Classless!
+    function clipBoard(value) {
+      var tempInput = document.createElement("input");
+      tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+      tempInput.value = value;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+    }
 
-  // only for switching theme Demo, not required for Classless!
-  function switchTheme(e) {
-    switch(e.value) {
-      case "1": document.documentElement.setAttribute('data-theme', 'light'); break;
-      case "2": document.documentElement.setAttribute('data-theme', 'dark'); break;
-      case "3": document.documentElement.setAttribute('data-theme', 'sepia'); break;
-    }   
-  }
+    // only for switching theme Demo, not required for Classless!
+    function switchTheme(e) {
+      switch(e.value) {
+        case "1": document.documentElement.setAttribute('data-theme', 'light'); break;
+        case "2": document.documentElement.setAttribute('data-theme', 'dark'); break;
+        case "3": document.documentElement.setAttribute('data-theme', 'sepia'); break;
+      }   
+    }
+
+    function switchCSS(e){
+      switch(e.value) {
+        case "1": document.getElementById('cssfile').href = "classless.css"; break;
+        case "2": document.getElementById('cssfile').href = "classless-tiny.css"; break;
+      }  
+    }
+
+  </script>
 
 
-</script>
+  <!-- KaTeX, not required for Classless, just to demonstrate its compatibility -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+  <!-- The loading of KaTeX is deferred to speed up page rendering -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+  <!-- To automatically render math in text elements, include the auto-render extension: -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"></script>
+
+  <script type="text/javascript">
+  window.addEventListener("load", function(){
+    renderMathInElement(
+      document.body,
+      {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false},
+        ]
+      }
+    );
+  });
+  </script>
+
 
 </html>
