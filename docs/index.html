@@ -43,7 +43,7 @@
       </li>
       <li class="float-right">
         Theme:
-        <select id="theme" onchange="switchTheme(this)" class="p-0">
+        <select id="theme" onchange="switchTheme(this)" class="p-0 m-0">
           <option value="1">Light</option>
           <option value="2">Dark</option>
           <option value="3">Sepia</option>
@@ -72,22 +72,18 @@
     <h2>Getting Started</h2>
     <p>For testing, you can simply insert the following line into your HTML file. For production, please host the classless.css file yourself.</p>
     
-    <pre><code>
-&lt;link rel="stylesheet" href="https://classless.de/classless.css"&gt;
-    </code></pre>
-    <button onclick='clipBoard("<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400\" rel=\"stylesheet\">\n<link rel=\"stylesheet\" href=\"classless.css\" />")'>Copy Link-Tag</button>
+    <pre><code>&lt;link rel="stylesheet" href="https://classless.de/classless.css"&gt;</code></pre>
+    <button onclick='clipBoard("<link rel=\"stylesheet\" href=\"https://classless.de/classless.css\" />")'>Copy Link-Tag</button>
     <a href="classless.css" download="classless.css"><button>Download Full CSS</button></a>
 
     <h5>Tiny Version</h5>
-    <p>We also offer a pre-made tiny version (90 lines, 2.6 kB) with only the base styles.<br>Test now: 
+    <p>We also offer a pre-made tiny version (90 lines, 2.6 kB) with only the most basic styles for text, tables, figures, and code.<br>Test now: 
       <select id="theme" onchange="switchCSS(this)" class="p-0">
           <option value="1">Full</option>
           <option value="2">Tiny</option>
       </select>
     </p>   
-    <pre><code>
-&lt;link rel="stylesheet" href="https://classless.de/classless-tiny.css"&gt;
-    </code></pre>
+    <pre><code>&lt;link rel="stylesheet" href="https://classless.de/classless-tiny.css"&gt;</code></pre>
     <a href="classless-tiny.css" download="classless-tiny.css"><button>Download Tiny CSS</button></a>
 
     <h5>Look at this Code</h5>
@@ -149,7 +145,7 @@
           <th>Classless</th>      
           <th><a href="http://getskeleton.com/">Skeleton</a></th>
           <th><a href="https://milligram.io/">Milligram</a></th>
-          <th><a href="https://oxal.org/projects/sakura/">Sakura</th>
+          <th><a href="https://oxal.org/projects/sakura/">Sakura</a></th>
         </tr>
       </thead>
       <tbody>
@@ -176,9 +172,9 @@
         </tr>
         <tr>
           <td>Browsers</td>      
+          <td>Chrome, FF,<br>Edge</td>      
           <td>Chrome, FF</td>      
-          <td>Chrome, FF</td>      
-          <td>Chrome, FF, Opera<br> IE, Edge, Safari</td>      
+          <td>Chrome, FF, Opera<br> Edge, Safari</td>      
           <td>Chrome, FF</td>
         </tr>
         <tr>
@@ -192,6 +188,67 @@
       <caption>Comparison of different minimal CSS frameworks.<br>* readable, non-minified code (these tiny libs don't need minimizers)</caption> 
     </table>
 
+    <p>Even more advanced tables are possible. We apply extra styling in case you specify a <code>rowspan</code> or <code>colspan</code> attribute for the <code>&lt;th&gt;</code> tags of the table header.</p>
+
+    <figure>   
+      <table>
+        <thead>
+        <tr>
+          <th rowspan="2">Name</th>
+          <th colspan="2">CSS File</th>
+          <th rowspan="2"></th>
+          <th colspan="5">Browser Support</th>
+          <th rowspan="2">Dependency</th>
+          <th rowspan="2">License</th>
+        </tr>
+        <tr>
+          <td>LOC</td><td>Size</td>
+          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/chrome.svg" width="20"></td>
+          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/firefox.svg" width="20"></td>
+          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/safari.svg" width="20"></td>
+          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/edge.svg" width="20"></td>
+          <td><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Internet_Explorer_10%2B11_logo.svg" width="20"></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Classless</td>
+          <td>400</td><td>11.2 kB</td>
+          <td></td><td>✔</td><td>✔</td><td>?</td><td>✔</td><td>✘</td>
+          <td>none</td>
+          <td>MIT</td>
+        </tr>
+        <tr><td>Classless Tiny</td>
+          <td>91</td><td>2.6 kB</td>
+          <td></td><td>✔</td><td>✔</td><td>?</td><td>✔</td><td>✘</td>
+          <td>none</td>
+          <td>MIT</td>
+        </tr>
+        <tr>
+          <td><a href="http://getskeleton.com/">Skeleton</a></td>
+          <td>400</td><td>11.2 kB</td>
+          <td></td><td>✔</td><td>✔</td><td>✔</td><td>?</td><td>✔</td>
+          <td>normalize</td>
+          <td>MIT</td>
+        </tr>
+        <tr>
+          <td><a href="https://milligram.io/">Milligram</a></td>
+          <td>600</td><td>10.3 kB</td>
+          <td></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>?</td>
+          <td>normalize 8.0</td>
+          <td>MIT</td>
+        </tr>
+        <tr>
+          <td><a href="https://oxal.org/projects/sakura/">Sakura</a></td>
+          <td>165</td><td>3.3 kB</td>
+          <td></td><td>✔</td><td>✔</td><td>?</td><td>?</td><td>?</td>
+          <td>(normalize)</td>  <!-- Sakura only recommends normalize -->
+          <td>MIT</td>
+        </tr>
+        </tbody>  
+      </table>
+      <figcaption>A more complex table. Still no classes.</figcaption> 
+    </figure>
 
 
 
@@ -392,34 +449,8 @@
       <figcaption>A table in a figure environment will be centered and produce a scrollable overflow on mobile devices.</figcaption>
     </figure>
 
-    <figure>   
-      <table>
-        <thead>
-        <tr>
-          <th rowspan="2">Name</th>
-          <th colspan="2">CSS File</th>
-          <th rowspan="2"></th>
-          <th colspan="4">Browser Support</th>
-          <th rowspan="2">Dependency</th>
-        </tr>
-        <tr>
-          <td>LOC</td><td>Size</td>
-          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/chrome.svg" width="20"></td>
-          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/firefox.svg" width="20"></td>
-          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/safari.svg" width="20"></td>
-          <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/edge.svg" width="20"></td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr><td>Classless</td><td>400</td><td>11.2 kB</td><td></td><td>✔</td><td>✔</td><td>?</td><td>✔</td><td>none</td></tr>
-        <tr><td>Classless Tiny</td><td>91</td><td>2.6 kB</td><td></td><td>✔</td><td>✔</td><td>?</td><td>✔</td><td>none</td></tr>
-        <tr><td>Skeleton</td><td>400</td><td>11.2 kB</td><td></td><td>✔</td><td>✔</td><td>?</td><td>?</td><td>normalize</td></tr>
-        <tr><td>Milligram</td><td>600</td><td>10.3 kB</td><td></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>normalize</td></tr>
-        <tr><td>Sakura</td><td>165</td><td>10.3 kB</td><td></td><td>✔</td><td>✔</td><td>?</td><td>?</td><td>normalize</td></tr>
-        </tbody>
-      </table>
-      <figcaption>A more complex table. Still no classes.</figcaption> 
-    </figure>
+
+
 
 
 
@@ -480,6 +511,17 @@
       <figcaption>A test video</figcaption>
     </figure>
 
+
+    <figure>
+      <svg width="74.08mm" height="15.87mm" version="1.1" viewBox="0 0 74.08 15.87" xmlns="http://www.w3.org/2000/svg">
+       <g transform="translate(-30.43 -73.43)">
+        <rect x="30.43" y="73.43" width="27.78" height="15.87" fill="#008888" style="paint-order:normal"/>
+        <path d="m59.53 81.36h11.91l1e-6 2.646 2.646-2.646-2.646-2.646-1e-6 2.646" fill="none" stroke="#000000" stroke-width=".7937"/>
+        <rect x="76.73" y="73.43" width="27.78" height="15.87" fill="#0077cc" style="paint-order:normal"/>
+       </g>
+      </svg>
+      <figcaption>A simple inline svg.</figcaption>
+    </figure>
 
     <h3>Math</h3>
     <p>Math would have been possible without JavaScript but Google dropped support for MathML<cite><a href="https://www.cnet.com/news/google-subtracts-mathml-from-chrome-and-anger-multiplies">CNET: “Google subtracts MathML from Chrome, and anger multiplies”, 2013</a></cite>.

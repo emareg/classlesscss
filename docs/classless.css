@@ -26,8 +26,8 @@ html[data-theme='light'],
 	--cfg: #433;
 	--cbg: #fff;
 	--ornament: "‹‹‹ ›››";
-	--font-p: 13pt 'Open Sans', Helvetica, sans-serif;
-	--font-h: 13pt 'Open Sans', Helvetica, sans-serif;
+	--font-p: 13pt 'Open Sans', Arial, sans-serif;
+	--font-h: 13pt 'Open Sans', Arial, sans-serif;
 	--font-c: 12pt monospace;
 }
 
@@ -100,10 +100,10 @@ a:hover, button:not([disabled]):hover, select:hover {
 }
 
 /* headings */
-h1, h2, h3, h4, h5 { margin: 1.5em 0 0em; font: var(--font-h); }
+h1, h2, h3, h4, h5 { margin: 1.5em 0 0em; font: var(--font-h); line-height: 1.2em; }
 h1+h2, h2+h3, h3+h4, h4+h5 { margin-top: .5em; padding-top: 0; }  /* non-clashing headings */
 h1 { font-size: 2.2em; font-weight: 300; }
-h2 { font-size: 2.0em; font-weight: 300; font-variant-caps: small-caps; }
+h2 { font-size: 2.0em; font-weight: 300; font-variant: small-caps; }
 h3 { font-size: 1.5em; font-weight: 400; }
 h4 { font-size: 1.1em; font-weight: 700; }
 h5 { font-size: 1.2em; font-weight: 400; color: var(--cdark); }
@@ -112,29 +112,30 @@ h6 + p { display: inline; }
 
 /* tables */
 td, th {
-  padding: 0.5rem 1.0rem;
+  padding: 0.5rem 0.8rem;
   text-align: right;
-  border-bottom: 1px solid var(--cmed);
+  border-bottom: 0.1rem solid var(--cmed);
   white-space: nowrap;
   font-size: 95%;
 }
-thead tr:not(:only-child) th,
-thead tr:not(:only-child) td { padding: .2rem 1.0rem; text-align: center; }
+thead th[colspan] { padding: .2rem 0.8rem; text-align: center; }
+thead tr:not(:only-child) td { padding: .2rem 0.8rem; }
 thead+tbody tr:first-child td { border-top: 1.5px solid var(--cdark) }
 td:first-child, th:first-child { text-align: left; }
 tr:hover{ background-color: var(--clight); }
+table img { display: block; }
 
 /* figures */
 figure > img { display: inline-block; width: auto; }
-figure > img:only-of-type { max-width: 100%; display: block; margin: 0 auto 0.4em; }
+figure > img:only-of-type, figure > svg:only-of-type { max-width: 100%; display: block; margin: 0 auto 0.4em; }
 figcaption, caption { font: var(--font-h); color: var(--cdark); width: 100%; }
-figure > *:not(:last-child) { margin: 0 0 0.4rem; }
+figure > *:not(:last-child) { margin-bottom: 0.4rem; }
 
 /* code */
 pre > code {
   margin: 0;
   position: relative;
-  padding: 0.5rem 1.0rem;
+  padding: 0.8em;
   border-left: 0.3rem solid var(--cemph);
 }
 code, kbd, samp {
@@ -336,7 +337,6 @@ textarea:focus, input:not([type=checkbox]):not([type=radio]):focus{
 	box-shadow: 0 0 5px var(--clink);
 }
 button[disabled]{ color: var(--cdark); border-color: var(--cmed); }
-
 
 
 /* 4. Bootstrap Compatibile Classes

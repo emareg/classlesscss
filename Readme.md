@@ -51,8 +51,11 @@ For testing, you can simply insert the following line into your HTML file. For p
 | FireFox 85.0  on Ubuntu 18.04 | perfect    |
 | FireFox 84.0  on Windows 10   | perfect    |
 | Edge 42.17 on Windows 10      | very good¹ |
+| Edge 88.0 on Windows 10       | perfect    |
+| IE 11 on Windows 10           | poor²      |
 | FireFox 85.1 on Android 10    | perfect    |
 | Samsung Browser on Android 10 | perfect    |
 
 
 ¹: drop letter slightly below baseline, citations slightly too high
+²: body full width, table and code styles ignored, cite elements overlap text

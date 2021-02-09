@@ -15,7 +15,7 @@ ul, ol, dl, fieldset, pre, pre > code, caption {
 body {
 	margin: auto;
 	max-width: 50rem;
-	padding: 2rem 0.5rem 0rem;
+	padding: 2rem 0.6rem 0rem;
 	overflow-x: hidden;
 	font: 13pt 'Open Sans', Helvetica, sans-serif;
 	color: #433;
@@ -38,8 +38,8 @@ a, summary {
 a:hover { color: #088;  border-color: #088; }
 
 /* headings */
-h1, h2, h3, h4, h5 { margin: 1.5em 0 0em; }
-h1+h2, h2+h3, h3+h4, h4+h5 { margin-top: .5em; }  /* non-clashing headings */
+h1, h2, h3, h4, h5 { margin: 1.5em 0 0em; line-height: 1.2em; }
+h1+h2, h2+h3, h3+h4, h4+h5 { margin-top: .5em; }
 h1 { font-size: 2.2em; font-weight: 300; }
 h2 { font-size: 2.0em; font-weight: 300; font-variant-caps: small-caps; }
 h3 { font-size: 1.5em; font-weight: 400; }
@@ -50,7 +50,7 @@ h6 + p { display: inline; }
 
 /* tables */
 td, th {
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 0.8rem;
   text-align: right;
   border-bottom: 0.1rem solid #d1d1d1;
   white-space: nowrap;
@@ -68,7 +68,7 @@ figure > *:not(:last-child) { margin: 0 0 0.4rem; }
 pre > code {
   margin: 0;
   position: relative;
-  padding: 0.5rem 1.0rem;
+  padding: 0.8em;
   border-left: 0.3rem solid #088;
 }
 code, kbd, samp {
