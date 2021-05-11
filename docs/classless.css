@@ -67,8 +67,6 @@ ul, ol, dl, fieldset, pre, pre > code, caption {
 	display: block;
 	margin: 0.5rem 0rem 1rem;
 	width: 100%;
-	overflow-x: auto;
-	overflow-y: hidden;
 	text-align: left;
 }
 html { background-color: var(--cbg); }
@@ -445,11 +443,11 @@ abbr[data-title]:before {
 	background-color: var(--cmed);
 	color: #fff;
 	color: var(--font-p);
+  white-space: normal;
 
 	text-align:center;
 	display: none;
 }
-
 abbr[data-title]:hover:before, abbr[data-title]:active:before {
 	display: block;
 }
