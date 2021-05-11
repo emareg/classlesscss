@@ -402,38 +402,39 @@ button[disabled]{ color: var(--cdark); border-color: var(--cmed); }
 .p-1, .py-1, .pb-1 { padding-bottom: 1.0rem !important; }
 
 /* tooltips */
-*[data-tooltip-text] {
+abbr[data-title] {
 	position: relative;
 	cursor: pointer;
-	text-decoration:underline;
-	text-decoration-thickness: 2px;
-	text-decoration-style: dotted;
-	text-decoration-color: var(--font-p);
+
+  text-decoration:underline;
+  text-decoration-thickness: 2px;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--font-p);
 }
-*[data-tooltip-pos="left"]:before {
+abbr[data-position="left"]:before {
 	top:50%;
 	transform:translateY(-50%);
 	left:100%;
 	margin-left:15px;
 }
-*[data-tooltip-pos="top"]:before {
+abbr[data-position="top"]:before {
 	left: 50%;
 	transform: translateY(-100%) translateX(-50%);
 	margin-top: -15px;
 }
-*[data-tooltip-pos="bottom"]:before {
+abbr[data-position="bottom"]:before {
 	left: 50%;
 	transform: translateY(100%) translateX(-50%);
 	margin-top: -15px;
 }
-*[data-tooltip-pos="right"]:before {
+abbr[data-position="right"]:before {
 	top:50%;
 	transform:translateY(-50%);
 	right: 100%;
 	margin-right:15px;
 }
-*[data-tooltip-text]:before {
-	content: attr(data-tooltip-text);
+abbr[data-title]:before {
+	content: attr(data-title);
 	z-index: 42;
 
 	position: absolute;
@@ -449,6 +450,6 @@ button[disabled]{ color: var(--cdark); border-color: var(--cmed); }
 	display: none;
 }
 
-*[data-tooltip-text]:hover:before {
+abbr[data-title]:hover:before, abbr[data-title]:active:before {
 	display: block;
 }

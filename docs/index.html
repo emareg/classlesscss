@@ -740,34 +740,38 @@
 
     <section id="card">
       <h2>Tooltips</h2>
-      <p>Any element can have a tooltip in one of the four directions.</p>
+      <p>
+        An <code>&lt;abbr&gt;</code> element can have a tooltip in one of the
+        four directions. On touch devices, the tooltip is shown when the user
+        touches and holds the element.
+      </p>
       <div class="row">
         <div class="col-3">
-          <span
-            data-tooltip-pos="left"
-            data-tooltip-text="A tooltip to the left.">Left</span>
+          <abbr
+            data-position="left"
+            data-title="A tooltip to the left.">Left</abbr>
         </div>
         <div class="col-3">
-          <span
-            data-tooltip-pos="top"
-            data-tooltip-text="A tooltip on the top">Top</span>
+          <abbr
+            data-position="top"
+            data-title="A tooltip on the top">Top</abbr>
         </div>
         <div class="col-3">
-          <span
-            data-tooltip-pos="bottom"
-            data-tooltip-text="A tooltip on the bottom">Bottom</span>
+          <abbr
+            data-position="bottom"
+            data-title="A tooltip on the bottom">Bottom</abbr>
         </div>
         <div class="col-3">
-          <span
-            data-tooltip-pos="right"
-            data-tooltip-text="A tooltip on the right">Right</span>
+          <abbr
+            data-position="right"
+            data-title="A tooltip on the right">Right</abbr>
         </div>
       </div>
-      <pre><code>&lt;span
-  data-tooltip-pos=&quot;right&quot;
-  data-tooltip-text=&quot;A tooltip on the right&quot;&gt;
+      <pre><code>&lt;abbr
+  data-position=&quot;right&quot;
+  data-title=&quot;A tooltip on the right&quot;&gt;
   Right
-&lt;/span&gt;<code></pre>
+&lt;/abbr&gt;<code></pre>
     </section>
 
 
