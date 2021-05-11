@@ -441,8 +441,8 @@ abbr[data-title]:before {
 	width:200px;
 	padding:10px;
 	background-color: var(--cmed);
-	color: #fff;
-	color: var(--font-p);
+	font: var(--font-p);
+  color: var(--cfg);
   white-space: normal;
 
 	text-align:center;
