@@ -26,8 +26,8 @@ html[data-theme='light'],
 	--cfg: #433;
 	--cbg: #fff;
 	--ornament: "‹‹‹ ›››";
-	--font-p: 13pt 'Open Sans', Arial, sans-serif;
-	--font-h: 13pt 'Open Sans', Arial, sans-serif;
+	--font-p: 13pt 'Open Sans', Helvetica, sans-serif;
+	--font-h: 13pt 'Open Sans', Helvetica, sans-serif;
 	--font-c: 12pt monospace;
 }
 
