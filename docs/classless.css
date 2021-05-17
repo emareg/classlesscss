@@ -84,8 +84,8 @@ body {
 body > footer { margin: 10rem 0rem 0rem; }
 
 /* lists */
-ul, ol { padding-top: 0.5rem; }
-li, dd { margin-bottom: 0.5rem; }
+ul, ol, dl { margin: 1rem 0; }
+li:not(:last-child), dd:not(:last-child) { margin-bottom: 0.5rem; }
 dt { font-weight: bold; }
 
 /* links */
@@ -120,7 +120,7 @@ td, th {
 }
 thead th[colspan] { padding: .2rem 0.8rem; text-align: center; }
 thead tr:not(:only-child) td { padding: .2rem 0.8rem; }
-thead+tbody tr:first-child td { border-top: 1.5px solid var(--cdark) }
+thead+tbody tr:first-child td { border-top: 0.1rem  solid var(--cdark);  }
 td:first-child, th:first-child { text-align: left; }
 tr:hover{ background-color: var(--clight); }
 table img { display: block; }
@@ -148,11 +148,11 @@ kbd { border: 0.1rem solid var(--cmed); }
 
 /* misc */
 blockquote{ border-left: 0.4rem solid var(--cmed); padding: 0 0 .5rem 1.5rem; font-style: italic;  }
-summary { color: var(--cfg); }
 time{ color: var(--cdark); }
 mark { background: rgba(255,245,90,1.0); }
 hr { border: 0; border-top: 0.1rem solid var(--cmed); }
 nav { width: 100%; min-height: 2.8em; background-color: var(--clight); }
+summary { color: var(--cfg); }
 video:focus, summary:focus { outline:none; }
 
 
@@ -261,7 +261,8 @@ nav:first-of-type ul > li > ul {
 	display: none;
 	width: auto;
 	position: absolute;
-	padding: 1.0rem 2.5rem 0rem;
+	margin: 0.5rem 0;
+	padding: 1.0rem 2.5rem;
 	background-color: var(--clight);
 	border: solid 0.1rem var(--cmed);
 	border-top: 0;
