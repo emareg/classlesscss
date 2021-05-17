@@ -399,55 +399,18 @@ button[disabled]{ color: var(--cdark); border-color: var(--cmed); }
 .p-1, .py-1, .pt-1 { padding-top:    1.0rem !important; }
 .p-1, .py-1, .pb-1 { padding-bottom: 1.0rem !important; }
 
-/* tooltips */
-abbr[data-title] {
-	position: relative;
-	cursor: pointer;
-
-  text-decoration:underline;
-  text-decoration-thickness: 2px;
-  text-decoration-style: dotted;
-  text-decoration-color: var(--font-p);
-}
-abbr[data-position="left"]:before {
-	top:50%;
-	transform:translateY(-50%);
-	left:100%;
-	margin-left:15px;
-}
-abbr[data-position="top"]:before {
-	left: 50%;
-	transform: translateY(-100%) translateX(-50%);
-	margin-top: -15px;
-}
-abbr[data-position="bottom"]:before {
-	left: 50%;
-	transform: translateY(100%) translateX(-50%);
-	margin-top: -15px;
-}
-abbr[data-position="right"]:before {
-	top:50%;
-	transform:translateY(-50%);
-	right: 100%;
-	margin-right:15px;
-}
-abbr[data-title]:before {
-	content: attr(data-title);
-	z-index: 42;
-
-	position: absolute;
-	border-radius: .3rem;
-
-	width:200px;
-	padding:10px;
-	background-color: var(--cmed);
-	font: var(--font-p);
-  color: var(--cfg);
-  white-space: normal;
-
-	text-align:center;
-	display: none;
-}
-abbr[data-title]:hover:before, abbr[data-title]:active:before {
-	display: block;
+abbr[data-title] { position: relative; text-decoration: underline dotted; cursor: help; }
+@media (max-width:1024px) {
+	abbr[data-title]:hover::before,
+	abbr[data-title]:focus::before {
+		position: absolute;
+		bottom: 2em;
+		width: 10em;
+		padding: .5em .7em;
+		color: var(--cbg);
+		background-color: var(--cfg);
+		box-shadow: .1rem .1rem .4rem 0 var(--cfg);
+		content: attr(data-title);
+		white-space: normal;
+	}
 }

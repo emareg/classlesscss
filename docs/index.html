@@ -373,7 +373,7 @@
         <table>
           <thead><tr>
             <th>
-              <abbr data-position="top" data-title="Tooltips work in table headers too!">
+              <abbr data-title="Tooltips work in table headers too!">
                 Head 1 with a tooltip
               </abbr>
             </th>
@@ -746,36 +746,12 @@
     <section id="card">
       <h2>Tooltips</h2>
       <p>
-        An <code>&lt;abbr&gt;</code> element can have a tooltip in one of the
-        four directions. On touch devices, the tooltip is shown when the user
-        touches and holds the element.
+        An <code>&lt;abbr&gt;</code> element can have a tooltip by defining
+        the <code>data-title</code> attribute.
       </p>
-      <div class="row">
-        <div class="col-3">
-          <abbr
-            data-position="left"
-            data-title="A tooltip to the left.">Left</abbr>
-        </div>
-        <div class="col-3">
-          <abbr
-            data-position="top"
-            data-title="A tooltip on the top">Top</abbr>
-        </div>
-        <div class="col-3">
-          <abbr
-            data-position="bottom"
-            data-title="A tooltip on the bottom">Bottom</abbr>
-        </div>
-        <div class="col-3">
-          <abbr
-            data-position="right"
-            data-title="A tooltip on the right">Right</abbr>
-        </div>
-      </div>
-      <pre><code>&lt;abbr
-  data-position=&quot;right&quot;
-  data-title=&quot;A tooltip on the right&quot;&gt;
-  Right
+      <abbr data-title="A tooltip that contains text.">A tooltip</abbr>
+      <pre><code>&lt;abbr data-title=&quot;A tooltip that contains text.&quot;&gt;
+  A tooltip
 &lt;/abbr&gt;<code></pre>
     </section>
 
