@@ -67,6 +67,8 @@ ul, ol, dl, fieldset, pre, pre > code, caption {
 	display: block;
 	margin: 0.5rem 0rem 1rem;
 	width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
 	text-align: left;
 }
 html { background-color: var(--cbg); }
