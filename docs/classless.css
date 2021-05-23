@@ -100,7 +100,7 @@ a:hover, button:not([disabled]):hover, select:hover {
 }
 
 /* headings */
-h1, h2, h3, h4, h5 { margin: 1.5em 0 0em; font: var(--font-h); line-height: 1.2em; }
+h1, h2, h3, h4, h5 { margin: 1.5em 0 0em; font: var(--font-h); line-height: 1.2em; clear: both; }
 h1+h2, h2+h3, h3+h4, h4+h5 { margin-top: .5em; padding-top: 0; }  /* non-clashing headings */
 h1 { font-size: 2.2em; font-weight: 300; }
 h2 { font-size: 2.0em; font-weight: 300; font-variant: small-caps; }
@@ -126,6 +126,8 @@ tr:hover{ background-color: var(--clight); }
 table img { display: block; }
 
 /* figures */
+img, svg { max-width: 100%; }
+p>img:not(:only-child) { float: right; margin: 0 0 .5em .5em; }
 figure > img { display: inline-block; width: auto; }
 figure > img:only-of-type, figure > svg:only-of-type { max-width: 100%; display: block; margin: 0 auto 0.4em; }
 figcaption, caption { font: var(--font-h); color: var(--cdark); width: 100%; }

@@ -102,10 +102,8 @@
 
     <h1>A Short Classless Article</h1>
     <p>E. Regnath, <time>2020-12-15</time></p>
-    <figure>
-      <img src="img/headerimg.jpg" alt="An image"/>
-      <!-- <figcaption>Heading Image.</figcaption> -->
-    </figure>
+    <img src="img/headerimg.jpg" alt="An image"/>
+
 
        
     <h2>Simple but Elegant</h2>
@@ -202,7 +200,7 @@
           <th rowspan="2">License</th>
         </tr>
         <tr>
-          <td>LOC</td><td>Size</td>
+          <td><abbr title="Lines of Code">LOC</abbr></td><td>Size</td>
           <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/chrome.svg" width="20"></td>
           <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/firefox.svg" width="20"></td>
           <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/safari.svg" width="20"></td>
@@ -214,7 +212,7 @@
         <tr>
           <td>Classless</td>
           <td>400</td><td>11.2 kB</td>
-          <td></td><td>✔</td><td>✔</td><td>?</td><td>✔</td><td>✘</td>
+          <td></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td>
           <td>none</td>
           <td>MIT</td>
         </tr>
@@ -272,6 +270,15 @@
         </figure>
         <figcaption>Example of a figure with two subfigures. Left you see a cat, right you see also a cat.</figcaption>
       </figure>
+
+
+
+      <aside>Floating images could be described in a side note.</aside>
+      <p>
+        <img src="http://placekitten.com/120/120" alt="Image alt text"/>
+        Inline <code>img</code> tags within a <code>p</code> tag will float to the right side and are suitable for smaller images that should not appear in their own figure environment. Floats will be cleared by the next heading.
+      </p>
+
 
 
 
