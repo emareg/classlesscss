@@ -215,27 +215,19 @@ article h3:before { counter-increment: h3; content: counter(h2) "." counter(h3) 
 
 /* citations */
 article p>cite:before {
-	padding: 0 0.2em;
-	color: var(--clink); visibility: visible;
+	color: var(--clink); padding: 0 .5em 0 0;
 	counter-increment: ref; content: " [" counter(ref) "] ";
-	font-size: .6em;
-	position: relative;
-	top: -.8em;
+	vertical-align: super; font-size: .6em;
 }
-article p>cite {
-	width: 1.2em; height: 1.2em;
-	visibility: hidden;
-	display: inline-block;
-	overflow: hidden;
-	vertical-align: text-top;
-}
-article p>cite:hover {
+article p>cite > *:only-child { display: none; }
+article p>cite:hover > *:only-child {
+	display: block;
 	position: relative; top: -1em;
-	width: 100%; height: inherit;
-	visibility: visible;
-	border-bottom: 3px solid var(--clink);
+	width: 100%;
 	margin: -1em 0; padding: 2.5em 1em .5em 1em;
+	border-bottom: 3px solid var(--clink);
 }
+
 
 /* navbar */
 nav+main, nav+header { margin-top: 3rem; }
@@ -309,17 +301,17 @@ main aside {
 @media (max-width: 70.5rem) { main aside { display: none; } }
 
 /* forms and inputs  */
-textarea, input, button, select {
+textarea, input:not([type=range]), button, select {
 	border-radius: .3rem;
 	border: .1rem solid var(--cmed);
 	padding: 0.5rem;
 	outline: none;
 }
-fieldset select, input:not([type='checkbox']):not([type='radio']) {
+fieldset select, input:not([type=checkbox]):not([type=radio]) {
 	display: block;
 	width: 100%;
 	font-size: 100%;
-	margin-bottom: 1rem;
+	margin: 0 0 1rem;
 }
 button, select {
 	padding: 0.5rem 1rem;
@@ -332,10 +324,10 @@ button, select {
 	border: .1rem solid var(--clink);
 }
 fieldset { border-radius: 0rem; border: .1rem solid var(--cmed); }
-textarea:focus, input:not([type=checkbox]):not([type=radio]):hover, select:hover{
+textarea:focus, input:not([type=checkbox]):not([type*='ra']):hover, select:hover{
   border:.1rem solid var(--cemph);
 }
-textarea:focus, input:not([type=checkbox]):not([type=radio]):focus{
+textarea:focus, input:not([type=checkbox]):not([type*='ra']):focus{
 	border:.1rem solid var(--clink);
 	box-shadow: 0 0 5px var(--clink);
 }

@@ -60,7 +60,8 @@ td:first-child, th:first-child { text-align: left; }
 tr:hover{ background-color: #f4f5f6; }
 
 /* figures */
-figure > img { max-width: 100%; display: block; margin: 0.5em auto; }
+img, svg { max-width: 100%; }
+figure > img { display: block; margin: 0.5em auto; }
 figcaption, caption { color: #888; margin-bottom: 1rem; }
 figure > *:not(:last-child) { margin: 0 0 0.4rem; }
 
