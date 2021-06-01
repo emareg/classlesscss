@@ -102,10 +102,8 @@
 
     <h1>A Short Classless Article</h1>
     <p>E. Regnath, <time>2020-12-15</time></p>
-    <figure>
-      <img src="img/headerimg.jpg" alt="An image"/>
-      <!-- <figcaption>Heading Image.</figcaption> -->
-    </figure>
+    <img src="img/headerimg.jpg" alt="An image"/>
+
 
        
     <h2>Simple but Elegant</h2>
@@ -138,55 +136,6 @@
     <h3>Tables</h3>
     <p>Classless applies some modern styling on the standard table elements. All columns except the first one are right aligned by default which makes it easy to compare numbers. Of course you can change this behavior with our utility classes.</p>
 
-    <table>
-      <thead>
-        <tr>
-          <th></th>      
-          <th>Classless</th>      
-          <th><a href="http://getskeleton.com/">Skeleton</a></th>
-          <th><a href="https://milligram.io/">Milligram</a></th>
-          <th><a href="https://oxal.org/projects/sakura/">Sakura</a></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Features</td>      
-          <td>responsive, grid,<br>themes, navbar,<br>cards, utilities</td>      
-          <td>responsive,<br>grid</td>      
-          <td>responsive,<br>grid, utilities</td>
-          <td>responsive</td>
-        </tr>
-        <tr>
-          <td>Size*</td>      
-          <td>11.2 kB<br>400 LOC</td>      
-          <td>11.2 kB<br>400 LOC</td>      
-          <td>10.3 kB<br>600 LOC</td>
-          <td>3.3 kB <br>165 LOC</td>
-        </tr>
-        <tr>
-          <td>Reset</td>      
-          <td>tiny reset</td>      
-          <td>normalize</td>      
-          <td>normalize</td>
-          <td>normalize</td>
-        </tr>
-        <tr>
-          <td>Browsers</td>      
-          <td>Chrome, FF,<br>Edge</td>      
-          <td>Chrome, FF</td>      
-          <td>Chrome, FF, Opera<br> Edge, Safari</td>      
-          <td>Chrome, FF</td>
-        </tr>
-        <tr>
-          <td>License</td>      
-          <td>MIT</td>      
-          <td>MIT</td>      
-          <td>MIT</td>      
-          <td>MIT</td>      
-        </tr>          
-      </tbody>
-      <caption>Comparison of different minimal CSS frameworks.<br>* readable, non-minified code (these tiny libs don't need minimizers)</caption> 
-    </table>
 
     <p>Even more advanced tables are possible. We apply extra styling in case you specify a <code>rowspan</code> or <code>colspan</code> attribute for the <code>&lt;th&gt;</code> tags of the table header.</p>
 
@@ -202,7 +151,7 @@
           <th rowspan="2">License</th>
         </tr>
         <tr>
-          <td>LOC</td><td>Size</td>
+          <td><abbr title="Lines of Code">LOC</abbr></td><td>Size</td>
           <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/chrome.svg" width="20"></td>
           <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/firefox.svg" width="20"></td>
           <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/safari.svg" width="20"></td>
@@ -214,7 +163,7 @@
         <tr>
           <td>Classless</td>
           <td>400</td><td>11.2 kB</td>
-          <td></td><td>✔</td><td>✔</td><td>?</td><td>✔</td><td>✘</td>
+          <td></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td>
           <td>none</td>
           <td>MIT</td>
         </tr>
@@ -275,7 +224,16 @@
 
 
 
-      <h3>Code Listing</h3>
+      <aside>Floating images could be described in a side note.</aside>
+      <p>
+        <img src="http://placekitten.com/120/120" alt="Image alt text"/>
+        Inline <code>img</code> tags within a <code>p</code> tag will float to the right side and are suitable for smaller images that should not appear in their own figure environment. Floats will be cleared by the next heading.
+      </p>
+
+
+
+
+      <h3>Code Listings</h3>
       <p>You can use inline code, such as <code>div</code>, or show keyboard inputs, such as <kbd>Ctrl+C</kbd>. 
       However, larger code examples require their own block environment.</p>
       
@@ -283,7 +241,7 @@
   println("hello world")
 }</code></pre>
 
-      <p>Unfortunately, captions for listings do not work perfectly at the moment. If you want to provide a caption for the listing, you have to place it inside a figure environment. However, it will be called <q>Figure</q>.</p>
+      <p>If you want to provide a caption for the listing, you have to place it inside a figure environment and use the <code>&lt;figcaption&gt;</code>. If the element before the caption is <code>&lt;pre&gt;</code>, it will be automatically labeled <q>Listing</q>.</p>
       <figure>
         <pre><code>main(int a){
   println("hello world")
@@ -412,17 +370,22 @@
   <div class="row">
     <div class="col">      
       <table>
+        <thead>
         <tr>
-          <td colspan="2">Test</td>
-          <td rowspan="2">Ctrl</td>
+          <th colspan="2">Test</th>
+          <th rowspan="2">Ctrl</th>
         </tr>
         <tr><td>A</td><td>B</td></tr>
-        <tr><td>4</td><td>2</td><td>X</td></tr>       
-        <caption>Cells spanning several rows or columns.</caption> 
+        </thead>
+        <tbody>
+        <tr><td>4</td><td>2</td><td>X</td></tr>
+        </tbody>
+      <caption>Cells spanning several rows or columns.</caption> 
       </table>
     </div>
     <div class="col">
       <pre><code>&lt;table&gt;
+&lt;thead&gt;
  &lt;tr&gt;
   &lt;td colspan=&quot;2&quot;&gt;Test&lt;/td&gt;
   &lt;td rowspan=&quot;2&quot;&gt;Ctrl&lt;/td&gt;
@@ -430,6 +393,7 @@
  &lt;tr&gt;
   &lt;td&gt;A&lt;/td&gt;&lt;td&gt;B&lt;/td&gt;
  &lt;/tr&gt;
+&lt;/thead&gt;
  ...
 &lt;/table&gt;</code></pre>
     </div>
@@ -437,19 +401,56 @@
 
 
     <figure>
-      <table>
-        <thead>
+    <table>
+      <thead>
         <tr>
-          <th colspan="2">Test</th>
-          <th rowspan="2">Ctrl</th>
+          <th></th>      
+          <th>Classless</th>      
+          <th><a href="http://getskeleton.com/">Skeleton</a></th>
+          <th><a href="https://milligram.io/">Milligram</a></th>
+          <th><a href="https://oxal.org/projects/sakura/">Sakura</a></th>
         </tr>
-        <tr><td>A</td><td>B</td></tr>
       </thead>
-        <tbody>
-        <tr><td>4</td><td>2</td><td>X</td></tr>
-        </tbody>
-      </table>
-      <figcaption>A table in a figure environment will be centered and produce a scrollable overflow on mobile devices.</figcaption>
+      <tbody>
+        <tr>
+          <td>Features</td>      
+          <td>responsive, grid,<br>themes, navbar,<br>cards, utilities</td>      
+          <td>responsive,<br>grid</td>      
+          <td>responsive,<br>grid, utilities</td>
+          <td>responsive</td>
+        </tr>
+        <tr>
+          <td>Size*</td>      
+          <td>11.2 kB<br>400 LOC</td>      
+          <td>11.2 kB<br>400 LOC</td>      
+          <td>10.3 kB<br>600 LOC</td>
+          <td>3.3 kB <br>165 LOC</td>
+        </tr>
+        <tr>
+          <td>Reset</td>      
+          <td>tiny reset</td>      
+          <td>normalize</td>      
+          <td>normalize</td>
+          <td>normalize</td>
+        </tr>
+        <tr>
+          <td>Browsers</td>      
+          <td>Chrome, FF,<br>Edge</td>      
+          <td>Chrome, FF</td>      
+          <td>Chrome, FF, Opera<br> Edge, Safari</td>      
+          <td>Chrome, FF</td>
+        </tr>
+        <tr>
+          <td>License</td>      
+          <td>MIT</td>      
+          <td>MIT</td>      
+          <td>MIT</td>      
+          <td>MIT</td>      
+        </tr>          
+      </tbody>
+    </table>
+
+      <figcaption>A table in a figure environment will be centered and produce a scrollable overflow on mobile devices.<br>* readable, non-minified code (these tiny libs don't need minimizers)</figcaption>
     </figure>
 
 

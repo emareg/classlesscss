@@ -55,7 +55,8 @@ For testing, you can simply insert the following line into your HTML file. For p
 | IE 11 on Windows 10           | poor²      |
 | FireFox 85.1 on Android 10    | perfect    |
 | Samsung Browser on Android 10 | perfect    |
+| Safari on iPhone 10           | perfect    |
 
 
-¹: drop letter slightly below baseline, citations slightly too high
+¹: drop letter slightly below baseline, citations slightly too high<br>
 ²: body full width, table and code styles ignored, cite elements overlap text
