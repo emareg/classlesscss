@@ -395,3 +395,20 @@ button[disabled]{ color: var(--cdark); border-color: var(--cmed); }
 .p-1, .px-1, .pl-1 { padding-left:   1.0rem !important; }
 .p-1, .py-1, .pt-1 { padding-top:    1.0rem !important; }
 .p-1, .py-1, .pb-1 { padding-bottom: 1.0rem !important; }
+
+abbr[data-title] { position: relative; text-decoration: underline dotted; cursor: help; }
+@media (max-width:1024px) {
+	abbr[data-title]:hover::before,
+	abbr[data-title]:focus::before {
+		position: absolute;
+		bottom: 2em;
+		width: 10em;
+		padding: .5em .7em;
+		color: var(--cbg);
+		background-color: var(--cfg);
+		box-shadow: .1rem .1rem .4rem 0 var(--cfg);
+		content: attr(data-title);
+		white-space: normal;
+	}
+}
+
