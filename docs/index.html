@@ -806,18 +806,6 @@
 
   <section>
 
-    <section id="card">
-      <h2>Tooltips</h2>
-      <p>
-        An <code>&lt;abbr&gt;</code> element can have a tooltip by defining
-        the <code>data-title</code> attribute.
-      </p>
-      <abbr data-title="A tooltip that contains text.">A tooltip</abbr>
-      <pre><code>&lt;abbr data-title=&quot;A tooltip that contains text.&quot;&gt;
-  A tooltip
-&lt;/abbr&gt;<code></pre>
-    </section>
-
 
     <h2 id="sec-addons">Opt-In Addons</h2>
     <p>The following features are not included in the Classless CSS file. If you want those, you need to add additional CSS files or copy their content into your main CSS.</p>
@@ -902,7 +890,7 @@
 
 
     <h3>Settings: Dark Mode, Font Size</h3>
-    <p>Ok, this finally requires 15 lines of JavaScript. They provide the functionality of the two buttons in the navigation bar. I find them quite useful but since classless is JavaScript free, they are not included. You can simply copy them to your project:</p>
+    <p>Ok, this finally requires 15 lines of JavaScript. They provide the functionality of the two buttons in the navigation bar. I find them quite useful but since Classless is JavaScript-free, they are not included. You can simply copy them to your project:</p>
         <pre><code class="language-javascript">function addFontSize(addPx){
   html = document.querySelector('html');
   currentSize = parseFloat(window.getComputedStyle(html, null)

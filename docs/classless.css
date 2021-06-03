@@ -242,7 +242,7 @@ nav ul > li > ul {
 }
 nav ul > li > ul > li { white-space: nowrap; }
 nav ul > li:hover > ul { display: block; }
-@media (max-width: 40em) {
+@media (max-width: 40rem) {
 	nav ul:first-child > li:first-child:after { content: " \25BE"; }
 	nav ul:first-child > li:not(:first-child):not(.sticky) { display: none; }
 	nav ul:first-child:hover > li:not(:first-child):not(.sticky) { display: block; float: none !important; }
@@ -308,8 +308,7 @@ p>button { padding: 0 .5em; margin: 0 .5em; }
 p>select { padding: 0;      margin: 0 .5em; }
 
 
-/* 5. Bootstrap Compatibile Classes
-–––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* 5. Bootstrap-compatible classes ––––––––––––––––––––– */
 
 /* grid */
 .row { display: flex; margin:  0.5rem -0.6rem; align-items: stretch; }
@@ -363,20 +362,3 @@ p>select { padding: 0;      margin: 0 .5em; }
 .p-1, .px-1, .pl-1 { padding-left:   1.0rem !important; }
 .p-1, .py-1, .pt-1 { padding-top:    1.0rem !important; }
 .p-1, .py-1, .pb-1 { padding-bottom: 1.0rem !important; }
-
-abbr[data-title] { position: relative; text-decoration: underline dotted; cursor: help; }
-@media (max-width:1024px) {
-	abbr[data-title]:hover::before,
-	abbr[data-title]:focus::before {
-		position: absolute;
-		bottom: 2em;
-		width: 10em;
-		padding: .5em .7em;
-		color: var(--cbg);
-		background-color: var(--cfg);
-		box-shadow: .1rem .1rem .4rem 0 var(--cfg);
-		content: attr(data-title);
-		white-space: normal;
-	}
-}
-
