@@ -1,0 +1,106 @@
+/* 4. Bootstrap Compatibile Classes
+–––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+ /* grid */
+.row { display: flex; margin:  0.5rem -0.6rem; align-items: stretch; }
+.row [class*="col"] { padding: 0  0.5rem; }
+.row .col   { flex: 1 1 100%; }
+.row .col-2 { flex: 0 0 16.66%; }
+.row .col-3 { flex: 0 0 25%; }
+.row .col-4 { flex: 0 0 33.33%; }
+.row .col-6 { flex: 0 0 50%; }
+
+
+ /* cards */
+.card{
+	display: block;
+	margin: .5rem 0;
+	padding: .5rem 1rem 0.5rem; 
+	border-radius: .3rem; 
+	box-shadow: .1rem .1rem .4rem 0 var(--cdark);  
+}
+
+
+/* align */
+.align-top      { vertical-align: top; }
+.align-middle   { vertical-align: middle; }
+.align-bottom   { vertical-align: bottom; }
+.align-baseline { vertical-align: baseline; }
+
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+.text-center { text-align: center; }
+
+.float-left  { float: left !important; }
+.float-right { float: right !important; }
+.clearfix    { clear: both; }
+
+
+/* colors */
+.text-black    { color: #000; }
+.text-white    { color: #fff; }
+.text-primary  { color: var(--cprim); }
+.text-secondary{ color: var(--cdark); }
+
+.bg-white    { background-color: #fff; }
+.bg-light    { background-color: var(--clight); }
+.bg-primary  { background-color: var(--cprim); }
+.bg-secondary{ background-color: var(--cmed); }
+
+
+/* spacing */
+.w-25  { width: 25.00% !important; }
+.w-33  { width: 33.33% !important; }
+.w-50  { width: 50.00% !important; }
+.w-75  { width: 75.00% !important; }
+.w-100 { width: 100.0% !important; }
+
+
+/* margins */
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.m-0, .mx-0, .mr-0 { margin-right:  0.0rem !important; }
+.m-0, .mx-0, .ml-0 { margin-left:   0.0rem !important; }
+.m-0, .my-0, .mt-0 { margin-top:    0.0rem !important; }
+.m-0, .my-0, .mb-0 { margin-bottom: 0.0rem !important; }
+
+.m-05, .mx-05, .mr-05 { margin-right:  0.5rem !important; }
+.m-05, .mx-05, .ml-05 { margin-left:   0.5rem !important; }
+.m-05, .my-05, .mt-05 { margin-top:    0.5rem !important; }
+.m-05, .my-05, .mb-05 { margin-bottom: 0.5rem !important; }
+
+.m-1, .mx-1, .mr-1 { margin-right:  1.0rem !important; }
+.m-1, .mx-1, .ml-1 { margin-left:   1.0rem !important; }
+.m-1, .my-1, .mt-1 { margin-top:    1.0rem !important; }
+.m-1, .my-1, .mb-1 { margin-bottom: 1.0rem !important; }
+
+.m-2, .mx-2, .mr-2 { margin-right:  2.0rem !important; }
+.m-2, .mx-2, .ml-2 { margin-left:   2.0rem !important; }
+.m-2, .my-2, .mt-2 { margin-top:    2.0rem !important; }
+.m-2, .my-2, .mb-2 { margin-bottom: 2.0rem !important; }
+
+
+/* pading */
+.p-0, .px-0, .pr-0 { padding-right:  0.0rem !important; }
+.p-0, .px-0, .pl-0 { padding-left:   0.0rem !important; }
+.p-0, .py-0, .pt-0 { padding-top:    0.0rem !important; }
+.p-0, .py-0, .pb-0 { padding-bottom: 0.0rem !important; }
+
+.p-05, .px-05, .pr-05 { padding-right:  0.5rem !important; }
+.p-05, .px-05, .pl-05 { padding-left:   0.5rem !important; }
+.p-05, .py-05, .pt-05 { padding-top:    0.5rem !important; }
+.p-05, .py-05, .pb-05 { padding-bottom: 0.5rem !important; }
+
+.p-1, .px-1, .pr-1 { padding-right:  1.0rem !important; }
+.p-1, .px-1, .pl-1 { padding-left:   1.0rem !important; }
+.p-1, .py-1, .pt-1 { padding-top:    1.0rem !important; }
+.p-1, .py-1, .pb-1 { padding-bottom: 1.0rem !important; }
+
+.p-2, .px-2, .pr-2 { padding-right:  2.0rem !important; }
+.p-2, .px-2, .pl-2 { padding-left:   2.0rem !important; }
+.p-2, .py-2, .pt-2 { padding-top:    2.0rem !important; }
+.p-2, .py-2, .pb-2 { padding-bottom: 2.0rem !important; }
+
+
+/* responsive, smaller than */
+@media (max-width: 40em) { .row { flex-direction: column !important; } }

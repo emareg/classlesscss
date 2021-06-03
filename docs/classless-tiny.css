@@ -1,4 +1,4 @@
-/* Classless.css v0.94 (Tiny Inline Version)*/
+/* Classless.css v0.95 (Tiny Inline Version)*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
 
 /* Tiny Reset for block elements  */
@@ -12,30 +12,27 @@ ul, ol, dl, fieldset, pre, pre > code, caption {
 	overflow-y: hidden;
 	text-align: left;
 }
+video, summary, input, select { outline:none; }
+html { font: 12pt/1.6 'Open Sans', Helvetica, sans-serif; }
 body {
-	margin: auto;
+	position: relative;
+	margin: auto;	
 	max-width: 50rem;
-	padding: 2rem 0.6rem 0rem;
-	overflow-x: hidden;
-	font: 13pt 'Open Sans', Helvetica, sans-serif;
 	color: #433;
-	line-height: 1.5em;
+	padding: 3.1rem 0.6rem 0;
+	overflow-x: hidden;
 }
 body > footer { margin: 10rem 0rem 0rem; }
+
+/* clickable stuff */
+a, summary, button, select { color: #07c; cursor: pointer; }
+a { text-decoration: underline solid #d1d1d1; text-underline-position: under; }
+a:hover { color: #088;  border-color: #088; }
 
 /* lists */
 ul, ol { padding-top: 0.5rem; }
 li, dd { margin-bottom: 0.5rem; }
 dt { font-weight: bold; }
-
-/* links */
-a, summary {
-	color: #07c;
-	cursor: pointer;
-	text-decoration: underline solid #d1d1d1;
-	text-underline-position: under;
-}
-a:hover { color: #088;  border-color: #088; }
 
 /* headings */
 h1, h2, h3, h4, h5 { margin: 1.5em 0 0em; line-height: 1.2em; }
@@ -45,7 +42,7 @@ h2 { font-size: 2.0em; font-weight: 300; font-variant-caps: small-caps; }
 h3 { font-size: 1.5em; font-weight: 400; }
 h4 { font-size: 1.1em; font-weight: 700; }
 h5 { font-size: 1.2em; font-weight: 400; color: #888; }
-h6 { font-size: 1.0em; font-weight: 600; font-style: italic; display: inline; }
+h6 { font-size: 1.0em; font-weight: 600; display: inline; }
 h6 + p { display: inline; }
 
 /* tables */
@@ -84,6 +81,7 @@ kbd { border: 0.1rem solid #d1d1d1; }
 blockquote{ border-left: 0.3rem solid #d1d1d1; padding: 1rem 1.5rem; font-style: italic; }
 hr { border: 0; border-top: 0.1rem solid #d1d1d1; }
 nav { width: 100%; min-height: 2.8em; background-color: #f4f5f6; }
+input { font-size: 1em; }
 p>cite:before { content: ' ('; } p>cite:after {content: ') '}
 
 /* grid */

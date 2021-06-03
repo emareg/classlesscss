@@ -8,10 +8,10 @@ Classless.css is one small CSS file, which defines few but great styles for basi
 
 ## Features
 
-* **Small.** Only 400 lines of pure CSS3 for themes, grid, navigation bar, cards and more¹.
-* **Single File.** Everything in one file, no dependencies¹, no JavaScript, no exceptions.
-* **Modular.** Don't need all features?² The CSS file is structured into feature groups. Simply delete what you don't need.
-* **Responsive.** We use media queries, rem units, and smart overflows for tables and code.
+* **Small.** Only 400 lines of pure CSS3 for tooltips, grid, navigation bar, cards and more.
+* **Single File.** Everything in one file, no dependencies¹, no JavaScript.
+* **Modular.** Don't need all features? The CSS file is structured into feature groups, simply delete what you don't need².
+* **Responsive.** We use media queries, em/rem units, and smart overflows for tables and code.
 * **Bootstrap Compatible.** Special features that require classes use the same names as Bootstrap.
 
 ¹: we import the font 'Open Sans' but if it fails, we fallback to Helvetica.</br>
@@ -30,32 +30,70 @@ For testing, you can simply insert the following line into your HTML file. For p
 
 ## Comparison of Minimal Frameworks
 
-|           | Classless  | Skeleton   | Milligram  | Sakura     |
-|-----------|------------|------------|------------|------------|
-| Features  | responsive | responsive | responsive | responsive |
-|           | grid       |      grid  |      grid  |            |
-|           | utilities  |            | utilities  |            |
-|           | navbar     |            |            |            |
-| Size	    | 11.2kB     |    11.2 kB |   10.3 kB  |    3.3 kB  |
-| LOC       | 400        |     400    |     600    |      165   |
-
-
+<table>
+  <thead>
+    <tr>
+      <th></th>      
+      <th>Classless</th>      
+      <th><a href="http://getskeleton.com/">Skeleton</a></th>
+      <th><a href="https://milligram.io/">Milligram</a></th>
+      <th><a href="https://oxal.org/projects/sakura/">Sakura</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Features</td>      
+      <td>responsive, grid,<br>themes, navbar,<br>cards, utilities</td>      
+      <td>responsive,<br>grid</td>      
+      <td>responsive,<br>grid, utilities</td>
+      <td>responsive</td>
+    </tr>
+    <tr>
+      <td data-tooltip="Size of the readable, non-minified code (these tiny libs don't need minimizers)">Size</td>      
+      <td>11.2 kB<br>400 LOC</td>      
+      <td>11.2 kB<br>400 LOC</td>      
+      <td>10.3 kB<br>600 LOC</td>
+      <td>3.3 kB <br>165 LOC</td>
+    </tr>
+    <tr>
+      <td>Reset</td>      
+      <td>tiny reset</td>      
+      <td>normalize</td>      
+      <td>normalize</td>
+      <td>normalize</td>
+    </tr>
+    <tr>
+      <td>Browsers</td>      
+      <td>Chrome, FF,<br>Edge</td>      
+      <td>Chrome, FF</td>      
+      <td>Chrome, FF, Opera<br> Edge, Safari</td>      
+      <td>Chrome, FF</td>
+    </tr>
+    <tr>
+      <td>License</td>      
+      <td>MIT</td>      
+      <td>MIT</td>      
+      <td>MIT</td>      
+      <td>MIT</td>      
+    </tr>          
+  </tbody>
+</table>
 
 
 ## Classeless 0.94 Tests
 
 
-| Browser                       | Appearance | 
-|-------------------------------|------------|
-| Chromium 87.0 on Ubuntu 18.04 | perfect    |
-| FireFox 85.0  on Ubuntu 18.04 | perfect    |
-| FireFox 84.0  on Windows 10   | perfect    |
-| Edge 42.17 on Windows 10      | very good¹ |
-| Edge 88.0 on Windows 10       | perfect    |
-| IE 11 on Windows 10           | poor²      |
-| FireFox 85.1 on Android 10    | perfect    |
-| Samsung Browser on Android 10 | perfect    |
-| Safari on iPhone 10           | perfect    |
+| Browser                       | Support v94 | 
+|-------------------------------|-------------|
+| Chromium 87.0 on Ubuntu 18.04 | perfect     |
+| FireFox 85.0  on Ubuntu 18.04 | perfect     |
+| FireFox 84.0  on Windows 10   | perfect     |
+| Edge 42.17 on Windows 10      | good¹       |
+| Edge 88.0 on Windows 10       | perfect     |
+| IE 11 on Windows 10           | poor²       |
+| FireFox 85.1 on Android 10    | perfect     |
+| Samsung Browser on Android 10 | perfect     |
+| Safari on iPhone 10           | perfect     |
 
 
 ¹: drop letter slightly below baseline, citations slightly too high<br>

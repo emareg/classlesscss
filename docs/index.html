@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>Classless.css – Less Classes. Less overhead.</title>
@@ -9,13 +8,18 @@
   <meta name="author" content="Emanuel Regnath">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="favicon.png" sizes="any">
-  <link id="cssfile" rel="stylesheet" href="classless.css" />
+  <link id="maincss"  rel="stylesheet" href="classless.css" />
 </head>
 
+<style type="text/css">
+  svg { --fill: blue; }
+  object:root{ fill: red; }
+  object { --test: red; }
+  object#document { --test: red; }
 
+</style>
+  
 <body id="top">
-
-
 
 
   <!-- Header -->
@@ -29,41 +33,34 @@
   <nav>
     <ul>
       <li>
-        <img style="height: 1.0rem;" src="favicon.png">
+        <img style="height: 1.2em;" src="favicon.png">
         <span >&ensp;Classless.css</span>
       </li>
+      <li class="float-right sticky"><a onclick="addFontSize(-1)">ᴀ-</a>|<a onclick="addFontSize(1)">A+</a></li>
+      <li class="float-right sticky"><a onclick="toggleDarkMode(this)">☪</a></li>
       <li><a href="#demo">Demo</a></li>
-      <!-- <li><a href="#extra"></a></li> -->
-      <li class="dropdown"><a href="#bootless">Reference ▾</a>
+      <li ><a href="#basic">Reference ▾</a>
         <ul>
-          <li><a href="#basic">Basics</a></li>
-          <li><a href="#extra">Extra</a></li>
-          <li><a href="#bootless">Bootless</a></li>
+          <li><a href="#basic">Basic Style</a></li>
+          <li><a href="#extra">Extra Style</a></li>
+          <li><a href="#bootless">Classes</a></li>
+          <li><a href="#sec-addons">Add-Ons</a></li>
         </ul>
-      </li>
-      <li class="float-right">
-        Theme:
-        <select id="theme" onchange="switchTheme(this)" class="p-0 m-0">
-          <option value="1">Light</option>
-          <option value="2">Dark</option>
-          <option value="3">Sepia</option>
-        </select>
       </li>
       <li class="float-right"><a href="https://github.com/emareg/classlesscss">@GitHub</a></li>
     </ul>
   </nav>
 
 
-
     <h4>Abstract</h4>
-    <p>Classless.css is one small CSS file, which defines few but great styles for basic HTML5 tags plus very few classes for grid and spacing. Nothing more. Nothing less. With the basic tag styling, Classless provides a solid appearance for simple article pages without any classes. If you need more fancy features such as grid or cards – which are infeasible with basic HTML5 – we provide a few Bootstrap compatible classes.</p>
+    <p>Classless.css is one small CSS file, which defines few but great styles for basic HTML5 tags plus very few classes for grid, cards and spacing. Nothing more. Nothing less. With the basic tag styling, Classless provides a solid appearance for simple article pages without any classes. If you need more fancy features such as grid or cards – which are infeasible with basic HTML5 – we provide a few Bootstrap compatible classes.</p>
 
     <h5>Features</h5>
     <ul>
       <li><b>Small.</b> Only 400 lines of pure CSS3 for themes, grid, navigation bar, cards and more.</li>
-      <li><b>Single File.</b> Everything in one file, no dependencies¹, no JavaScript, no exceptions.</li>
-      <li><b>Modular.</b> Don't need all features?² The CSS file is structured into feature groups. Simply delete what you don't need.</li>
-      <li><b>Responsive.</b> We use media queries, <code>rem</code> units, and smart overflows for tables and code.</li>
+      <li><b>Single File.</b> Everything in one file, no dependencies¹, no JavaScript required.</li>
+      <li><b>Modular.</b> Don't need all features? The CSS file is structured into feature groups, simply delete what you don't need².</li>
+      <li><b>Responsive.</b> We use media queries, <code>em/rem</code> units, and smart overflows for tables and code.</li>
       <li><b>Bootstrap Compatible.</b> The few classes use the same names as Bootstrap.</li>
     </ul>
     <p>¹: we import the font 'Open Sans' but if it fails, we fallback to Helvetica.</br>
@@ -72,15 +69,14 @@
     <h2>Getting Started</h2>
     <p>For testing, you can simply insert the following line into your HTML file. For production, please host the classless.css file yourself.</p>
     
-    <pre><code>&lt;link rel="stylesheet" href="https://classless.de/classless.css"&gt;</code></pre>
-    <button onclick='clipBoard("<link rel=\"stylesheet\" href=\"https://classless.de/classless.css\" />")'>Copy Link-Tag</button>
+    <pre><code>&lt;link rel="stylesheet" href="<a href="https://classless.de/classless.css">https://classless.de/classless.css</a>"&gt;</code></pre>
     <a href="classless.css" download="classless.css"><button>Download Full CSS</button></a>
 
     <h5>Tiny Version</h5>
-    <p>We also offer a pre-made tiny version (90 lines, 2.6 kB) with only the most basic styles for text, tables, figures, and code.<br>Test now: 
-      <select id="theme" onchange="switchCSS(this)" class="p-0">
-          <option value="1">Full</option>
-          <option value="2">Tiny</option>
+    <p>We also offer a pre-made tiny version (90 lines, 2.7 kB) with only the most basic styles for text, tables, figures, and code.<br>Test now: 
+      <select id="selcss" onchange="switchCSS('maincss', this)">
+          <option value="classless.css">Full</option>
+          <option value="classless-tiny.css">Tiny</option>
       </select>
     </p>   
     <pre><code>&lt;link rel="stylesheet" href="https://classless.de/classless-tiny.css"&gt;</code></pre>
@@ -88,6 +84,29 @@
 
     <h5>Look at this Code</h5>
     <p>The page you are seeing right now, is already a demo of pure classless.css. We do not use any additional CSS files.</p>
+
+
+    <h2>Customize</h2>
+    <p>Classless can be easily customized with just <a href="#sec-themes">15 lines of theme code</a> at the start of the CSS file. To give you some examples of what is possible, you can switch between some pre-made themes that are inspired by popular CSS frameworks.</p>
+
+    
+    <p>Switch theme now:
+      <select id="theme" onchange="switchTheme(this)">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+        <option value="milligram">Milligram</option>
+        <option value="pure">Pure</option>
+        <option value="sakura">Sakura</option>
+        <option value="skeleton">Skeleton</option>
+        <option value="bootstrap">Bootstrap</option>
+        <option value="medium">Medium</option>
+        <option value="tufte">Tufte</option>
+      </select>
+    </p>
+
+    <p>The styles of these themes are defined in the <code>addons/themes.css</code>. You can copy the code from there or include the following file:</p>
+    <pre><code>&lt;link rel="stylesheet" href="<a href="https://classless.de/addons/themes.css">https://classless.de/addons/themes.css</a>"&gt;</code></pre>
 
   </section>
   </header>
@@ -151,7 +170,7 @@
           <th rowspan="2">License</th>
         </tr>
         <tr>
-          <td><abbr title="Lines of Code">LOC</abbr></td><td>Size</td>
+          <td><abbr title="Lines of Code">LOC</abbr></td><td>Size <span data-tooltip="Size of the readable, non-minified code (these tiny libs don't need minimizers)"><b>ⓘ</b></span></td>
           <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/chrome.svg" width="20"></td>
           <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/firefox.svg" width="20"></td>
           <td><img src="https://edent.github.io/SuperTinyIcons/images/svg/safari.svg" width="20"></td>
@@ -168,7 +187,7 @@
           <td>MIT</td>
         </tr>
         <tr><td>Classless Tiny</td>
-          <td>91</td><td>2.6 kB</td>
+          <td>91</td><td>2.7 kB</td>
           <td></td><td>✔</td><td>✔</td><td>?</td><td>✔</td><td>✘</td>
           <td>none</td>
           <td>MIT</td>
@@ -237,13 +256,13 @@
       <p>You can use inline code, such as <code>div</code>, or show keyboard inputs, such as <kbd>Ctrl+C</kbd>. 
       However, larger code examples require their own block environment.</p>
       
-        <pre><code>main(int a){
+        <pre><code class="language-c">main(int a){
   println("hello world")
 }</code></pre>
 
       <p>If you want to provide a caption for the listing, you have to place it inside a figure environment and use the <code>&lt;figcaption&gt;</code>. If the element before the caption is <code>&lt;pre&gt;</code>, it will be automatically labeled <q>Listing</q>.</p>
       <figure>
-        <pre><code>main(int a){
+        <pre><code class="language-c">main(int a){
   println("hello world")
 }</code></pre>
         <figcaption>The caption for the listing.</figcaption>        
@@ -267,6 +286,7 @@
 
 
     <section id="basic">
+
     <h1>Basic Styling</h1>
     <p>The following sections provide more detailed but artificial examples of the appearance of different HTML-tags that are styled with Classless.</p>
 
@@ -312,7 +332,7 @@
         </div>
       </div>
       <div class="col pt-1">
-        <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+        <pre><code class="language-html">&lt;h1&gt;Heading 1&lt;/h1&gt;
 &lt;h2&gt;Heading 2&lt;/h2&gt;
 &lt;h3&gt;Heading 3&lt;/h3&gt;
 &lt;h4&gt;Heading 4&lt;/h4&gt;
@@ -346,7 +366,7 @@
         </table>
       </div>
       <div class="col pt-1">
-        <pre><code>&lt;table&gt;
+        <pre><code class="language-html">&lt;table&gt;
  &lt;thead&gt;
   &lt;tr&gt;
    &lt;th&gt;Head 1&lt;/th&gt;      
@@ -381,7 +401,7 @@
       </table>
     </div>
     <div class="col">
-      <pre><code>&lt;table&gt;
+      <pre><code class="language-html">&lt;table&gt;
 &lt;thead&gt;
  &lt;tr&gt;
   &lt;td colspan=&quot;2&quot;&gt;Test&lt;/td&gt;
@@ -417,7 +437,7 @@
           <td>responsive</td>
         </tr>
         <tr>
-          <td>Size*</td>      
+          <td data-tooltip="Size of the readable, non-minified code (these tiny libs don't need minimizers)">Size</td>      
           <td>11.2 kB<br>400 LOC</td>      
           <td>11.2 kB<br>400 LOC</td>      
           <td>10.3 kB<br>600 LOC</td>
@@ -485,12 +505,18 @@
     </div>
     <p>Here, we have also demonstrated the basic usage of rows and columns, which will automatically rearrange once the page width falls below a certain threshold. This ensures that the page will also look well on small tables and phones.</p>
 
+
+
     <h2>Misc</h2>
-    <p>Some other elements</p>
+    <h3>Summaries and Details</h3>
     <details>
-    <summary>A summary heading that spans multiple lines can briefly tell you something. If you want to know more, you have to click.</summary>
-    <p>These are the details that only become visible once you click on the the summary heading. This is great to hide supplementary information by default.</p>
-  </details>
+      <summary>What is the Answer?</summary>
+      <p>This. So summaries are probably a good solution for simple Q&As.</p>
+    </details>
+    <details>
+      <summary>A summary heading that spans multiple lines can briefly tell you something. If you want to know more, you have to click.</summary>
+      <p>These are the details that only become visible once you click on the the summary heading. This is great to hide supplementary information by default.</p>
+    </details>
 
     <ul>
       <li>
@@ -503,7 +529,20 @@
     </ul>
 
 
+    <h3>Meters</h3>
+    <p>Meters can be used to display a percentage in form of a bar.</p>
+    <label for="fuel">Fuel level:</label>
+    <meter id="fuel" min="0" max="100"
+           low="33" high="66" optimum="80"
+           value="50">
+        at 50/100
+    </meter>
+
+
+
+
     <hr>
+    <h3>Videos and SVG</h3>
 
     <figure>
       <video controls>
@@ -524,17 +563,7 @@
       <figcaption>A simple inline svg.</figcaption>
     </figure>
 
-    <h3>Math</h3>
-    <p>Math would have been possible without JavaScript but Google dropped support for MathML<cite><a href="https://www.cnet.com/news/google-subtracts-mathml-from-chrome-and-anger-multiplies">CNET: “Google subtracts MathML from Chrome, and anger multiplies”, 2013</a></cite>.
-    The common alternatives are MathJax and KaTeX. While Classless does not support math on its own, it looks very decent in combination with KaTeX default settings.</p>
 
-    <h4>KaTeX Examples</h4>
-    <p>The term $\sqrt{a^2 + b^2}$ is an example of a KaTeX equation. Displaystyle equations are $$\int x^2 \mathrm dx$$</p>
-
-    <figure>
-      $$x = \frac{ - b \pm \sqrt {b^2 - 4ac} }{2a}$$
-      <figcaption>A Math example</figcaption>
-    </figure>
 
   </section>
 
@@ -544,15 +573,22 @@
   <section id="extra">
 
     <h1>Extra Styling</h1>
-    <p>These features are included but are marked as extras such that you can easily remove them from the CSS file in case you do not need them.</p>
+    <p>Besides the basic styling, Classless also offers more advanced features that fall into two categories:</p>
+    <ol>
+      <li><b>Opt-Out Extras:</b>These features are considered widely used and are included in the CSS file but are marked as extras such that you can easily remove them from the CSS file in case you do not need them.</li>
+      <li><b>Opt-In Addons:</b>These features are not included in the CSS file. If you want those, you need to add additional CSS files or copy their content into your main CSS. We add these as guidance on how to create an even more feature-rich website with a consistent Classless style.</li>
+    </ol>
 
-    <h2>Navigation Bar</h2>
+
+    <h2>Opt-Out Extras</h2>
+    <h3>Navigation Bar</h3>
     <p>Yes! Just 30 lines of CSS code for a simple yet full responsive navigation bar including dropdown menus and collapsing items on mobile phones.</p>
     
     <div>  
-    <nav class="bg-light" style="position: relative;">
+    <nav style="position: relative;">
       <ul>
         <li>Brand</li>
+        <li class="float-right sticky"><a>Sticky Right</a></li>
         <li><a href="#extra">Item </a></li>
         <li><a href="#extra">Menu ▾</a>
           <ul>
@@ -560,41 +596,44 @@
             <li><a href="#extra">Menu 2</a></li>
           </ul>
         </li>
-        <li class="float-right"><a>Right</a></li>
+        <li class="float-right"><a>Collapse</a></li>
       </ul>
     </nav>
     </div>
 
+    <p>If the floating right elements should remain visible when collapsing, make sure that you place them <em>directly</em> after the first “Brand” item and give it the class <code>sticky</code>.</p>
 
-    <pre class="mt-1"><code>&lt;nav&gt;
+
+    <pre class="mt-1"><code class="language-html">&lt;nav&gt;
   &lt;ul&gt;
     &lt;li&gt;Brand&lt;/li&gt;
     &lt;li&gt;&lt;a href="#"&gt;Item &lt;/a&gt;&lt;/li&gt;
+    &lt;li class="float-right sticky"&gt;Sticky Right&lt;/li&gt;
     &lt;li&gt;&lt;a href="#"&gt;Menu ▾&lt;/a&gt;
       &lt;ul&gt;
         &lt;li&gt;&lt;a href="#"&gt;Menu 1&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="#"&gt;Menu 2&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     &lt;/li&gt;
-    &lt;li class="float-right"&gt;Right&lt;/li&gt;
+    &lt;li class="float-right"&gt;Collapse&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
 
 
 
-    <h2>Margin Notes</h2>
+    <h3>Margin Notes</h3>
     <aside>
       <div class="card">
       <h4>Side Note</h4>
       <p>This is a card wrapped inside an <code>&lt;aside&gt;</code> element.</p>
       </div>
     </aside>
-    <p>You can place side notes using the <code>&lt;aside&gt;</code> element. The side notes are considered supplementary and are not omitted on narrow screens with a width lower than <code>40rem</code>. So, if you read this on a mobile device, you cannot see the side note.</p> 
+    <p>You can place side notes using the <code>&lt;aside&gt;</code> element. The side notes are considered supplementary and are removed on narrow screens with a width lower than <code>40rem</code>. So, if you read this on a mobile device, you cannot see the side note.</p> 
 
 
 
 
-    <h2>Form elements</h2>
+    <h3>Form elements</h3>
     <p>If you want to use forms, you will need PHP or JavaScript, which then exceeds the typical usecase of a simple article. However, to create a consistent appearance, Classless provides some basic styling on these elements as well.</p>
     <form>
       <fieldset>
@@ -629,7 +668,7 @@
       <legend>Checkboxes and Radiobuttons</legend>
       <div class="row">
         <div class="col">
-          <h3>Checkboxes</h3>
+          <h4>Checkboxes</h4>
           <input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> 
           <label for="checkbox1">Checkbox A</label><br>
           <input id="checkbox2" name="checkbox" type="checkbox">
@@ -638,7 +677,7 @@
           <label for="checkbox3">Checkbox C</label>
         </div>
         <div class="col">
-          <h3>Radio buttons</h3>
+          <h4>Radio buttons</h4>
             <input id="radio1" name="radio" type="radio" checked="checked">
             <label for="radio1">Radio Button 1</label><br>
             <input id="radio2" name="radio" type="radio">
@@ -651,27 +690,48 @@
 
       <fieldset id="forms__action">
         <legend>Buttons</legend>
-        <p>
           <button type="submit">SUBMIT</button>
           <button type="button">BUTTON</button>
           <button type="reset">RESET</button>
           <button type="button" disabled>DISABLED</button>
-        </p>
       </fieldset>
     </form>
-    </section>
 
 
 
+    <h3>Tooltips and Citations</h3>
+    <p>A simple tooltip like <span data-tooltip="A tooltip note. That probably spanns multiple lines as it is quite long but should nevertheless do not cause any troubles.">this</span> will also work. Simply put a <code>data-tooltip</code> attribute on any element that should display a tooltip.</p>
+    <div class="row">
+      <div class="col">
+      <p>a <span data-tooltip="A tooltip note.">label</span></p>
+      </div>
+      <div class="col">
+        <pre><code class="language-html">a &lt;span data-tooltip="A tooltip note."&gt;label&lt;/span&gt;</code></pre>
+      </div>
+    </div>
+
+    <p>Citation work within the <code>&lt;cite&gt;</code> tag and will automatically increase a counter. Just make sure to put exactly one child element within the <code>&lt;cite&gt;</code> tag.</p>
+    <div class="row">
+      <div class="col">
+      <p>The earth is flat.<cite><span>Myself at age 6</span></cite></p>
+      </div>
+      <div class="col">
+        <pre><code class="language-html">The earth is flat.
+&lt;cite&gt;&lt;span&gt;Myself at age 6&lt;/span&gt;&lt;/cite&gt;</code></pre>
+      </div>
+    </div>
 
 
-    <section id="bootless">
-    <h1>Bootless.css</h1>
+  </section>
+
+
+
+  <section id="bootless">
+
+    <h3 id="grid">Grid System</h3>
     <p>Some concepts, such as grids and cards, are not covered by the default HTML5 tags and require CSS classes.
     Therefore, Classless defines a few classes with the same class names as the popular framework Bootstrap.</p>
-
-    <h2 id="grid">Grid System</h2>
-    <p>Classless provides a simple grid system with the same class names as bootstrap.</p>
+    <p>Classless provides the following simple grid system.</p>
 
 
     <div class="row">
@@ -681,7 +741,7 @@
       </div>
     </div>
 
-    <pre><code>&lt;div class="row"&gt;
+    <pre><code class="language-html">&lt;div class="row"&gt;
   &lt;div class="col"&gt;
     &lt;h4&gt;Column 1/2&lt;/h4&gt;
   &lt;/div&gt;
@@ -691,7 +751,7 @@
 &lt;/div&gt;</code></pre> 
 
 
-    <h3>Columns</h3>
+    <h4>Columns</h4>
     <p>There are also classes for columns with special width such as <code>.col-4</code> (4/12) resulting in one third of the width:</p> 
 
     <div class="row">
@@ -715,10 +775,9 @@
         <p>This text is on the other side explaining something. If the width of the viewport is small enough, this text should be visible below the the heading on the left.</p>
       </div>
     </div>
-    </section>
+ 
 
-    <section id="card">
-    <h2>Cards</h2>
+    <h3>Cards</h3>
     <p>If you want to group special content from the normal text flow, cards will be your friends.</p>
 
     <div class="row">
@@ -730,78 +789,208 @@
         </div>
       </div>
       <div class="col">
-        <pre><code>&lt;div class="card"&gt;
+        <pre><code class="language-html">&lt;div class="card"&gt;
  &lt;h4&gt;Card Heading&lt;/h4&gt;
  &lt;hr&gt;
  &lt;p&gt;This is the card body.&lt;/p&gt;
 &lt;/div&gt;</code></pre>
       </div>
     </div>
-    </section>
+   
+
+  </section>
 
 
-    </article>
+  <section>
 
-    </main>
 
-    <footer>
+    <h2 id="sec-addons">Opt-In Addons</h2>
+    <p>The following features are not included in the Classless CSS file. If you want those, you need to add additional CSS files or copy their content into your main CSS.</p>
+
+    <h3>Tabboxes</h3>
+    <p>The following tab boxes work with pure CSS3. While they look very decent, they require ≈50 lines of extra code, which we consider too much for a non-standard feature to include in a minimal CSS framework. Furthermore, you have to abuse radio buttons in the HTML and put the labels directly below these. Therefore, in order to use tabboxes, you need to include the following file:</p>
+
+    <pre><code><a href="https://classless.de/addons/tabbox.css">https://classless.de/addons/tabbox.css</a></code></pre>
+
+    <p>Use extra CSS file:
+      <select id="selcss" onchange="switchCSS('tabcss', this)" class="p-0">
+          <option value="addons/tabbox.css">Activated</option>
+          <option value="">Deactivated</option>
+      </select>
+    </p>
+
+
+<div class="tabs">
+  <input type="radio" name="tabs" id="tabone" checked="checked">
+  <label for="tabone">Tab One</label>
+  <div class="tab">
+    <h4>Tab One Content</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <input type="radio" name="tabs" id="tabtwo">
+  <label for="tabtwo">Tab Two</label>
+  <div class="tab">
+    <h4>Tab Two Content</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <pre><code>&lt;link rel="stylesheet" href="https://classless.de/classless-tiny.css"&gt;</code></pre>
+  </div>
+  
+  <input type="radio" name="tabs" id="tabthree">
+  <label for="tabthree">Tab Three</label>
+  <div class="tab">
+    <h4>Tab Three Content</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  </div>
+</div>
+
+
+    <h3 id="sec-themes">Themes</h3>
+    <p>You can easily change the overall theme with the variables in the beginning. Some premade themes are available in the following file:</p>
+    <pre><code><a href="https://classless.de/addons/themes.css">https://classless.de/addons/themes.css</a></code></pre>
+    <p>Switch theme now:
+    <select id="theme" onchange="switchTheme(this)">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="sepia">Sepia</option>
+      <option value="milligram">Milligram</option>
+      <option value="pure">Pure</option>
+      <option value="sakura">Sakura</option>
+      <option value="skeleton">Skeleton</option>
+      <option value="bootstrap">Bootstrap</option>
+      <option value="medium">Medium</option>
+      <option value="tufte">Tufte</option>
+    </select>
+    </p>
+
+    <p>To create a new theme, just define/overwrite these variables:</p>
+        <pre><code class="language-css">:root {
+  --rem:    12pt;       /* the base size of 1rem */
+  --width:  50rem;      /* container width */
+  --navpos: absolute;   /* fixed | absolute */
+  --font-p: ...;        /* font shorthand for paragraphs */
+  --font-h: ...;        /* font shorthand for headings and captions */
+  --font-c: ...;        /* font shorthand for code */
+  --border: ...;        /* border shorthand */
+  --ornament: "‹‹ ››";  /* ornament content after sections */
+
+  --cfg:   #433;        /* foreground color for text  */
+  --cbg:   #fff;        /* background color for html  */
+  --cdark: #888;        /* dark gray for captions  */
+  --cmed:  #d1d1d1;     /* medium gray for borders, table separator  */
+  --clight:#f5f6f7;     /* light gray for different background (code) */
+  --clink: #07c;        /* color to indicate clickable elements */
+  --cemph: #088;        /* the primary emphasis color of the theme */
+}</code></pre>
+
+
+
+
+
+    <h3>Settings: Dark Mode, Font Size</h3>
+    <p>Ok, this finally requires 15 lines of JavaScript. They provide the functionality of the two buttons in the navigation bar. I find them quite useful but since classless is JavaScript free, they are not included. You can simply copy them to your project:</p>
+        <pre><code class="language-javascript">function addFontSize(addPx){
+  html = document.querySelector('html');
+  currentSize = parseFloat(window.getComputedStyle(html, null)
+    .getPropertyValue('font-size'));
+  html.style.fontSize = (currentSize + addPx) + 'px';
+}
+function toggleDarkMode(el){
+  var theme='light'
+  if (el.innerText == '☪'){
+    el.innerText = '☀'; theme='dark';
+  } else {
+    el.innerText = '☪';
+  }
+  document.documentElement.setAttribute('data-theme', theme)
+}
+</code></pre>
+
+
+    <h3>Code Highlighting</h3>
+    <p>As you have noticed, code listings are not highlighted. You can highlight them using a static highlighter such as <a href="http://hilite.me/">hilite.me</a>, or use a JavaScript library like <a href="https://highlightjs.org/">highlightjs.org</a>.</p>
+
+    <p>Use highlightjs.org:
+      <select id="selcss" onchange="switchCSS('hlcss', this)" class="p-0">
+          <option value="" selected>Deactivated</option>
+          <option value="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/default.min.css">Activated</option>
+      </select>
+    </p>
+
+
+
+
+    <h3>Math</h3>
+    <p>Math would have been possible without JavaScript but Google dropped support for MathML<cite><a href="https://www.cnet.com/news/google-subtracts-mathml-from-chrome-and-anger-multiplies">CNET: “Google subtracts MathML from Chrome, and anger multiplies”, 2013</a></cite>.
+    The common alternatives are MathJax and KaTeX. While Classless does not support math on its own, it looks very decent in combination with KaTeX default settings.</p>
+
+    <h4>KaTeX Examples</h4>
+    <p>The term $\sqrt{a^2 + b^2}$ is an example of a KaTeX equation. Displaystyle equations are $$\int x^2 \mathrm dx$$</p>
+
+    <figure>
+      $$x = \frac{ - b \pm \sqrt {b^2 - 4ac} }{2a}$$
+      <figcaption>A Math example</figcaption>
+    </figure>
+
+
+
+  </section>
+  </article>
+  </main>
+
+  <footer>
     <hr>
-      <h5>Classless.css</h5>
-      <p>Code on <a href="http://github.com/emareg/classlesscss">GitHub</a>.<br>
+    <h5>Classless.css</h5>
+    <p>
+      Code on <a href="http://github.com/emareg/classlesscss">GitHub</a>.<br>
       <a href="mailto:john.doe@foo.bar">john.doe@foo.bar</a><br>
       <a href="tel:+1234567890">+1234567890</a>
-      </p>
-    </footer>
-  </body>
+    </p>
+  </footer>
+</body>
+
+<!-- Extra CSS -->
+<link id="tabcss"   rel="stylesheet" href="addons/tabbox.css" />
+<link id="themecss" rel="stylesheet" href="addons/themes.css" />
 
 
-  <!-- Javascript here, only required for switching themes dynamically -->
-  <script>
+<!-- JavaScript, only for convenience but not required for Classless. -->
+<script>
+  function switchTheme(el) { document.documentElement.setAttribute('data-theme', el.value) }
 
-    // only for convenience, not required for Classless!
-    function clipBoard(value) {
-      var tempInput = document.createElement("input");
-      tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-      tempInput.value = value;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempInput);
+  function switchCSS(cssid, el){ document.getElementById(cssid).href = el.value; }
+
+  function addFontSize(addPx){
+    html = document.querySelector('html');
+    currentSize = parseFloat(window.getComputedStyle(html, null)
+      .getPropertyValue('font-size'));
+    html.style.fontSize = (currentSize + addPx) + 'px';
+  }
+
+  function toggleDarkMode(el){
+    var theme='light'
+    if (el.innerText == '☪'){
+      el.innerText = '☀'; theme='dark';
+    } else {
+      el.innerText = '☪';
     }
-
-    // only for switching theme Demo, not required for Classless!
-    function switchTheme(e) {
-      switch(e.value) {
-        case "1": document.documentElement.setAttribute('data-theme', 'light'); break;
-        case "2": document.documentElement.setAttribute('data-theme', 'dark'); break;
-        case "3": document.documentElement.setAttribute('data-theme', 'sepia'); break;
-      }   
-    }
-
-    function switchCSS(e){
-      switch(e.value) {
-        case "1": document.getElementById('cssfile').href = "classless.css"; break;
-        case "2": document.getElementById('cssfile').href = "classless-tiny.css"; break;
-      }  
-    }
-
-  </script>
+    document.documentElement.setAttribute('data-theme', theme)
+  }
+</script>
 
 
-  <!-- KaTeX, not required for Classless, just to demonstrate its compatibility -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<!-- KaTeX, not required for Classless, just to demonstrate its compatibility -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 
-  <!-- The loading of KaTeX is deferred to speed up page rendering -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
 
-  <!-- To automatically render math in text elements, include the auto-render extension: -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
-      onload="renderMathInElement(document.body);"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
-  <script type="text/javascript">
+<script type="text/javascript">
   window.addEventListener("load", function(){
-    renderMathInElement(
-      document.body,
+    renderMathInElement( document.body,
       {
         delimiters: [
           {left: "$$", right: "$$", display: true},
@@ -810,7 +999,17 @@
       }
     );
   });
-  </script>
+</script>
 
+<!-- Code Highlighting -->
+<link id="hlcss" rel="stylesheet" href="">
+<script id="hljs" src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script>
+document.querySelectorAll('pre code[class*="language"]').forEach(el => {
+  // then highlight each
+  hljs.highlightElement(el);
+});
+
+</script>
 
 </html>
