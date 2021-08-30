@@ -8,15 +8,14 @@ ul, ol, dl, fieldset, pre, pre > code, caption {
 	display: block;
 	margin: 0.5rem 0rem 1rem;
 	width: 100%;
-	overflow-x: auto;
-	overflow-y: hidden;
+	overflow: auto hidden;
 	text-align: left;
 }
 video, summary, input, select { outline:none; }
 html { font: 12pt/1.6 'Open Sans', Helvetica, sans-serif; }
 body {
 	position: relative;
-	margin: auto;	
+	margin: auto;
 	max-width: 50rem;
 	color: #433;
 	padding: 3.1rem 0.6rem 0;
@@ -57,7 +56,8 @@ td:first-child, th:first-child { text-align: left; }
 tr:hover{ background-color: #f4f5f6; }
 
 /* figures */
-img, svg { max-width: 100%; }
+img, svg { max-width: 100%; vertical-align: text-top; }
+p>img:not(:only-child) { float: right; margin: 0 0 .5em .5em; }
 figure > img { display: block; margin: 0.5em auto; }
 figcaption, caption { color: #888; margin-bottom: 1rem; }
 figure > *:not(:last-child) { margin: 0 0 0.4rem; }

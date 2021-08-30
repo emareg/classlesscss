@@ -1,14 +1,14 @@
 /* Classless.css v0.95
 
 Table of Contents:
- 1. Custom Settings
+ 1. Theme Settings
  2. Reset
  3. Base Style
  4. Extras  (remove unwanted)
  5. Classes  (remove unwanted)
 */
 
-/* 1. Custom Settings –––––––––––––––––––––––––––––––––– */
+/* 1. Theme Settings ––––––––––––––––––––-–––––––––––––– */
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
 
@@ -16,8 +16,8 @@ Table of Contents:
 	--rem: 12pt;
 	--width: 50rem;
 	--navpos: absolute;  /* fixed | absolute */
-	--font-p: 1rem/1.7 'Open Sans', Helvetica, sans-serif;
-	--font-h: .9rem/1.5 'Open Sans', Helvetica, sans-serif;
+	--font-p: 1em/1.7 'Open Sans', Helvetica, sans-serif;
+	--font-h: .9em/1.5 'Open Sans', Helvetica, sans-serif;
 	--font-c: .9em/1.4 monospace;
 	--border: 1px solid var(--cmed);
 	--ornament: "‹‹‹ ›››";
@@ -39,8 +39,7 @@ ul, ol, dl, fieldset, pre, pre > code, caption {
 	display: block;
 	margin: 0.5rem 0rem 1rem;
 	width: 100%;
-	overflow-x: auto;
-	overflow-y: hidden;
+	overflow: auto hidden;
 	text-align: left;
 }
 video, summary, input, select { outline:none; }
@@ -56,9 +55,9 @@ body {
 }
 body > footer { margin: 10rem 0rem 0rem; }
 
-/* reset clickable things */
+/* reset clickable things  (FF Bug: select:hover prevents usage) */
 a, button, select, summary { color: var(--clink); cursor: pointer; }
-a:hover, button:not([disabled]):hover, select:hover, summary:hover {
+a:hover, button:not([disabled]):hover, summary:hover {
 	filter: brightness(92%); color: var(--cemph); border-color: var(--cemph);
 }
 
@@ -87,14 +86,14 @@ h6 + p { display: inline; }
 
 /* tables */
 td, th {
-  padding: 0.5rem 0.8rem;
+  padding: 0.5em 0.8em;
   text-align: right;
   border-bottom: 0.1rem solid var(--cmed);
   white-space: nowrap;
   font-size: 95%;
 }
-thead th[colspan] { padding: .2rem 0.8rem; text-align: center; }
-thead tr:not(:only-child) td { padding: .2rem 0.8rem; }
+thead th[colspan] { padding: .2em 0.8em; text-align: center; }
+thead tr:not(:only-child) td { padding: .2em 0.8em; }
 thead+tbody tr:first-child td { border-top: 0.1rem  solid var(--cdark);  }
 td:first-child, th:first-child { text-align: left; }
 tr:hover{ background-color: var(--clight); }
@@ -106,6 +105,7 @@ p>img:not(:only-child) { float: right; margin: 0 0 .5em .5em; }
 figure > img { display: inline-block; width: auto; }
 figure > img:only-of-type, figure > svg:only-of-type { max-width: 100%; display: block; margin: 0 auto 0.4em; }
 figcaption, caption { font: var(--font-h); color: var(--cdark); width: 100%; }
+figcaption > *:first-child, caption > *:first-child { display: inline-block; margin: 0; }
 figure > *:not(:last-child) { margin-bottom: 0.4rem; }
 
 /* code */
@@ -116,7 +116,7 @@ pre > code {
   border-left: .4rem solid var(--cemph);
 }
 code, kbd, samp {
-	padding: 0.2rem;
+	padding: 0.2em;
 	font: var(--font-c);
 	background: var(--clight);
 	border-radius: 4px;
@@ -145,21 +145,21 @@ article figure figcaption:before {
 	counter-increment: fig;
 	content: "Figure " counter(fig) ": ";
 }
-article figure figure { counter-reset: none !important; }
 
 /* subfigures */
 figure { counter-reset: subfig 0 }
+article figure figure { counter-reset: none; }
 article figure > figure { display: inline-grid; width: auto; }
 figure > figure:not(:last-of-type) { padding-right: 1rem; }
 article figure figure figcaption:before {
-	counter-increment: subfig 1 !important;
-	content: counter(subfig, lower-alpha) ": " !important;	
+	counter-increment: subfig 1;
+	content: counter(subfig, lower-alpha) ": ";
 }
 
 /* listings */
 article figure pre + figcaption:before {
-	counter-increment: lst 1 !important;
-	content: "Listing " counter(lst) ": " !important;
+	counter-increment: lst 1;
+	content: "Listing " counter(lst) ": ";
 }
 
 /* tables */
@@ -168,8 +168,8 @@ article figure > table caption { display: table-caption; caption-side: bottom; }
 article figure > table + figcaption:before,
 article table caption:before {
 	color: var(--cemph);
-	counter-increment: tab 1 !important;
-	content: "Table " counter(tab) ": " !important;
+	counter-increment: tab 1;
+	content: "Table " counter(tab) ": ";
 }
 
 /* headings */
@@ -188,7 +188,7 @@ article h3:before {
 article h1 { counter-set: h2; }
 article h2:before { counter-increment: h2; content: counter(h2) ". "; counter-set: h3; }
 article h3:before { counter-increment: h3; content: counter(h2) "." counter(h3) ". ";}
-@media (max-width: 60rem) { h2:before, h3:before { display: none !important; } }
+@media (max-width: 60rem) { h2:before, h3:before { display: none; } }
 
 
 /* tooltip + citation */
@@ -219,9 +219,9 @@ body>nav, header nav {
 	position: var(--navpos);
 	top: 0; left: 0; right: 0;
 	z-index: 41;
-	box-shadow: 0vw -40vw 0 40vw var(--clight), 0 -498px 4px 500px var(--cdark);
+	box-shadow: 0vw -50vw 0 50vw var(--clight), 0 calc(-50vw + 2px) 4px 50vw var(--cdark);
 }
-nav ul li > a { text-decoration: none !important; }
+nav ul li > a { text-decoration: none; }
 nav ul { list-style-type: none; }
 nav ul:first-child { margin: 0; padding: 0; overflow: visible; }
 nav ul:first-child > li {
@@ -270,7 +270,7 @@ section:after {
 
 /* side menu (aside is not intended for use in a pagraph!) */
 main aside {
-	position: absolute; 
+	position: absolute;
 	width: 8rem;      right: -8.6rem;
 	font-size: 0.8em; line-height: 1.4em;
 }
@@ -312,13 +312,14 @@ p>select { padding: 0;      margin: 0 .5em; }
 
 /* grid */
 .row { display: flex; margin:  0.5rem -0.6rem; align-items: stretch; }
-.row [class*="col"] { padding: 0  0.5rem; }
+.row [class*="col"] { padding: 0  0.6rem; }
 .row .col   { flex: 1 1 100%; }
 .row .col-2 { flex: 0 0 16.666%; }
 .row .col-3 { flex: 0 0 25%; }
 .row .col-4 { flex: 0 0 33.333%; }
+.row .col-5 { flex: 0 0 41.666%; }
 .row .col-6 { flex: 0 0 50%; }
-@media (max-width: 40em) { .row { flex-direction: column !important; } }
+@media (max-width: 40em) { .row { flex-direction: column; } }
 
 /* cards */
 .card {
@@ -362,3 +363,6 @@ p>select { padding: 0;      margin: 0 .5em; }
 .p-1, .px-1, .pl-1 { padding-left:   1.0rem !important; }
 .p-1, .py-1, .pt-1 { padding-top:    1.0rem !important; }
 .p-1, .py-1, .pb-1 { padding-bottom: 1.0rem !important; }
+
+/* fixes */
+.katex-display { overflow-x: auto; }
