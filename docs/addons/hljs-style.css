@@ -1,0 +1,67 @@
+/*!
+   Theme: Classless
+   Author: (c) Emanuel Regnath <emanuel.regnath@tum.de>
+   Updated: 2021-04-24
+  --cfg:   #433;    --cbg:    #fff;
+  --cdark: #888;    --clight: #f5f6f7;
+  --cmed:  #d1d1d1;
+  --clink: #07c;
+  --cemph: #088;
+*/
+
+.hljs {
+  color:      var(--fbg);
+  background: var(--clight);
+}
+.hljs-subst { color: var(--cfg); }
+
+
+.hljs-keyword,
+.hljs-meta-keyword,
+.hljs-strong,
+.hljs-name {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-type,
+.hljs-title,
+.hljs-attribute,
+.hljs-attr,
+.hljs-selector-tag {
+  color: var(--cemph);
+}
+
+.hljs-built_in,
+.hljs-literal {
+  color: var(--cemph);
+  font-weight: bold;
+}
+
+.hljs-variable.language_{
+  color: var(--cemph);
+  font-style: italic;
+}
+
+
+.hljs-code,
+.hljs-comment,
+.hljs-formula {
+  color: var(--cdark);
+}
+
+
+.hljs-meta-string,
+.hljs-string,
+.hljs-number,
+.hljs-symbol {
+  color: var(--clink); filter: brightness(85%);
+}
+.hljs-number{
+  text-decoration: underline solid var(--cdark);
+}
+
+
