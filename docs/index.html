@@ -781,7 +781,7 @@
  
 
     <h3>Cards</h3>
-    <p>If you want to group special content from the normal text flow, cards will be your friends.</p>
+    <p>If you want to group special content from the normal text flow, cards will be your friends. The most basic card looks like this:</p>
 
     <div class="row">
       <div class="col">
@@ -799,7 +799,76 @@
 &lt;/div&gt;</code></pre>
       </div>
     </div>
-   
+
+    <p>Any <code class="language-html">&lt;img&gt;</code> directly within the card will span the full width.</p>
+
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <img src="http://placekitten.com/640/240" alt="Image alt text">
+          <p>Do not feed this cat.</p>              
+        </div>
+      </div>
+      <div class="col">
+        <pre><code class="language-html">&lt;div class="card"&gt;
+ &lt;img src=".."&gt;
+ &lt;p&gt;Do not feed this cat.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </div>
+
+    <p>Using <code class="language-html">&lt;div class="card info"&gt;</code>, you can also create info boxes.</p>
+
+    <div class="row">
+      <div class="col">
+        <div class="card info">
+          <p>Card Heading</p>
+          <p>This is the card body.</p>               
+        </div>
+      </div>
+      <div class="col">
+        <pre><code class="language-html">&lt;div class="card info"&gt;
+ &lt;p&gt;Card Heading&lt;/p&gt;
+ &lt;p&gt;This is the card body.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </div>
+
+    <p>Instead of <code>info</code>, you can also use <code>hint</code> or <code>warn</code> to create the following box types:</p>
+
+    <div class="row">
+      <div class="col">
+        <div class="card hint">
+          <p>Hint for Cards</p>
+          <p>The first <code>&lt;p&gt</code> tag will be the card heading for info/warn.</p>               
+        </div>
+      </div>
+      <div class="col">
+        <div class="card warn">
+          <p>Warning</p>
+          <p>The first <code>&lt;p&gt</code> tag will be the card heading for info/warn.</p>               
+        </div>        
+      </div>
+    </div>  
+
+    <p>Pro-Tip: The <code>&lt;details&gt;</code> tag is styled similar to cards and so you can also apply the card class directly on this tag:</p> 
+
+    <div class="row">
+      <div class="col-6">
+        <details class="card">
+          <summary>What is the Answer?</summary>
+          <p>This. So summaries are probably a good solution for simple Q&As.</p>
+        </details>
+      </div>
+      <div class="col-6">
+        <pre><code class="language-html">&lt;details class="card"&gt;
+ &lt;summary&gt; .. &lt;/summary&gt;
+ &lt;p&gt;This. So summaries are probably 
+ a good solution for simple Q&As.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+      </div>
+    </div>
+
 
   </section>
 
