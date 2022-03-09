@@ -10,14 +10,6 @@
   <link rel="icon" type="image/png" href="favicon.png" sizes="any">
   <link id="maincss"  rel="stylesheet" href="classless.css" />
 </head>
-
-<style type="text/css">
-  svg { --fill: blue; }
-  object:root{ fill: red; }
-  object { --test: red; }
-  object#document { --test: red; }
-
-</style>
   
 <body id="top">
 
@@ -30,16 +22,16 @@
 
 
   <!-- Navigation -->
-  <nav>
+  <nav class="noprint">
     <ul>
       <li>
         <img style="height: 1.2em;" src="favicon.png">
-        <span >&ensp;Classless.css</span>
+        <span>&ensp;Classless.css</span>
       </li>
       <li class="float-right sticky"><a onclick="addFontSize(-1)">ᴀ-</a>|<a onclick="addFontSize(1)">A+</a></li>
       <li class="float-right sticky"><a onclick="toggleDarkMode(this)">☪</a></li>
       <li><a href="#demo">Demo</a></li>
-      <li ><a href="#basic">Reference ▾</a>
+      <li><a href="#basic">Reference ▾</a>
         <ul>
           <li><a href="#basic">Basic Style</a></li>
           <li><a href="#extra">Extra Style</a></li>
@@ -181,7 +173,7 @@
         <tbody>
         <tr>
           <td>Classless</td>
-          <td>400</td><td>11.2 kB</td>
+          <td>400</td><td>11.8 kB</td>
           <td></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td>
           <td>none</td>
           <td>MIT</td>
@@ -317,6 +309,7 @@
 
 
 
+
     <h2>Headings</h2> 
     <p> Here are the headings <code>h1</code> to <code>h6</code></p>
     
@@ -441,7 +434,7 @@
         </tr>
         <tr>
           <td data-tooltip="Size of the readable, non-minified code (these tiny libs don't need minimizers)">Size</td>      
-          <td>11.2 kB<br>400 LOC</td>      
+          <td>11.8 kB<br>400 LOC</td>      
           <td>11.2 kB<br>400 LOC</td>      
           <td>10.3 kB<br>600 LOC</td>
           <td>3.3 kB <br>165 LOC</td>
@@ -610,8 +603,8 @@
     <pre class="mt-1"><code class="language-html">&lt;nav&gt;
   &lt;ul&gt;
     &lt;li&gt;Brand&lt;/li&gt;
-    &lt;li&gt;&lt;a href="#"&gt;Item &lt;/a&gt;&lt;/li&gt;
     &lt;li class="float-right sticky"&gt;Sticky Right&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Item &lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="#"&gt;Menu ▾&lt;/a&gt;
       &lt;ul&gt;
         &lt;li&gt;&lt;a href="#"&gt;Menu 1&lt;/a&gt;&lt;/li&gt;
@@ -869,6 +862,29 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-6">
+        <details class="card warn">
+          <summary>Danger: Do not open this card!</summary>
+          <p>I told you so.</p>
+        </details>
+      </div>
+      <div class="col-6">
+        <pre><code class="language-html">&lt;details class="card warn"&gt;
+ &lt;summary&gt; .. &lt;/summary&gt;
+ &lt;p&gt;I told you so.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+      </div>
+    </div>
+
+    <blockquote class="hint">
+      <p>Blockquotes can be used with the <code>.hint</code> or <code>.warn</code> classes to create special boxes.</p>
+    </blockquote>
+
+    <blockquote class="warn">
+      <p><b>⚠ Warning</b></p>
+      <p>Do not run too fast.</p>
+    </blockquote>
 
   </section>
 
