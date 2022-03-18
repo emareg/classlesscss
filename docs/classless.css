@@ -329,12 +329,12 @@ p>select { padding: 0;      margin: 0 .5em; }
 .row { display: flex; margin:  0.5rem -0.6rem; align-items: stretch; }
 .row [class*="col"] { padding: 0  0.6rem; }
 .row .col   { flex: 1 1 100%; }
-.row .col-2 { flex: 0 0 16.666%; }
-.row .col-3 { flex: 0 0 25%; }
-.row .col-4 { flex: 0 0 33.333%; }
-.row .col-5 { flex: 0 0 41.666%; }
-.row .col-6 { flex: 0 0 50%; }
-@media (max-width: 40em) { .row { flex-direction: column; } }
+.row .col-2 { flex: 0 0 16.66%; max-width: 16.66%;}
+.row .col-3 { flex: 0 0 25%; max-width: 25%;}
+.row .col-4 { flex: 0 0 33.33%; max-width: 33.33%; }
+.row .col-5 { flex: 0 0 41.66%; max-width: 41.66%; }
+.row .col-6 { flex: 0 0 50%; max-width: 50%; }
+@media (max-width: 40rem) { .row { flex-direction: column; } }
 
 /* align */
 .text-left   { text-align: left; }
@@ -371,11 +371,12 @@ p>select { padding: 0;      margin: 0 .5em; }
 
 /* be print-friendly */
 @media print { 
-	@page { margin: 2.0cm; } 
+	@page { margin: 1.5cm 2cm; } 
 	html {font-size: 9pt!important; } 
 	body { max-width: 27cm; }
+	p { orphans: 2; widows: 2; }
 	caption, figcaption { page-break-before: avoid; }
-	h2, h3, h4, h5{page-break-after: avoid;}
-	.noprint, body>nav { display: none; }
+	h2, h3, h4, h5 { page-break-after: avoid;}
+	.noprint, body>nav, section:after { display: none; }
 	.row { flex-direction: row; }
 }

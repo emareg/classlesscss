@@ -83,21 +83,18 @@ For testing, you can simply insert the following line into your HTML file. For p
 ## Classeless Support
 
 
-| Browser                       | Support v94 | Support v95 | 
-|-------------------------------|-------------|-------------|
-| Chromium 87.0 on Ubuntu 18.04 | perfect     | perfect     |
-| Chromium 92.0 on Ubuntu 20.04 | --          | perfect     |
-| FireFox 85.0  on Ubuntu 18.04 | perfect     | perfect     |
-| FireFox 91.0  on Ubuntu 20.04 | --          | perfect     |
-| FireFox 84.0  on Windows 10   | perfect     | perfect     |
-| Edge 42.17 on Windows 10      | good¹       | --          |
-| Edge 88.0 on Windows 10       | perfect     | perfect     |
-| IE 11 on Windows 10           | poor/good²  | poor/good²  |
-| FireFox 85.1 on Android 10    | perfect     | perfect     |
-| Samsung Browser on Android 10 | perfect     | perfect     |
-| Safari on iPhone 10           | perfect     | --          |
+| Browser                       | Support v94 | Support v95 | Support v1.0 | 
+|-------------------------------|-------------|-------------|--------------|
+| Chromium 96.0 on Ubuntu 20.04 | --          | perfect     | perfect      |
+| FireFox 97.0  on Ubuntu 20.04 | --          | perfect     | perfect      |
+| FireFox 84.0  on Windows 10   | perfect     | perfect     | perfect      |
+| Edge 88.0 on Windows 10       | perfect     | perfect     | perfect      |
+| IE 11 on Windows 10           | poor/good¹  | poor/good¹  | poor/good¹   |
+| FireFox 85.1 on Android 10    | perfect     | perfect     | perfect      |
+| Samsung Browser on Android 10 | perfect     | perfect     | perfect      |
+| Safari on iPhone 10           | perfect     | --          | good²        |
 
 
-¹: drop letter slightly below baseline, citations slightly too high<br>
-²: Classless-full: body full width, table and code styles ignored, cite elements overlap text. However, classless-tiny without variables looks good.
+¹: Classless-full: body full width, table and code styles ignored, cite elements overlap text. However, classless-tiny without variables looks good.<br>
+²: card borders not rounded
 

@@ -1,10 +1,10 @@
-/* Classless.css v0.95 (Tiny Inline Version)*/
+/* Classless.css v1.0 (Tiny Inline Version)*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
 
 /* Tiny Reset for block elements  */
 * {box-sizing: border-box; border-spacing: 0;}
 header, footer, figure, table, video, details, blockquote,
-ul, ol, dl, fieldset, pre, pre > code, caption {
+ul, ol, dl, fieldset, pre, pre > code, caption, nav {
 	display: block;
 	margin: 0.5rem 0rem 1rem;
 	width: 100%;
@@ -28,6 +28,15 @@ a, summary, button, select { color: #07c; cursor: pointer; }
 a { text-decoration: underline solid #d1d1d1; text-underline-position: under; }
 a:hover { color: #088;  border-color: #088; }
 
+/* common */
+td, th, pre > code { padding: 0.5rem 0.8rem; }
+.card, details { padding: 0 .6rem; }
+code, kbd, samp {	padding: 0.2rem; font: .9em/1.4 monospace; }
+code, kbd, samp, nav, .card {	background: #f4f5f6; border-radius: 0.3em; }
+kbd, .card, details[open] { border: 1px solid #d1d1d1; }
+td, th, figcaption, caption, .card { font-size: 95%; }
+td, th, hr { border: 0; border-bottom: 0.1rem solid #d1d1d1; }
+
 /* lists */
 ul, ol { padding-top: 0.5rem; }
 li, dd { margin-bottom: 0.5rem; }
@@ -45,13 +54,7 @@ h6 { font-size: 1.0em; font-weight: 600; display: inline; }
 h6 + p { display: inline; }
 
 /* tables */
-td, th {
-  padding: 0.5rem 0.8rem;
-  text-align: right;
-  border-bottom: 0.1rem solid #d1d1d1;
-  white-space: nowrap;
-  font-size: 95%;
-}
+td, th { text-align: right; white-space: nowrap; }
 td:first-child, th:first-child { text-align: left; }
 tr:hover{ background-color: #f4f5f6; }
 
@@ -63,24 +66,10 @@ figcaption, caption { color: #888; margin-bottom: 1rem; }
 figure > *:not(:last-child) { margin: 0 0 0.4rem; }
 
 /*code*/
-pre > code {
-  margin: 0;
-  position: relative;
-  padding: 0.8em;
-  border-left: 0.3rem solid #088;
-}
-code, kbd, samp {
-	padding: 0.2rem;
-	font: 12pt monospace;
-	background: #f4f5f6;
-	border-radius: 0.3em;
-}
-kbd { border: 0.1rem solid #d1d1d1; }
+pre > code { margin: 0; border-left: 0.4rem solid #088; }
 
 /* misc */
 blockquote{ border-left: 0.3rem solid #d1d1d1; padding: 1rem 1.5rem; font-style: italic; }
-hr { border: 0; border-top: 0.1rem solid #d1d1d1; }
-nav { width: 100%; min-height: 2.8em; background-color: #f4f5f6; }
 input { font-size: 1em; }
 p>cite:before { content: ' ('; } p>cite:after {content: ') '}
 

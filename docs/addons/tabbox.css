@@ -38,3 +38,4 @@
   .tabs .tab, .tabs label { order: initial; }
   .tabs label { width: 100%; margin: 0 0 -1px !important; }
 }
+@media print { .tabs label + .tab { display: block; } .tabs label { display: none; } } 
