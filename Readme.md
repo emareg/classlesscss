@@ -101,7 +101,7 @@ They also have an [open issue](https://github.com/mjackson/unpkg/issues/294) reg
 #### Add Manually
 The following project offers a step-by-step explanation for hosting Google fonts on your own server:
 
-https://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin
+https://gwfh.mranftl.com/fonts/open-sans?subsets=latin
 
 
 #### Using NPM
