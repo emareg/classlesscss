@@ -2,10 +2,10 @@
 
 /* Tiny Reset for block elements  */
 * {box-sizing: border-box; border-spacing: 0;}
-header, footer, figure, table, video, details, blockquote,
-ul, ol, dl, fieldset, pre, pre > code, caption, nav {
+header, footer, figure, video, details, blockquote,
+ul, ol, dl, fieldset, pre, pre > code, nav {
 	display: block;
-	margin: 0.5rem 0rem 1rem;
+	margin: .5rem 0 1rem;
 	width: 100%;
 	overflow: auto hidden;
 	text-align: left;
@@ -17,28 +17,28 @@ body {
 	margin: auto;
 	max-width: 50rem;
 	color: #433;
-	padding: 3.1rem 0.6rem 0;
+	padding: 3.1rem .6rem 0;
 	overflow-x: hidden;
 }
-body > footer { margin: 10rem 0rem 0rem; }
+body > footer { margin: 10rem 0 0; }
 
 /* clickable stuff */
 a, summary, button, select { color: #07c; cursor: pointer; }
-a { text-decoration: underline solid #d1d1d1; text-underline-position: under; }
+a { text-decoration: underline solid 1.5px #d1d1d1; text-underline-position: under; }
 a:hover { color: #088;  border-color: #088; }
 
 /* common */
-td, th, pre > code { padding: 0.5rem 0.8rem; }
+td, th, pre > code { padding: .5rem .8rem; }
 .card, details { padding: 0 .6rem; }
-code, kbd, samp {	padding: 0.2rem; font: .9em/1.4 monospace; }
-code, kbd, samp, nav, .card {	background: #f4f5f6; border-radius: 0.3em; }
+code, kbd, samp { padding: .2rem; font: .9em/1.4 monospace; }
+code, kbd, samp, nav, .card { background: #f4f5f6; border-radius: .3em; }
 kbd, .card, details[open] { border: 1px solid #d1d1d1; }
 td, th, figcaption, caption, .card { font-size: 95%; }
-td, th, hr { border: 0; border-bottom: 0.1rem solid #d1d1d1; }
+td, th, hr { border: 0; border-bottom: .1rem solid #d1d1d1; }
 
 /* lists */
-ul, ol { padding-top: 0.5rem; }
-li, dd { margin-bottom: 0.5rem; }
+ul, ol { padding-top: .5rem; }
+li, dd { margin-bottom: .5rem; }
 dt { font-weight: bold; }
 
 /* headings */
@@ -60,19 +60,19 @@ tr:hover{ background-color: #f4f5f6; }
 /* figures */
 img, svg { max-width: 100%; vertical-align: text-top; }
 p>img:not(:only-child) { float: right; margin: 0 0 .5em .5em; }
-figure > img { display: block; margin: 0.5em auto; }
+figure > img { display: block; margin: .5em auto; }
 figcaption, caption { color: #888; margin-bottom: 1rem; }
-figure > *:not(:last-child) { margin: 0 0 0.4rem; }
+figure > *:not(:last-child) { margin: 0 0 .4rem; }
 
 /*code*/
-pre > code { margin: 0; border-left: 0.4rem solid #088; }
+pre > code { margin: 0; border-left: .4rem solid #088; }
 
 /* misc */
-blockquote{ border-left: 0.3rem solid #d1d1d1; padding: 1rem 1.5rem; font-style: italic; }
+blockquote{ border-left: .3rem solid #d1d1d1; padding: 1rem 1.5rem; font-style: italic; }
 input { font-size: 1em; }
 p>cite:before { content: ' ('; } p>cite:after {content: ') '}
 
 /* grid */
-.row { display: flex; margin:  0.5rem -0.5rem; align-items: stretch; }
-.row [class*="col"] { padding: 0  0.5rem; flex: 1 1 100%; }
+.row { display: flex; margin:  .5rem -.5rem; align-items: stretch; }
+.row [class*="col"] { padding: 0  .5rem; flex: 1 1 100%; }
 @media (max-width: 40em) { .row { flex-direction: column !important; } }
