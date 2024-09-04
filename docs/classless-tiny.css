@@ -1,4 +1,4 @@
-/* Classless.css v1.0 (Tiny Inline Version)*/
+/* Classless.css v1.1 (Tiny Inline Version)*/
 
 /* Tiny Reset for block elements  */
 * {box-sizing: border-box; border-spacing: 0;}
@@ -74,5 +74,5 @@ p>cite:before { content: ' ('; } p>cite:after {content: ') '}
 
 /* grid */
 .row { display: flex; margin:  .5rem -.5rem; align-items: stretch; }
-.row [class*="col"] { padding: 0  .5rem; flex: 1 1 100%; }
+.row [class*="col"] { padding: 0 .5rem; flex: 1 1 100%; }
 @media (max-width: 40em) { .row { flex-direction: column !important; } }

@@ -1,4 +1,4 @@
-/* Classless.css v1.0
+/* Classless.css v1.1
 
 Table of Contents:
  1. Theme Settings
@@ -329,15 +329,17 @@ p>select { padding: 0;      margin: 0 .5em; }
 /* 5. Bootstrap-compatible classes ––––––––––––––––––––– */
 
 /* grid */
-.row { display: flex; margin:  .5rem -.6rem; align-items: stretch; }
-.row [class*="col"] { padding: 0  .6rem; }
-.row .col   { flex: 1 1 100%; }
-.row .col-2 { flex: 0 0 16.66%; max-width: 16.66%;}
-.row .col-3 { flex: 0 0 25%; max-width: 25%;}
-.row .col-4 { flex: 0 0 33.33%; max-width: 33.33%; }
-.row .col-5 { flex: 0 0 41.66%; max-width: 41.66%; }
-.row .col-6 { flex: 0 0 50%; max-width: 50%; }
-@media (max-width: 40rem) { .row { flex-direction: column; } }
+.row { display: flex; margin: .5rem -.6rem; align-items: stretch; }
+.row [class^="col"] { padding: 0 .6rem; }
+.row .col   { flex: 0 4 100%; }
+.row .col-2 { flex: 0 2 16.66%; }
+.row .col-3 { flex: 0 3 25%; }
+.row .col-4 { flex: 0 4 33.33%; }
+.row .col-5 { flex: 0 5 41.66%; }
+.row .col-6 { flex: 0 6 50%; }
+@media (max-width: 40rem) {
+	.row { flex-direction: column; }
+}
 
 /* align */
 .text-left   { text-align: left; }
