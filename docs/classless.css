@@ -41,7 +41,7 @@ ul, ol, dl, fieldset, pre, pre > code {
 	overflow: auto hidden;
 	text-align: left;
 }
-video, summary, input, select { outline:none; }
+video, summary, input, select { outline: none; }
 
 /* reset clickable things  (FF Bug: select:hover prevents usage) */
 a, button, select, summary { color: var(--clink); cursor: pointer; }

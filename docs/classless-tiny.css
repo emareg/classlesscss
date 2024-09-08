@@ -10,7 +10,7 @@ ul, ol, dl, fieldset, pre, pre > code, nav {
 	overflow: auto hidden;
 	text-align: left;
 }
-video, summary, input, select { outline:none; }
+video, summary, input, select { outline: none; }
 html { font: 12pt/1.6 'Open Sans', Helvetica, sans-serif; }
 body {
 	position: relative;
@@ -25,6 +25,7 @@ body > footer { margin: 10rem 0 0; }
 /* clickable stuff */
 a, summary, button, select { color: #07c; cursor: pointer; }
 a { text-decoration: underline solid 1.5px #d1d1d1; text-underline-position: under; }
+a[href^="#"] {text-decoration: none; }
 a:hover { color: #088;  border-color: #088; }
 
 /* common */

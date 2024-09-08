@@ -14,7 +14,7 @@ Classless.css is one small CSS file, which defines few but great styles for basi
 * **Responsive.** We use media queries, em/rem units, and smart overflows for tables and code.
 * **Bootstrap Compatible.** Special features that require classes use the same names as Bootstrap.
 
-¹: we also offer a pre-made tiny version (90 lines) with only the base styles.
+¹: we also offer a pre-made tiny version (80 lines) with only the base styles.
 
 
 ## Getting Started
@@ -178,16 +178,21 @@ Besides that, Classless looks nice with many fonts and you can choose any other 
 ## Classeless Support
 
 
-| Browser                       | Support v94 | Support v95 | Support v1.0 | 
-|-------------------------------|-------------|-------------|--------------|
-| Chromium 96.0 on Ubuntu 20.04 | --          | perfect     | perfect      |
-| FireFox 97.0  on Ubuntu 20.04 | --          | perfect     | perfect      |
-| FireFox 84.0  on Windows 10   | perfect     | perfect     | perfect      |
-| Edge 88.0 on Windows 10       | perfect     | perfect     | perfect      |
-| IE 11 on Windows 10           | poor/good¹  | poor/good¹  | poor/good¹   |
-| FireFox 85.1 on Android 10    | perfect     | perfect     | perfect      |
-| Samsung Browser on Android 10 | perfect     | perfect     | perfect      |
-| Safari on iPhone 10           | perfect     | --          | good²        |
+| Browser Support               |      v0.94 |      v0.95 |       v1.0 |         v1.1 | 
+|-------------------------------|------------|------------|------------|--------------|
+| FireFox 122.0 on Ubuntu 22.04 | --         |      --    | perfect    | perfect      |
+| Chrome  128.0 on Windows 10   | --         |      --    | perfect    | perfect      |
+| Edge    128.0 on Windows 10   | --         |      --    | perfect    | perfect      |
+| Firefox 103.0 on Android 14   | --         |      --    | perfect    | perfect      |
+| Brave    1.69 on Android 14   | --         |      --    | perfect    | perfect      |
+| Chromium 96.0 on Ubuntu 20.04 | --         | perfect    | perfect    | --           |
+| FireFox 97.0  on Ubuntu 20.04 | --         | perfect    | perfect    | --           |
+| FireFox 84.0  on Windows 10   | perfect    | perfect    | perfect    | --           |
+| Edge 88.0 on Windows 10       | perfect    | perfect    | perfect    | --           |
+| IE 11 on Windows 10           | poor/good¹ | poor/good¹ | poor/good¹ | --           |
+| FireFox 85.1 on Android 10    | perfect    | perfect    | perfect    | --           |
+| Samsung Browser on Android 10 | perfect    | perfect    | perfect    | --           |
+| Safari on iPhone 10           | perfect    | --         | good²      | --           |
 
 
 ¹: Classless-full: body full width, table and code styles ignored, cite elements overlap text. However, classless-tiny without variables looks good.<br>
