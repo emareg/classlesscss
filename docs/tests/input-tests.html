@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>HTML5 input types test page | 456 Berea Street</title>
+	<meta name="viewport" content="width=320; initial-scale=1.0;">
+    <link id="maincss"  rel="stylesheet" href="../classless.css" />
+</head>
+<body>
+
+      <!-- Navigation -->
+  <nav class="noprint">
+    <ul>
+      <li>
+        <img style="height: 1.2em;" src="favicon.png">
+        <span>&ensp;Classless.css</span>
+      </li>
+      <li class="float-right sticky"><a onclick="addFontSize(-1)">ᴀ-</a>|<a onclick="addFontSize(1)">A+</a></li>
+      <li class="float-right sticky"><a onclick="toggleDarkMode(this)">☪</a></li>
+      <li><a href="#demo">Demo</a></li>
+      <li><a href="#basic">Reference ▾</a>
+        <ul>
+          <li><a href="#basic">Basic Style</a></li>
+          <li><a href="#extra">Extra Style</a></li>
+          <li><a href="#bootless">Classes</a></li>
+          <li><a href="#sec-addons">Add-Ons</a></li>
+        </ul>
+      </li>
+      <li class="float-right"><a href="https://github.com/emareg/classlesscss">@GitHub</a></li>
+    </ul>
+  </nav>
+
+	<div id="wrap">
+		<h1>HTML5 input types test page</h1>
+		<p>This page contains examples of the form controls that can be created with the new values for the `input` element’s `type` attribute in HTML5.</p>
+		<p>See the related blog post <a href="/archive/201004/html5_input_types/">HTML5 input types</a>.</p>
+		<form action=".">
+			<div class="text">
+				<label for="type-text">Text (text)</label>
+				<input type="text" name="type-text" id="type-text">
+			</div>
+			<div class="text">
+				<label for="type-search">Search (search)</label>
+				<input type="search" name="type-search" id="type-search">
+			</div>
+			<div class="text">
+				<label for="type-tel">Telephone (tel)</label>
+				<input type="tel" name="type-tel" id="type-tel">
+			</div>
+			<div class="text">
+				<label for="type-url">URL (url)</label>
+				<input type="url" name="type-url" id="type-url">
+			</div>
+			<div class="text">
+				<label for="type-email">E-mail (email)</label>
+				<input type="email" name="type-email" id="type-email">
+			</div>
+			<div class="text">
+				<label for="type-datetime">Date and Time (datetime)</label>
+				<input type="datetime" name="type-datetime" id="type-datetime">
+			</div>
+			<div class="text">
+				<label for="type-date">Date (date)</label>
+				<input type="date" name="type-date" id="type-date">
+			</div>
+			<div class="text">
+				<label for="type-month">Month (month)</label>
+				<input type="month" name="type-month" id="type-month">
+			</div>
+			<div class="text">
+				<label for="type-week">Week (week)</label>
+				<input type="week" name="type-week" id="type-week">
+			</div>
+			<div class="text">
+				<label for="type-time">Time (time)</label>
+				<input type="time" name="type-time" id="type-time">
+			</div>
+			<div class="text">
+				<label for="type-datetime-local">Local Date and Time (datetime-local)</label>
+				<input type="datetime-local" name="type-datetime-local" id="type-datetime-local">
+			</div>
+			<div class="text">
+				<label for="type-number">Number (number)</label>
+				<input type="number" name="type-number" id="type-number" min="0" max="20">
+			</div>
+			<div class="text">
+				<label for="type-range">Range (range)</label>
+				<input type="range" name="type-range" id="type-range" min="0" max="100">
+			</div>
+			<div class="text">
+				<label for="type-color">Colour (color)</label>
+				<input type="color" name="type-color" id="type-color">
+			</div>
+			<div class="submit-area">
+				<input type="submit" value="Submit" name="submit-1">
+			</div>
+		</form>
+		<div id="labfooter">
+			<p><a href="/lab/">Lab Index</a> | <a href="/">456 Berea Street Home</a> | Copyright © Roger Johansson</p>
+		</div>
+	</div>
+</body>
+
+<!-- Extra CSS -->
+<link id="themecss" rel="stylesheet" href="../addons/themes.css" />
+
+<!-- JavaScript, only for convenience but not required for Classless. -->
+<script>
+    function switchTheme(el) { document.documentElement.setAttribute('data-theme', el.value) }
+  
+    function switchCSS(cssid, el){ document.getElementById(cssid).href = el.value; }
+  
+    function addFontSize(addPx){
+      html = document.querySelector('html');
+      currentSize = parseFloat(window.getComputedStyle(html, null)
+        .getPropertyValue('font-size'));
+      html.style.fontSize = (currentSize + addPx) + 'px';
+    }
+  
+    function toggleDarkMode(el){
+      var theme='light'
+      if (el.innerText == '☪'){
+        el.innerText = '☀'; theme='dark';
+      } else {
+        el.innerText = '☪';
+      }
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+  </script>
+</html>
