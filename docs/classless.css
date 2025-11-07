@@ -218,7 +218,9 @@ abbr[title], [data-tooltip] { cursor: help; }
 nav+* { margin-top: 3rem; }
 body>nav, header nav {
 	position: var(--navpos);
-	top: 0; left: 0; right: 0;
+	width: inherit;
+	top: 0; left: -40vw; right: -40vw;
+	padding: 0 40vw;
 	z-index: 41;
 	box-shadow: 0vw -50vw 0 50vw var(--clight), 0 calc(-50vw + 2px) 4px 50vw var(--cdark);
 }
