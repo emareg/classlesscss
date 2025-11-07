@@ -10,23 +10,23 @@
 @import url('https://fonts.cdnfonts.com/css/libertinus-serif');
 @import url('https://fonts.cdnfonts.com/css/libertinus-sans');
 
-html[data-theme='dark'] {
-	/* foreground   | background color */
-	--cfg:   #cecbc4; --cbg:    #252220;
-	--cdark: #999;    --clight: #333;
-	--cmed:  #566;
-	--clink: #1ad;
-	--cemph: #0b9;    --cemphbg: #0b91;
-}
+  html[data-theme='dark'] {
+    /* foreground   | background color */
+    --cfg:   #c4cbce;  --cbg:    #071133;
+    --cdark: #fff8;    --clight: #fff1;
+    --cmed:  #eff4;
+    --clink: #1ad;
+    --cemph: #0b9;    --cemphbg: #0b91;
+  }
 
 @media (prefers-color-scheme: dark) {
 	html[data-theme='light'] {
-		/* foreground   | background color */
-		--cfg:   #cecbc4; --cbg:    #252220;
-		--cdark: #999;    --clight: #333;
-		--cmed:  #566;
-		--clink: #1ad;
-		--cemph: #0b9;    --cemphbg: #0b91;
+    /* foreground   | background color */
+    --cfg:   #c4cbce;  --cbg:    #071133;
+    --cdark: #fff8;    --clight: #fff1;
+    --cmed:  #eff4;
+    --clink: #1ad;
+    --cemph: #0b9;    --cemphbg: #0b91;
 	}	
 }
 
