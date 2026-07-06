@@ -100,7 +100,7 @@ tr:hover{ background-color: var(--clight); }
 table img { display: block; }
 
 /* figures */
-img, svg { max-width: 100%; vertical-align: text-top; object-fit: cover; }
+img, svg { max-width: 100%; height: auto; vertical-align: text-top; object-fit: cover; }
 p>img:not(:only-child) { float: right; margin: 0 0 .5em .5em; }
 figure > img { display: inline-block; width: auto; }
 figure > img:only-of-type, figure > svg:only-of-type { max-width: 100%; display: block; margin: 0 auto .4em; }
@@ -258,7 +258,7 @@ summary>* { display: inline; }
 	overflow: hidden;
 }
 .card, details[open] { outline: 1px solid var(--cmed); }
-.card>img:first-child { margin: -3px -.6rem; max-width: calc(100% + 1.2rem); }
+.card>img:first-child { display: block; margin: 0 -.6rem; max-width: calc(100% + 1.2rem); }
 summary:hover, details[open] summary, .card>p:first-child {
 	box-shadow: inset 0 0 0 2em var(--clight), 0 -.8rem 0 .8rem var(--clight); 
 }

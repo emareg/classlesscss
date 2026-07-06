@@ -59,7 +59,7 @@ td:first-child, th:first-child { text-align: left; }
 tr:hover{ background-color: #f4f5f6; }
 
 /* figures */
-img, svg { max-width: 100%; vertical-align: text-top; }
+img, svg { max-width: 100%; height: auto; vertical-align: text-top; }
 p>img:not(:only-child) { float: right; margin: 0 0 .5em .5em; }
 figure > img { display: block; margin: .5em auto; }
 figcaption, caption { color: #888; margin-bottom: 1rem; }
