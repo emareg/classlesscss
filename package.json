@@ -1,0 +1,23 @@
+{
+  "name": "classlesscss",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "npm run lint && playwright test --project=chromium --project=mobile-chrome",
+    "lint": "npm run lint:structure && npm run lint:css && npm run lint:html",
+    "lint:structure": "node tests/css-structure.js",
+    "lint:css": "stylelint \"docs/**/*.css\"",
+    "lint:html": "html-validate \"docs/**/*.html\"",
+    "test:browsers": "playwright test",
+    "test:docker": "tests/docker.sh",
+    "screenshots": "SCREENSHOTS=1 tests/docker.sh",
+    "generate": "tests/generate.sh"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "css-tree": "3.2.1",
+    "html-validate": "11.22.1",
+    "http-server": "14.1.1",
+    "stylelint": "18.1.0"
+  }
+}

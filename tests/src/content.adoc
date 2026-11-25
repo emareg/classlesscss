@@ -1,0 +1,59 @@
+= Classless Test Page
+:toc:
+:sectnums:
+
+== Text
+
+A paragraph with _emphasis_, *strong text*, `inline code`, #marked text# and a https://example.org[link].footnote:[The footnote text.]
+
+[quote,Somebody]
+____
+A block quote.
+____
+
+== Lists
+
+. First item
+. Second item
+** Nested item
+
+* [x] Finished task
+* [ ] Open task
+
+Term:: Definition of the term.
+
+== Admonitions
+
+NOTE: This is a note.
+
+WARNING: This is a warning.
+
+== Tables
+
+.A table caption
+[cols="2,1,1",options="header"]
+|===
+|Name |Quantity |Price
+|Apple |3 |0.50
+|Banana |12 |0.25
+|===
+
+== Code
+
+[source,python]
+----
+def greet(name: str) -> str:
+    """Return a greeting. This line is long enough to need horizontal scrolling on phones."""
+    return f"Hello, {name}!"
+----
+
+== Figures
+
+.A figure caption
+image::../../img/headerimg.jpg[Header image]
+
+[%collapsible]
+.More details
+====
+Hidden content.
+====

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor.js 4.3.0">
+<title>Classless Test Page</title>
+<link rel="stylesheet" href="../../classless.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Classless Test Page</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_text">1. Text</a></li>
+<li><a href="#_lists">2. Lists</a></li>
+<li><a href="#_admonitions">3. Admonitions</a></li>
+<li><a href="#_tables">4. Tables</a></li>
+<li><a href="#_code">5. Code</a></li>
+<li><a href="#_figures">6. Figures</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_text">1. Text</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A paragraph with <em>emphasis</em>, <strong>strong text</strong>, <code>inline code</code>, <mark>marked text</mark> and a <a href="https://example.org">link</a>.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>A block quote.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Somebody
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lists">2. Lists</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First item</p>
+</li>
+<li>
+<p>Second item</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Nested item</p>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p>&#10003; Finished task</p>
+</li>
+<li>
+<p>&#10063; Open task</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Term</dt>
+<dd>
+<p>Definition of the term.</p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_admonitions">3. Admonitions</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This is a note.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+This is a warning.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tables">4. Tables</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. A table caption</caption>
+<colgroup>
+<col width="50%">
+<col width="25%">
+<col width="25%">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Quantity</th>
+<th class="tableblock halign-left valign-top">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apple</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.50</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Banana</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.25</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code">5. Code</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">def greet(name: str) -&gt; str:
+    """Return a greeting. This line is long enough to need horizontal scrolling on phones."""
+    return f"Hello, {name}!"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_figures">6. Figures</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="../../img/headerimg.jpg" alt="Header image">
+</div>
+<div class="title">Figure 1. A figure caption</div>
+</div>
+<details>
+<summary class="title">More details</summary>
+<div class="content">
+<div class="paragraph">
+<p>Hidden content.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. The footnote text.
+</div>
+</div>
+</body>
+</html>

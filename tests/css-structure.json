@@ -1,0 +1,57 @@
+{
+  "docs/classless.css": {
+    "maxLines": 400,
+    "blocks": [
+      "(head)",
+      "1. Theme Settings",
+      "2. Reset",
+      "reset block elements",
+      "reset clickable things  (FF Bug: select:hover prevents usage)",
+      "3. Base Style",
+      "links",
+      "lists",
+      "headings",
+      "tables",
+      "figures",
+      "captions",
+      "code",
+      "misc",
+      "4. Extra Style",
+      "Auto Numbering: figure/tables/headings/cite",
+      "subfigures",
+      "listings",
+      "tables",
+      "headings",
+      "tooltip + citation",
+      "navbar",
+      "details/cards",
+      "big first letter",
+      "ornaments",
+      "side menu (aside is not intended for use in a paragraph!)",
+      "forms and inputs",
+      "5. Bootstrap-compatible classes",
+      "grid",
+      "align",
+      "colors",
+      "margins",
+      "pading",
+      "be print friendly"
+    ]
+  },
+  "docs/classless-tiny.css": {
+    "maxLines": 90,
+    "blocks": [
+      "(head)",
+      "Tiny Reset for block elements",
+      "clickable stuff",
+      "common",
+      "lists",
+      "headings",
+      "tables",
+      "figures",
+      "code",
+      "misc",
+      "grid"
+    ]
+  }
+}

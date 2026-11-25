@@ -85,6 +85,7 @@ h6 { font-size: 1.0em; font-weight: 700; font-style: italic; display: inline; }
 h6 + p { display: inline; }
 
 /* tables */
+table { display: block; overflow-x: auto; }  /* scroll wide tables */
 td, th {
   padding: .5em .8em;
   text-align: right;

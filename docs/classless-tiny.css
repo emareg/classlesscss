@@ -54,6 +54,7 @@ h6 { font-size: 1.0em; font-weight: 600; display: inline; }
 h6 + p { display: inline; }
 
 /* tables */
+table { display: block; overflow-x: auto; }
 td, th { text-align: right; white-space: nowrap; }
 td:first-child, th:first-child { text-align: left; }
 tr:hover{ background-color: #f4f5f6; }

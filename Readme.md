@@ -125,6 +125,12 @@ Besides that, Classless looks nice with many fonts and you can choose any other 
 
 
 
+## Testing
+
+[Test pages](docs/tests/index.html) show Classless with the output of Pandoc, Hugo, Jekyll, Sphinx and others.
+Run `npm install && npm test`; see [tests/README.md](tests/README.md) for cross-browser tests and CI.
+
+
 ## Comparison of Minimal Frameworks
 
 <table>

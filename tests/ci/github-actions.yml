@@ -1,0 +1,26 @@
+# Suggested CI pipeline. Activate with:
+#   mkdir -p .github/workflows && cp tests/ci/github-actions.yml .github/workflows/test.yml
+name: test
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    # same image as tests/docker.sh; keep the version equal to @playwright/test in package.json
+    container:
+      image: mcr.microsoft.com/playwright:v1.65.1-noble
+      options: --ipc=host
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run lint
+      - run: npx playwright test
+        env:
+          HOME: /root # Firefox refuses to start if HOME is not owned by the user
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/

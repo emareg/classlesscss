@@ -55,14 +55,14 @@
       <li><b>Responsive.</b> We use media queries, <code>em/rem</code> units, and smart overflows for tables and code.</li>
       <li><b>Bootstrap Compatible.</b> The few classes use the same names as Bootstrap.</li>
     </ul>
-    <p>¹: we import the font 'Open Sans' but if it fails, we fallback to Helvetica.</br>
+    <p>¹: we import the font 'Open Sans' but if it fails, we fallback to Helvetica.<br>
     ²: we also offer a pre-made tiny version (80 lines) with only the base styles.</p>
 
     <h2>Getting Started</h2>
     <p>For testing, you can simply insert the following line into your HTML file. For production, please host the classless.css file yourself.</p>
     
     <pre><code>&lt;link rel="stylesheet" href="<a href="https://classless.de/classless.css">https://classless.de/classless.css</a>"&gt;</code></pre>
-    <a href="classless.css" download="classless.css"><button>Download Full CSS</button></a>
+    <a href="classless.css" download="classless.css">Download Full CSS</a>
 
     <h5>Tiny Version</h5>
     <p>We also offer a pre-made tiny version (80 lines, 2.7 kB) with only the most basic styles for text, tables, figures, and code.<br>Test now: 
@@ -72,7 +72,7 @@
       </select>
     </p>   
     <pre><code>&lt;link rel="stylesheet" href="https://classless.de/classless-tiny.css"&gt;</code></pre>
-    <a href="classless-tiny.css" download="classless-tiny.css"><button>Download Tiny CSS</button></a>
+    <a href="classless-tiny.css" download="classless-tiny.css">Download Tiny CSS</a>
 
     <h5>Look at this Code</h5>
     <p>The page you are seeing right now, is already a demo of pure classless.css. We do not use any additional custom CSS to make this demo look better than what Classless provides.</p>
@@ -288,7 +288,6 @@
     <p>You can use the standard html5 tags such as <code>&lt;b&gt;</code> or <code>&lt;strong&gt;</code> for <b>bold</b> text, <code>&lt;i&gt;</code> or <code>&lt;em&gt;</code> for <i>italic</i> text and <code>&lt;u&gt;</code> for <u>underlined</u> text.</p>
     <p>Use <code>&lt;sub&gt;</code> for subscripts like in H<sub>2</sub>O.</p>
     <p><small>This small text uses <code>&lt;small&gt;</code> for for fine print, etc.</small></p>
-    <p><big>This big text uses <code>&lt;big&gt;</code> for a lead paragraph</big></p>
     <p>Inline quotations with <code>&lt;q&gt;</code> such as <q>Anna shouted: <q>This is Lars’ car!</q>, when he saw him.</q> insert automatically the correct quotation marks.</p>
     <p><cite>This is a citation.</cite></p>
     <p>Sometimes, I need to <del>delete</del>, <ins>insert</ins>, or <mark>mark</mark> certain words.</p>
@@ -342,6 +341,7 @@
     <div class="row">
       <div class="col">
         <table>
+          <caption>Use of thead and tbody.</caption>
           <thead><tr>
             <th>
               Head 1
@@ -358,11 +358,11 @@
               <td>D</td>      
             </tr>          
           </tbody>
-          <caption>Use of thead and tbody.</caption> 
         </table>
       </div>
       <div class="col pt-1">
         <pre><code class="language-html">&lt;table&gt;
+ &lt;caption&gt;Use of ...&lt;/caption&gt;
  &lt;thead&gt;
   &lt;tr&gt;
    &lt;th&gt;Head 1&lt;/th&gt;      
@@ -372,7 +372,6 @@
  &lt;tbody&gt;
       ...                
  &lt;/tbody&gt;
- &lt;caption&gt;Use of ...&lt;/caption&gt; 
 &lt;/table&gt;</code></pre>
 
       </div>
@@ -383,6 +382,7 @@
   <div class="row">
     <div class="col">      
       <table>
+        <caption>Cells spanning several rows or columns.</caption>
         <thead>
         <tr>
           <th colspan="2">Test</th>
@@ -393,7 +393,6 @@
         <tbody>
         <tr><td>4</td><td>2</td><td>X</td></tr>
         </tbody>
-      <caption>Cells spanning several rows or columns.</caption> 
       </table>
     </div>
     <div class="col">
@@ -842,13 +841,13 @@
       <div class="col">
         <div class="card hint">
           <p>Hint for Cards</p>
-          <p>The first <code>&lt;p&gt</code> tag will be the card heading for info/warn.</p>               
+          <p>The first <code>&lt;p&gt;</code> tag will be the card heading for info/warn.</p>               
         </div>
       </div>
       <div class="col">
         <div class="card warn">
           <p>Warning</p>
-          <p>The first <code>&lt;p&gt</code> tag will be the card heading for info/warn.</p>               
+          <p>The first <code>&lt;p&gt;</code> tag will be the card heading for info/warn.</p>               
         </div>        
       </div>
     </div>  
@@ -910,9 +909,9 @@
     <pre><code><a href="https://classless.de/addons/tabbox.css">https://classless.de/addons/tabbox.css</a></code></pre>
 
     <p>Use extra CSS file:
-      <select id="selcss" onchange="switchCSS('tabcss', this)" class="p-0">
+      <select id="selcss-tab" onchange="switchCSS('tabcss', this)" class="p-0">
           <option value="addons/tabbox.css">Activated</option>
-          <option value="">Deactivated</option>
+          <option value="data:text/css,">Deactivated</option>
       </select>
     </p>
 
@@ -945,7 +944,7 @@
     <p>You can easily change the overall theme with the variables in the beginning. Some premade themes are available in the following file:</p>
     <pre><code><a href="https://classless.de/addons/themes.css">https://classless.de/addons/themes.css</a></code></pre>
     <p>Switch theme now:
-    <select id="theme" onchange="switchTheme(this)">
+    <select id="theme-2" onchange="switchTheme(this)">
       <option value="light">Light</option>
       <option value="dark">Dark</option>
       <option value="sepia">Sepia</option>
@@ -1009,8 +1008,8 @@ function toggleDarkMode(el){
     <pre><code><a href="https://classless.de/addons/hljs-style.css">https://classless.de/addons/hljs-style.css</a></code></pre>
 
     <p>Try highlightjs.org:
-      <select id="selcss" onchange="switchCSS('hlcss', this)" class="p-0">
-          <option value="" selected>Deactivated</option>
+      <select id="selcss-hl" onchange="switchCSS('hlcss', this)" class="p-0">
+          <option value="data:text/css," selected>Deactivated</option>
           <option value="addons/hljs-style.css">Activated</option>
       </select>
     </p>
@@ -1058,7 +1057,6 @@ class SomeClass:
       <a href="tel:+1234567890">+1234567890</a>
     </p>
   </footer>
-</body>
 
 <!-- Extra CSS -->
 <link id="tabcss"   rel="stylesheet" href="addons/tabbox.css" />
@@ -1114,7 +1112,7 @@ class SomeClass:
 </script>
 
 <!-- Code Highlighting -->
-<link id="hlcss" rel="stylesheet" href="">
+<link id="hlcss" rel="stylesheet" href="data:text/css,">
 <script id="hljs" src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
 <script>
 document.querySelectorAll('pre code[class*="language"]').forEach(el => {
@@ -1124,4 +1122,5 @@ document.querySelectorAll('pre code[class*="language"]').forEach(el => {
 
 </script>
 
+</body>
 </html>
