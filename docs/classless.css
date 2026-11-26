@@ -11,7 +11,8 @@ Table of Contents:
 /* 1. Theme Settings ––––––––––––––––––––-–––––––––––––– */
 
 
-:root, html[data-theme='light'] {
+:root {
+	color-scheme: light dark;  /* follow the system; data-theme can force one */
 	--rem: 12pt;
 	--width: 50rem;
 	--navpos: absolute;  /* fixed | absolute */
@@ -20,13 +21,18 @@ Table of Contents:
 	--font-c: .9em/1.4 'DejaVu Sans Mono', monospace;
 	--border: 1px solid var(--cmed);
 	--ornament: "‹‹‹ ›››";
-	/* foreground   | background color */
-	--cfg:   #433;    --cbg:    #fff;
-	--cdark: #888;    --clight: #f5f6f7;
-	--cmed:  #d1d1d1;
-	--clink: #07c;
-	--cemph: #088;    --cemphbg: #0881;
+	/*                  light    dark */
+	--cfg:    light-dark(#433,    #c4cbce);  /* text */
+	--cbg:    light-dark(#fff,    #071133);  /* background */
+	--cdark:  light-dark(#888,    #fff8);
+	--clight: light-dark(#f5f6f7, #fff1);
+	--cmed:   light-dark(#d1d1d1, #eff4);
+	--clink:  light-dark(#07c,    #1ad);
+	--cemph:  light-dark(#088,    #0b9);
+	--cemphbg: light-dark(#0881,  #0b91);
 }
+:root[data-theme]:not([data-theme='dark']) { color-scheme: light; }
+:root[data-theme='dark'] { color-scheme: dark; }
 
 
 /* 2. Reset –––––––––––––––––––––––––––––––––––––––––––– */
@@ -41,7 +47,9 @@ ul, ol, dl, fieldset, pre, pre > code {
 	overflow: auto hidden;
 	text-align: left;
 }
-video, summary, input, select { outline: none; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--clink); outline-offset: 2px; }
+summary:focus-visible { outline-offset: -2px; }  /* details clips outside */
 
 /* reset clickable things  (FF Bug: select:hover prevents usage) */
 a, button, select, summary { color: var(--clink); cursor: pointer; }
@@ -57,9 +65,10 @@ body {
 	color: var(--cfg);
 	padding: 3.0rem .6rem 0;
 	overflow-x: hidden;
+	overflow-wrap: break-word;  /* long words and URLs wrap instead of being cut off */
 }
 body > footer { margin: 10rem 0 0; font-size: 90%; }
-p { margin: .6em 0; }
+p { margin: .6em 0; text-wrap: pretty; }
 
 /* links */
 a[href]{ text-decoration: underline solid 1.5px var(--cmed); text-underline-position: under; }
@@ -74,7 +83,7 @@ li:not(:last-child), dd:not(:last-child) { margin-bottom: .5rem; }
 dt { font-weight: bold; }
 
 /* headings */
-h1, h2, h3, h4, h5 { margin: 1.5em 0 .5rem; font: var(--font-h); line-height: 1.2em; clear: both; }
+h1, h2, h3, h4, h5 { margin: 1.5em 0 .5rem; font: var(--font-h); line-height: 1.2em; clear: both; text-wrap: balance; }
 h1+h2, h2+h3, h3+h4, h4+h5 { margin-top: .5em; padding-top: 0; }  /* non-clashing headings */
 h1 { font-size: 2.2em; font-weight: 300; }
 h2 { font-size: 2.0em; font-weight: 300; font-variant: small-caps; }
@@ -92,6 +101,7 @@ td, th {
   border-bottom: var(--border);
   white-space: nowrap;
   font-size: 95%;
+  font-variant-numeric: tabular-nums;
 }
 thead th[colspan] { padding: .2em .8em; text-align: center; }
 thead tr:not(:only-child) td { padding: .2em .8em;}
@@ -132,7 +142,9 @@ blockquote { border-left: .4rem solid var(--cmed); padding: 0 0 0 1rem;  }
 time{ color: var(--cdark); }
 hr { border: 0; border-top: .1rem solid var(--cmed); }
 nav { width: 100%; background-color: var(--clight); }
-::selection, mark { background: var(--clink); color: var(--cbg); }
+::selection { background: var(--clink); color: var(--cbg); }
+mark { background: var(--cemphbg); color: inherit; }
+abbr[title] { text-decoration: underline dotted var(--cdark); }
 
 
 /* 4. Extra Style –––––––––––––––––––––––––––––––––––––– */
@@ -223,7 +235,9 @@ body>nav, header nav {
 	top: 0; left: -40vw; right: -40vw;
 	padding: 0 40vw;
 	z-index: 41;
-	box-shadow: 0vw -50vw 0 50vw var(--clight), 0 calc(-50vw + 2px) 4px 50vw var(--cdark);
+	background: color-mix(in srgb, var(--clight) 85%, transparent);
+	backdrop-filter: blur(12px);
+	border-bottom: var(--border);
 }
 nav ul { list-style-type: none; }
 nav ul:first-child { margin: 0; padding: 0; overflow: visible; }
@@ -233,7 +247,8 @@ nav ul:first-child > li {
 	padding: .8rem .6rem;
 }
 nav ul > li > ul {
-	display: none;
+	visibility: hidden; opacity: 0; translate: 0 -4px;
+	transition: opacity .12s ease-in, translate .12s ease-in, visibility 0s .12s;
 	width: auto;
 	position: absolute;
 	margin: .5rem 0;
@@ -244,7 +259,7 @@ nav ul > li > ul {
 	z-index: 42;
 }
 nav ul > li > ul > li { white-space: nowrap; }
-nav ul > li:hover > ul { display: block; }
+nav ul > li:is(:hover, :focus-within) > ul { visibility: visible; opacity: 1; translate: 0; transition-timing-function: ease-out; }
 @media (max-width: 40rem) {
 	nav ul:first-child > li:first-child:after { content: " \25BE"; }
 	nav ul:first-child > li:not(:first-child):not(.sticky) { display: none; }
@@ -294,13 +309,13 @@ main aside {
 	width: 8rem;      right: -8.6rem;
 	font-size: .8em; line-height: 1.4em;
 }
-@media (max-width: 70rem) { main aside { display: none; } }
+@media (max-width: 70rem) { main aside { position: static; width: auto; margin: .5rem 0; padding-left: .8rem; border-left: var(--border); } }
 
 /* forms and inputs  */
 textarea, input:not([type=range]), button, select {
 	font: var(--font-h);
 	border-radius: 4px;
-	border: 1.5px solid var(--cmed);
+	border: 1.5px solid transparent;
 	padding: .4em .8em;
 	color: var(--cfg);
 	background-color: var(--clight);
@@ -324,8 +339,9 @@ textarea:hover, input:not([type=checkbox]):not([type*='ra']):hover {
 }
 textarea:focus, input:not([type=checkbox]):not([type*='ra']):focus {
 	border: 1.5px solid var(--clink);
-	box-shadow: 0 0 5px var(--clink);
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--clink) 20%, transparent);
 }
+:is(button, input)[type=submit], :is(button, input)[type=submit]:hover { background: var(--clink); color: var(--cbg); }
 p>button { padding: 0 .5em; margin: 0 .5em; }
 p>select { padding: 0;      margin: 0 .5em; }
 

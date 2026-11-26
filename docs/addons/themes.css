@@ -10,25 +10,7 @@
 @import url('https://fonts.cdnfonts.com/css/libertinus-serif');
 @import url('https://fonts.cdnfonts.com/css/libertinus-sans');
 
-  html[data-theme='dark'] {
-    /* foreground   | background color */
-    --cfg:   #c4cbce;  --cbg:    #071133;
-    --cdark: #fff8;    --clight: #fff1;
-    --cmed:  #eff4;
-    --clink: #1ad;
-    --cemph: #0b9;    --cemphbg: #0b91;
-  }
-
-@media (prefers-color-scheme: dark) {
-	html[data-theme='light'] {
-    /* foreground   | background color */
-    --cfg:   #c4cbce;  --cbg:    #071133;
-    --cdark: #fff8;    --clight: #fff1;
-    --cmed:  #eff4;
-    --clink: #1ad;
-    --cemph: #0b9;    --cemphbg: #0b91;
-	}	
-}
+/* light and dark: built into classless.css (light-dark() colors) */
 
 
 

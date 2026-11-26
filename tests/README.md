@@ -17,7 +17,7 @@ npx playwright show-report
 | `lint:structure` | line budget, numbered table of contents, list of feature blocks, each block deletable on its own |
 | `lint:css` | unknown properties, values, units, selectors; no style/formatting rules |
 | `lint:html` | validity of all HTML pages in `docs/` |
-| `pages.spec.js` | every page with full and tiny CSS: stylesheet loads, no missing files or script errors, nothing cut off horizontally |
+| `pages.spec.js` | every page with full and tiny CSS and the variants in `docs/tests/variants/`: stylesheet loads, no missing files or script errors, no text, image or control cut off horizontally |
 | `content.spec.js` | content which must not disappear |
 
 External requests are blocked, so the tests run offline (after installation).
@@ -38,12 +38,6 @@ VISUAL=1 tests/docker.sh --update-snapshots   # before: create baselines
 VISUAL=1 tests/docker.sh                      # after: compare
 ```
 
-## Known issues
-
-Tests marked as *expected to fail* are listed with ✘ but count as passed.
-Once the CSS is fixed they report "Expected to fail, but passed": then remove the marker.
-
-* Docutils footnotes and admonitions are `<aside>` and hidden below 70rem (`content.spec.js`).
 
 ## Test pages
 
@@ -56,6 +50,14 @@ except pandoc, which is taken from your system.
 Hugo, Eleventy, Jekyll, MkDocs and nbconvert use a minimal page template
 (`<main><article>`), not one of their themes. Pandoc, Docutils and Asciidoctor use their
 default templates; Sphinx uses its `basic` theme without its stylesheets.
+
+## Style variants
+
+`docs/tests/variants/` holds experimental replacements for `classless.css`
+(Prash, Calm, Ink) and a copy of the demo page with a variant menu
+(`variants/index.html?v=calm`). They keep the structure of `classless.css`, which
+`lint:structure` checks with a budget of 480 lines each, and the same theme variables.
+The browser tests run every page with every variant.
 
 ## Browser coverage
 

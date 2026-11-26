@@ -5,23 +5,35 @@ const generated = readdirSync(new URL('../docs/tests/generated', import.meta.url
   .filter((f) => f.endsWith('.html'))
   .map((f) => `tests/generated/${f}`);
 const pages = ['index.html', 'tests/input-tests.html', ...generated];
-const stylesheets = ['classless.css', 'classless-tiny.css'];
+const variants = ['prash', 'calm', 'ink'];
+const variantPages = [...variants, 'classless'].map((v) => `tests/variants/index.html?v=${v}`);
+const stylesheets = ['classless.css', 'classless-tiny.css', ...variants.map((v) => `tests/variants/${v}.css`)];
 
-// Elements which reach beyond the viewport and cannot be scrolled to. body has
-// "overflow-x: hidden", so such content is silently cut off.
+
+// Content (text, images, controls) which reaches beyond the viewport and cannot be
+// scrolled to. body has "overflow-x: hidden", so such content is silently cut off.
+// Boxes alone are not checked: a full-width background may extend off-screen on purpose.
 function findClipped() {
   const width = document.documentElement.clientWidth;
   const contained = (el) => {
-    for (let p = el.parentElement; p && p !== document.body; p = p.parentElement)
-      if (getComputedStyle(p).overflowX !== 'visible' && p.getBoundingClientRect().right <= width + 1) return true;
+    for (let p = el; p && p !== document.body; p = p.parentElement)
+      if (p !== el && getComputedStyle(p).overflowX !== 'visible' && p.getBoundingClientRect().right <= width + 1) return true;
     return false;
   };
-  return [...document.body.querySelectorAll('*')]
-    .filter((el) => {
-      const r = el.getBoundingClientRect();
-      return r.width > 1 && r.height > 1 && r.right > width + 1 && !el.closest('aside, math') && !contained(el);
-    })
-    .map((el) => `<${el.localName} class="${el.getAttribute('class') ?? ''}"> +${Math.round(el.getBoundingClientRect().right - width)}px "${el.textContent.trim().slice(0, 40)}"`)
+  const items = [];
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+    if (!n.textContent.trim()) continue;
+    const range = document.createRange();
+    range.selectNodeContents(n);
+    items.push([n.parentElement, range.getBoundingClientRect()]);
+  }
+  for (const el of document.body.querySelectorAll('img, svg, video, canvas, iframe, input, select, textarea, button, meter, progress'))
+    items.push([el, el.getBoundingClientRect()]);
+  return items
+    .filter(([el, r]) => r.width > 1 && r.height > 1 && r.right > width + 1 && !el.closest('aside, math, script, style') && !contained(el))
+    .map(([el, r]) => `<${el.localName} class="${el.getAttribute('class') ?? ''}"> +${Math.round(r.right - width)}px "${el.textContent.trim().slice(0, 40)}"`)
+    .filter((v, i, all) => all.indexOf(v) === i)
     .slice(0, 8);
 }
 
@@ -32,12 +44,12 @@ test.beforeEach(async ({ page }) => {
 
 for (const css of stylesheets) {
   test.describe(css, () => {
-    for (const path of pages) {
+    for (const path of css === 'classless.css' ? [...pages, ...variantPages] : pages) {
       test(path, async ({ page }, info) => {
         if (process.env.VISUAL) test.slow();
         const errors = [];
         // index.html needs CDN scripts, which are blocked here
-        if (path !== 'index.html') page.on('pageerror', (e) => errors.push(e.message));
+        if (!/index\.html/.test(path) || path.startsWith('tests/generated')) page.on('pageerror', (e) => errors.push(e.message));
         page.on('response', (r) => r.status() >= 400 && errors.push(`${r.status()} ${r.url()}`));
         if (css !== 'classless.css')
           await page.route('**/classless.css', async (route) =>
