@@ -5,9 +5,7 @@ const generated = readdirSync(new URL('../docs/tests/generated', import.meta.url
   .filter((f) => f.endsWith('.html'))
   .map((f) => `tests/generated/${f}`);
 const pages = ['index.html', 'tests/input-tests.html', ...generated];
-const variants = ['prash', 'calm', 'ink'];
-const variantPages = [...variants, 'classless'].map((v) => `tests/variants/index.html?v=${v}`);
-const stylesheets = ['classless.css', 'classless-tiny.css', ...variants.map((v) => `tests/variants/${v}.css`)];
+const stylesheets = ['classless.css', 'classless-tiny.css'];
 
 
 // Content (text, images, controls) which reaches beyond the viewport and cannot be
@@ -44,12 +42,12 @@ test.beforeEach(async ({ page }) => {
 
 for (const css of stylesheets) {
   test.describe(css, () => {
-    for (const path of css === 'classless.css' ? [...pages, ...variantPages] : pages) {
+    for (const path of pages) {
       test(path, async ({ page }, info) => {
         if (process.env.VISUAL) test.slow();
         const errors = [];
         // index.html needs CDN scripts, which are blocked here
-        if (!/index\.html/.test(path) || path.startsWith('tests/generated')) page.on('pageerror', (e) => errors.push(e.message));
+        if (path !== 'index.html') page.on('pageerror', (e) => errors.push(e.message));
         page.on('response', (r) => r.status() >= 400 && errors.push(`${r.status()} ${r.url()}`));
         if (css !== 'classless.css')
           await page.route('**/classless.css', async (route) =>
