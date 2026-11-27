@@ -705,6 +705,12 @@
       </div>
     </div>
 
+    <p>A <code>&lt;dialog&gt;</code> uses the same box and dims the page:
+      <button type="button" onclick="this.parentElement.nextElementSibling.showModal()">Open dialog</button>
+      A <code>popover</code> uses the same box without dimming: <button type="button" popovertarget="demo-popover">Open popover</button></p>
+    <dialog><p>This is a dialog.</p><form method="dialog"><button>Close</button></form></dialog>
+    <div popover id="demo-popover"><p>This is a popover. Click outside to close it.</p></div>
+
     <p>Citation work within the <code>&lt;cite&gt;</code> tag and will automatically increase a counter. Just make sure to put exactly one child element within the <code>&lt;cite&gt;</code> tag.</p>
     <div class="row">
       <div class="col">

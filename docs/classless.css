@@ -185,23 +185,24 @@ article h2:before { counter-increment: h2; content: counter(h2); counter-set: h3
 article h3:before { counter-increment: h3; content: counter(h2) "." counter(h3); }
 @media (max-width: 60rem) { h2:before, h3:before { display: none; } }
 
-/* tooltip + citation */
+/* tooltip + citation + dialog */
 article p>cite:before {
 	padding: 0 .5em 0 0;
 	counter-increment: ref; content: " [" counter(ref) "] ";
 	vertical-align: super; font-size: .6em;
 }
-article p>cite > *:only-child { display: none; }
-article p>cite:hover > *:only-child,
-[data-tooltip]:hover:before {
-	display: inline-block; z-index: 40; white-space: pre-wrap; text-align: center;
+article p>cite > *:only-child, [data-tooltip]:before {
+	display: none; z-index: 40; white-space: pre-wrap; text-align: center;
 	position: absolute; left: 1rem; right: 1rem; translate: 0 -100%;
 	padding: 1em 2em;
 	content: attr(data-tooltip);
-	color: #fff; background: linear-gradient(var(--cdark) 0 0) var(--cbg);  /* opaque, also when --cdark is translucent */
-	border-radius: 4px;
-	box-shadow: 0 2px 10px 0 black;
 }
+article p>cite:hover > *:only-child, [data-tooltip]:is(:hover, :focus-visible):before { display: inline-block; }
+article p>cite > *:only-child, [data-tooltip]:before, dialog, [popover] {
+	color: var(--cfg); background: var(--cbg); border: var(--border); border-radius: 4px;
+	box-shadow: 0 2px 10px #0003;
+}
+dialog, [popover] { margin: auto; padding: 1rem 1.5rem; }  dialog::backdrop { background: #0004; }  /* dim the page */
 [data-tooltip], article p>cite:before { color: var(--clink); border: .8rem solid transparent; margin: -.8rem; cursor: help; }
 
 /* navbar */
@@ -224,8 +225,7 @@ nav ul:first-child > li {
 	padding: .8rem .6rem;
 }
 nav ul > li > ul {
-	visibility: hidden; opacity: 0; translate: 0 -4px;
-	transition: opacity .12s ease-in, translate .12s ease-in, visibility 0s .12s;
+	display: none;
 	width: auto;
 	position: absolute;
 	margin: .5rem 0;
@@ -236,12 +236,17 @@ nav ul > li > ul {
 	z-index: 42;
 }
 nav ul > li > ul > li { white-space: nowrap; }
-nav ul > li:is(:hover, :focus-within) > ul { visibility: visible; opacity: 1; translate: 0; transition-timing-function: ease-out; }
+nav ul > li:is(:hover, :focus-within) > ul { display: block; }
 @media (max-width: 40rem) {
 	nav ul:first-child > li:first-child:after { content: " \25BE"; }
 	nav ul:first-child > li:not(:first-child):not(.sticky) { display: none; }
 	nav ul:first-child:hover > li:not(:first-child):not(.sticky) { display: block; float: none !important; padding: .3rem .6rem; }
 }
+
+/* fade in: menus, dialogs, popovers; tooltips only after hovering .5s */
+@keyframes fade-in { from { opacity: 0; } }
+:is(nav ul > li:is(:hover, :focus-within) > ul, dialog[open], :popover-open) { animation: fade-in .15s; }
+:is(article p>cite:hover > *:only-child), [data-tooltip]:is(:hover, :focus-visible):before { animation: fade-in .15s .5s backwards; }
 
 /* details/cards */
 details { margin: .2rem 0; padding: 0 .6rem; border: 1px solid transparent; border-radius: 4px; }
